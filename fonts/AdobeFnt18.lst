@@ -1,0 +1,93 @@
+%!Adobe-FontList 1.18
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Pasajero
+FamilyName:Pasajero
+StyleName:Regular
+MenuName:Pasajero
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Pasajero
+WritingScript:Roman
+OutlineFileName:\Pasajero.otf
+DataFormat:sfntData
+hasSVG:no
+FileLength:22576
+FileModTime:1508764926
+NameArray:0,Mac,4,Pasajero
+NameArray:0,Win,1,Pasajero
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Calibri-Light
+FamilyName:Calibri
+StyleName:Light
+MenuName:Calibri Light
+StyleBits:0
+WeightClass:300
+WidthClass:5
+AngleClass:0
+FullName:Calibri Light
+WritingScript:Roman
+OutlineFileName:\Calibril.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:244940
+FileModTime:1490425200
+NameArray:0,Mac,18,Calibri Light
+NameArray:0,Mac,4,Calibri Light
+NameArray:0,Win,1,Calibri Light
+NameArray:0,Win,16,Calibri
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Calibri-Bold
+FamilyName:Calibri
+StyleName:Bold
+MenuName:Calibri
+StyleBits:2
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Calibri Bold
+WritingScript:Roman
+OutlineFileName:\Calibri Bold.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:817552
+FileModTime:1474876800
+NameArray:0,Mac,4,Calibri Bold
+NameArray:0,Win,1,Calibri
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Calibri
+FamilyName:Calibri
+StyleName:Regular
+MenuName:Calibri
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Calibri
+WritingScript:Roman
+OutlineFileName:\Calibri.ttf
+DataFormat:sfntData
+hasSVG:no
+FileLength:780064
+FileModTime:1474876800
+NameArray:0,Mac,4,Calibri
+NameArray:0,Win,1,Calibri
+%EndFont
+
