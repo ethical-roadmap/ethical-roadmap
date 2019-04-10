@@ -193,6 +193,10 @@ prose:
         field:
           element: "textarea"
           label: Description
+      - name: "color"
+        field:
+          element: "text"
+          label: Color
     
   
 

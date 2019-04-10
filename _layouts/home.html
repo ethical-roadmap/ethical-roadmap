@@ -26,12 +26,15 @@ layout: default
         {% assign temp=site.categories | sort: 'sequence' %}
         {% assign categories=temp | where:"lang", page.lang %}
         {% for category in categories %}
-        <div class="mentor-card">
-            <div class="mentor-content sh-2 hv" style="background: #843067; border-color: #843067; border-style: solid">
-                <div class="category-title" style="font-family: Comfortaa, sans-serif; font-size: 1.5em; color: white; padding:12px">{{category.name}}</div>
-                <div class="category-image"></div>
-                <div class="category-description">{{category.description}}</div>
-
+        <div class="mentor-card" style="height: 376px;">
+            <div class="mentor-content sh-2 hv" style="background: {{category.color}}; border-color: {{category.color}}; border-style: solid;border-width: 5px; width: 255px">
+                <div class="category-title" style="color: #ffffff; font-family: Pasajero, sans-serif; font-size: 25px; font-style: normal; font-weight: normal; color: white; padding:12px">{{category.name}}</div>              
+                <div style="background:white">
+                    <div class="category-image" style="background-image: url({{category.image}}); height: 260px; background-position: center; background-size: cover; background-repeat: no-repeat; transform: scale(0.6,0.6);"></div>
+                </div>
+                <div style="background: white; padding: 17px">
+                    <div class="category-description" style="font-family: Calibri Light, sans-serif; font-size: 13px; font-style: normal; font-weight: 300; line-height: 1.5;">{{category.description}}</div>
+                </div>
                 <!--div class="mentor-image" style="background: white"></div-->
                 <!--div class="mentor-info">
                     <div class="mentor-name">{{category.name}}</div>
