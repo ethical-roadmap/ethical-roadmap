@@ -9,14 +9,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <script src="{{ site.baseurl }}/js/language.js"></script>
     <script>
-        {% assign mentors = site.mentors | where: "ref", page.ref | sort: 'lang' %}
+        {% assign categories = site.categories | where: "ref", page.ref | sort: 'lang' %}
         {% assign pages = site.pages | where: "ref", page.ref | sort: 'lang' %}
         {% if mentors.size > 0 %}
         {% assign url_ar = mentors | where: "lang", "ar" %}
         {% assign url_en = mentors | where: "lang", "en" %}
         checkLanguage('{{page.url  | prepend: site.baseurl}}', { en: '{{ url_en.first.url  | prepend: site.baseurl}}', ar: '{{ url_ar.first.url  | prepend: site.baseurl}}' });
         {% elsif pages.size > 0 %}
-        {% assign url_ar = pages | where: "lang", "ar" %}
         {% assign url_en = pages | where: "lang", "en" %}
         checkLanguage('{{page.url  | prepend: site.baseurl}}', { en: '{{ url_en.first.url  | prepend: site.baseurl}}', ar: '{{ url_ar.first.url  | prepend: site.baseurl}}' });
         {% endif %}

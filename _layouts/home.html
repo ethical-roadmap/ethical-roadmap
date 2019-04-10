@@ -23,7 +23,30 @@ layout: default
     </div>
 
     <div id="mentor-list">
+        {% assign temp=site.categories | sort: 'sequence' %}
+        {% assign categories=temp | where:"lang", page.lang %}
+        {% for category in categories %}
         <div class="mentor-card">
+            <div class="mentor-content sh-2 hv" style="background: #843067; border-color: #843067; border-style: solid">
+                <div class="category-title" style="font-family: Comfortaa, sans-serif; font-size: 1.5em; color: white; padding:12px">{{category.name}}</div>
+                <div class="category-image"></div>
+                <div class="category-description">{{category.description}}</div>
+
+                <!--div class="mentor-image" style="background: white"></div-->
+                <!--div class="mentor-info">
+                    <div class="mentor-name">{{category.name}}</div>
+                    <div class="mentor-title">Mentor Title</div>
+                    <div class="mentor-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit,
+                        vulputate eu pharetra nec.
+                    </div>
+                </div-->
+            </div>
+        </div>     
+        {% if forloop.last == false %}
+        {% endif %} {% endfor %}
+    </div>
+
+        <!--div class="mentor-card">
             <div class="mentor-content sh-2 hv">
                 <div class="mentor-image"></div>
                 <div class="mentor-info">
@@ -64,7 +87,7 @@ layout: default
                 </div>
             </div>
         </div>
-    </div>
+    </div-->
 
     <div class="home">
         <div class="wrapper">
@@ -74,11 +97,12 @@ layout: default
         </div>
 
 
-        {% comment %}<div class="wrapper" id="search-results">
-            {% assign mentors=site.mentors | where:"lang", page.lang %}
+       <div class="wrapper" id="search-results">
+            {% assign categories=site.categor | where:"lang", page.lang %}
             <ul class="mentor-grid">
-                {% for mentor in mentors %}
-                <li>
+                {% for category in categor %}
+                    <p>{{category.name}}</p>
+                <!--li>
                     <h2>
                         <a href="{{ mentor.url | prepend: site.baseurl }}">{{ mentor.name }}</a>
                     </h2>
@@ -93,20 +117,20 @@ layout: default
                             {% endif %} {% endfor %}{%endif %}
                         </div>
                     </section>
-                </li>
+                </li-->
                 {% if forloop.last == false %}
                 <hr> {% endif %} {% endfor %}
             </ul>
-        </div>{% endcomment %}
+        </div>
     </div>
 </div>
 {% include footer.html %}
 
 
 
-<script type="text/javascript" src="{{ site.baseurl }}/mentors.{{page.lang}}.js"></script>
+<!--script type="text/javascript" src="{{ site.baseurl }}/mentors.{{page.lang}}.js"></script-->
 <script src="{{ site.baseurl }}/js/lunr.js"></script>
 <script src="{{ site.baseurl }}/js/lunr.stemmer.support.min.js"></script>
 <script src="{{ site.baseurl }}/js/lunr.ar.min.js"></script>
 <script src="{{ site.baseurl }}/js/lunr.multi.min.js"></script>
-<script src="{{ site.baseurl }}/js/search.js"></script>
+<!--script src="{{ site.baseurl }}/js/search.js"></script-->

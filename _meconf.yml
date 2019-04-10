@@ -7,3 +7,4 @@ languages:
 media: 'media'
 mentors: '_mentors'
 posts: '_mentor_posts'
+categories: '_categories'

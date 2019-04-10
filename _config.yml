@@ -24,13 +24,6 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
-defaults:
-  - scope:
-      path: ""
-      type: mentors
-    values:
-      layout: mentor
-
 # Build settings
 markdown: kramdown
 plugins:
@@ -41,6 +34,9 @@ collections:
     output: true
     permalink: /:categories/:name
   mentor_posts:
+    output: false
+    
+  categories:
     output: false
 
 languages:
@@ -180,6 +176,24 @@ prose:
           element: "multiselect"
           label: Interests
           alterable: true
+    _categories:
+      - name: "ref"
+        field:
+          element: "text"
+          label: Reference
+      - name: "name"
+        field:
+          element: "text"
+          label: Name
+      - name: "image"
+        field:
+          element: "text"
+          label: Image
+      - name: "description"
+        field:
+          element: "textarea"
+          label: Description
+    
   
 
   #rooturl: '_mentors'

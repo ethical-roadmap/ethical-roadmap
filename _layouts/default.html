@@ -4,6 +4,7 @@
 {% include head.html %}
 
 <body>
+    
     <script>
         var trackerActions = [];
         function pushAction(action, params){
@@ -32,6 +33,7 @@
         t.parentNode.insertBefore(s, t);
         }());
     </script>
+    
     <script>
         var pageLayout = '{{ page.layout }}';
         var pageTitle = '{{ page.ref }}';
