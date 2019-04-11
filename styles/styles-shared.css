@@ -144,7 +144,7 @@ body {
 }
 
 #header {
-    background: #80cbc4;
+    background: #ffffff;
     z-index: 100;
     border-bottom: 1px solid rgba(178, 235, 242, 1);
     color: #fff;
@@ -200,7 +200,7 @@ body {
 }
 
 #search {
-    background: #80cbc4;
+    background: #5b7385;
     min-height: 120px;
     padding: 20px;
     text-align: center;
@@ -492,7 +492,7 @@ body {
 }
 
 #footer {
-    background: #546e7a;
+    background: #ffffff;
     display: flex;
     flex-wrap: wrap;
     padding: 10px 0;

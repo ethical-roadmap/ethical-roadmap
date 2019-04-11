@@ -1,20 +1,12 @@
 <div id="header">
     <a href="{{site.baseurl}}/">
       <div class="logo-img">
-          <!-- <i class="fas fa-user-circle"> </i> -->
-        <img src="{{site.baseurl}}/assets/images/logo{{pagelang}}.gif" alt="Qudwa" title="Qudwa" style="display: inline-block;
+        <img src="{{site.baseurl}}/assets/images/logo.gif" alt="Qudwa" title="Qudwa" style="display: inline-block;
         height: 80px;
         padding: 10px;"/>
       </div>
     </a>
-
-    <!-- <a id="logo" href="{{site.baseurl}}/">
-      
-      <div class="logo-text">{{ site.data.t.qudwa[page.lang] }}</div>
-    </a> -->
-    <div id="language-select" class='languages' current-page="{{page.ref}}" style="
-    line-height: 100px; padding-top: 0; padding-bottom: 0;
-">
+    <div id="language-select" class='languages' current-page="{{page.ref}}" style="line-height: 100px; padding-top: 0; padding-bottom: 0;">
 
       {% assign mentors=site.mentors | where:"ref", page.ref | sort: 'lang' %}
         {% for mentor in mentors %}

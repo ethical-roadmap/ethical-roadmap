@@ -4,22 +4,7 @@ layout: default
 <div id="main" {% if page.lang=="ar" %}dir="rtl" {% endif %} data-selected-language="{{ page.lang }}">
 
     <div id="search">
-        <div class="search-title">{{ site.data.t.looking_for[page.lang] }}</div>
-        <div class="search-row">
-            <div class="search-inner">
-                <div class="selected-tags noselect" id="selected-tags">
-
-                </div>
-                <input class="search-field" type="text" placeholder="{{ site.data.t.search[page.lang] }}" name="query"
-                    id="search-box" />
-            </div>
-            <div class="search-icon">
-                <a id="search-button" onclick="javascript:onSearchButton();"><i class="fas fa-search"></i></a>
-            </div>
-        </div>
-        <ul class="search-tags" id="search-tags">
-
-        </ul>
+        <div class="search-title">{{ site.data.t.looking_for[page.lang] }}</div>   
     </div>
 
     <div id="mentor-list">
@@ -30,69 +15,28 @@ layout: default
             <div class="mentor-content sh-2 hv" style="background: {{category.color}}; border-color: {{category.color}}; border-style: solid;border-width: 5px; width: 255px; border-radius: 12px;">
                 <div class="category-title" style="color: #ffffff; font-family: Pasajero, sans-serif; font-size: 25px; font-style: normal; font-weight: normal; color: white; padding:12px">{{category.name}}</div>              
                 <div style="background:white">
-                    <!--div class="category-image" style="background-image: url({{category.image}}); height: 230px; background-position: center; background-size: cover; background-repeat: no-repeat; transform: scale(0.7,0.7);"></div-->
                     <img src="{{category.image}}" height="200" width="200" style="padding-top: 35px;">
                 </div>
                 <div style="background: white; padding: 17px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
                     <div class="category-description" style="font-family: Calibri Light, sans-serif; font-size: 13px; font-style: normal; font-weight: 300; line-height: 1.5;">{{category.description}}</div>
                 </div>
-                <!--div class="mentor-image" style="background: white"></div-->
-                <!--div class="mentor-info">
-                    <div class="mentor-name">{{category.name}}</div>
-                    <div class="mentor-title">Mentor Title</div>
-                    <div class="mentor-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit,
-                        vulputate eu pharetra nec.
-                    </div>
-                </div-->
             </div>
         </div>     
         {% if forloop.last == false %}
         {% endif %} {% endfor %}
-    </div>
 
-        <!--div class="mentor-card">
-            <div class="mentor-content sh-2 hv">
-                <div class="mentor-image"></div>
-                <div class="mentor-info">
-                    <div class="mentor-name">Mentor Name</div>
-                    <div class="mentor-title">Mentor Title</div>
-                    <div class="mentor-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit,
-                        vulputate eu pharetra nec.</div>
-                    <div class="mentor-footer">
-                        <ul class="mentor-tags">
-                            <li>
-                                <a href="#">first tag</a>
-                            </li>
-                            <li>
-                                <a href="#">second</a>
-                            </li>
-                            <li>
-                                <a href="#">tag</a>
-                            </li>
-                        </ul>
-                        <ul class="mentor-social">
-                            <li>
-                                <a href="#">
-                                    <i class="fab fa-snapchat-square"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                            </li>
-                    </div>
-                    <li>
-                        <a href="#">
-                            <i class="fab fa-twitter-square"></i>
-                        </a>
-                    </li>
-                    </ul>
+        <div id="new-category" class="mentor-card" style="height: 376px;">
+            <div class="mentor-content sh-2 hv" style="background: #efedee; border-color: black; border-style: solid;border-width: 5px; width: 255px; border-radius: 12px;">
+                <div class="category-title" style="color: #ffffff; font-family: Pasajero, sans-serif; font-size: 25px; font-style: normal; font-weight: normal; color: white; padding:12px">Click to add a new card</div>              
+                <div style="background:white">
+                    <img src="nn" height="200" width="200" style="padding-top: 35px;">
+                </div>
+                <div style="background: white; padding: 17px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
+                    <div class="category-description" style="font-family: Calibri Light, sans-serif; font-size: 13px; font-style: normal; font-weight: 300; line-height: 1.5;">{{category.description}}</div>
                 </div>
             </div>
-        </div>
-    </div-->
-
+        </div>  
+    </div>
     <div class="home">
         <div class="wrapper">
             <ul class="mentor-grid" id="search-results">
@@ -101,40 +45,41 @@ layout: default
         </div>
 
 
-       <div class="wrapper" id="search-results">
+       <!--div class="wrapper" id="search-results">
             {% assign categories=site.categor | where:"lang", page.lang %}
             <ul class="mentor-grid">
                 {% for category in categor %}
                     <p>{{category.name}}</p>
-                <!--li>
-                    <h2>
-                        <a href="{{ mentor.url | prepend: site.baseurl }}">{{ mentor.name }}</a>
-                    </h2>
-                    <section class="post-excerpt" itemprop="description">
-                        <p>{{ mentor.shortbio}}</p>
-                    </section>
-                    <section class="post-meta">
-                        <div class="post-categories">
-                            {% if mentor.tags.size > 0 %} {% for tag in mentor.tags %}
-                            <a href="{{ site.baseurl }}{{ page.url }}#{{ tag }}">{{ tag | UPPERCASE }}</a>{% if
-                            forloop.last == false %},
-                            {% endif %} {% endfor %}{%endif %}
-                        </div>
-                    </section>
-                </li-->
+    
                 {% if forloop.last == false %}
                 <hr> {% endif %} {% endfor %}
             </ul>
-        </div>
+        </div-->
     </div>
 </div>
 {% include footer.html %}
 
 
-
-<!--script type="text/javascript" src="{{ site.baseurl }}/mentors.{{page.lang}}.js"></script-->
 <script src="{{ site.baseurl }}/js/lunr.js"></script>
 <script src="{{ site.baseurl }}/js/lunr.stemmer.support.min.js"></script>
 <script src="{{ site.baseurl }}/js/lunr.ar.min.js"></script>
 <script src="{{ site.baseurl }}/js/lunr.multi.min.js"></script>
-<!--script src="{{ site.baseurl }}/js/search.js"></script-->
+
+<script>
+
+$("#new-category").click(function() {
+    $("<div id=\"new-category\" class=\"mentor-card\" style=\"height: 376px;\">" +
+            "<div class=\"mentor-content sh-2 hv\" style=\"background: #efedee; border-color: black; border-style: solid;border-width: 5px; width: 255px; border-radius: 12px;\">"+
+                "<div class=\"category-title\" style=\"color: #ffffff; font-family: Pasajero, sans-serif; font-size: 25px; font-style: normal; font-weight: normal; color: white; padding:12px\">Click to add a new card</div>" +              
+                "<div style=\"background:white\">" +
+                    "<img src=\"nn\" height=\"200\" width=\"200\" style=\"padding-top: 35px;\">" +
+                "</div>"+
+                "<div style=\"background: white; padding: 17px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;\">" +
+                    "<div class=\"category-description\" style=\"font-family: Calibri Light, sans-serif; font-size: 13px; font-style: normal; font-weight: 300; line-height: 1.5;\">{{category.description}}</div>"+
+                "</div>"+
+            "</div>"+
+        "</div>").insertBefore("#new-category");
+});
+
+
+</script>
