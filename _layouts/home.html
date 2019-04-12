@@ -4,7 +4,9 @@ layout: default
 <div id="main" {% if page.lang=="ar" %}dir="rtl" {% endif %} data-selected-language="{{ page.lang }}">
 
     <div id="search">
-        <div class="search-title">{{ site.data.t.looking_for[page.lang] }}</div>   
+        <!--div class="search-title">{{ site.data.t.looking_for[page.lang] }}</div--> 
+        {% assign intro = site.texts | where:"ref", "intro" | first %}
+        <div style="color: #fff;">{{intro.text}}</div>
     </div>
 
     <div id="mentor-list">
@@ -36,6 +38,21 @@ layout: default
                 </div>
             </div>
         </div>  
+    </div>
+    <div style="text-align:center">
+        <a class="footer-button-big" href="#" style="color: white;
+        padding: 15px 20px;
+        background-color: #f16336;
+        border: 1px solid #fff;
+        margin: 5px;
+        border-radius: 5px;
+        text-transform: uppercase;
+        display: inline-block;
+        text-decoration: none;
+        transition: background-color 0.2s ease-in-out;
+        text-align: right;
+        font-family: Comfortaa, sans-serif;">Download Everything</a>
+        
     </div>
     <div class="home">
         <div class="wrapper">

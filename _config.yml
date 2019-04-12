@@ -37,6 +37,10 @@ collections:
     output: false
     
   categories:
+    output: true
+    permalink: /:categories/:name
+
+  texts:
     output: false
 
 languages:
