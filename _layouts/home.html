@@ -3,10 +3,9 @@ layout: default
 ---
 <div id="main" {% if page.lang=="ar" %}dir="rtl" {% endif %} data-selected-language="{{ page.lang }}">
 
-    <div id="search">
-        <!--div class="search-title">{{ site.data.t.looking_for[page.lang] }}</div--> 
+    <div id="search" style="color: #fff; font-family: Neue Haas Grotesk; line-height: 1.2; padding: 49.5px">
         {% assign intro = site.texts | where:"ref", "intro" | first %}
-        <div style="color: #fff;">{{intro.text}}</div>
+        <div style="text-align: justify;">{{intro.text}}</div>
     </div>
 
     <div id="mentor-list">
