@@ -28,6 +28,13 @@ github_username:  jekyll
 markdown: kramdown
 plugins:
   - jekyll-feed
+  
+defaults:
+  - scope:
+      path: ""
+      type: categories
+    values:
+      layout: category
 
 collections:
   mentors:

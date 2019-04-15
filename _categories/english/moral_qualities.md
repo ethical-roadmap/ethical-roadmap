@@ -1,6 +1,7 @@
 ---
 ref: moral_qualities
 lang: en
+categories: en
 sequence: 3
 color: "#767756"
 name: moral qualities

@@ -1,6 +1,7 @@
 ---
 ref: critical_friends
 lang: en
+categories: en
 sequence: 4
 color: "#8966a9"
 name: critical friends

@@ -1,6 +1,7 @@
 ---
 ref: provocations
 lang: en
+categories: en
 sequence: 6
 color: "#80483b"
 name: provocations

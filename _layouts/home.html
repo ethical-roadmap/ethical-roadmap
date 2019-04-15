@@ -13,7 +13,7 @@ layout: default
         {% assign categories=temp | where:"lang", page.lang %}
         {% for category in categories %}
         <div class="mentor-card" style="height: 376px;">
-            <div class="mentor-content sh-2 hv" style="background: {{category.color}}; border-color: {{category.color}}; border-style: solid;border-width: 5px; width: 255px; border-radius: 12px;">
+            <div class="mentor-content sh-2 hv" data-url="{{ site.baseurl }}{{category.url}}" style="background:{{category.color}}; border-color: {{category.color}}; border-style: solid;border-width: 5px; width: 255px; border-radius: 12px;">
                 <div class="category-title" style="color: #ffffff; font-family: Pasajero, sans-serif; font-size: 25px; font-style: normal; font-weight: normal; color: white; padding:12px">{{category.name}}</div>              
                 <div style="background:white">
                     <img src="{{category.image}}" height="200" width="200" style="padding-top: 35px;">
@@ -95,6 +95,11 @@ $("#new-category").click(function() {
                 "</div>"+
             "</div>"+
         "</div>").insertBefore("#new-category");
+});
+
+
+$(".mentor-content").click(function() {
+    window.location.href = $(this).attr('data-url');
 });
 
 

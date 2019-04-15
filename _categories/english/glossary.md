@@ -1,6 +1,7 @@
 ---
 ref: glossary
 lang: en
+categories: en
 sequence: 8
 color: "#595958"
 name: glossary

@@ -1,0 +1,102 @@
+{% assign values = site.categories | where:"ref", "values" | first %}
+<div class="mentor-container">
+<div class="mentor-section">
+    <div class="mentor-card-big sh-2" style="flex-direction: column">
+        <div style="display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    background: {{values.color}};
+                    font-family: Pasajero, sans-serif;
+                    font-size: 25px;
+                    font-style: normal;
+                    font-weight: normal;
+                    color: white;
+                    padding: 12px;
+                    border-top-left-radius: 12px;
+                    border-top-right-radius: 12px;"> {{values.text_content[0].title}} </div>
+        <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 250px; padding: 30px; font-family: Calibri;"> 
+                {{values.text_content[0].text}}
+            </div>
+            <div style="flex: 1; min-width: 250px; background:white; padding: 30px">
+                <img src="{{site.baseurl}}/assets/images/values.jpg" alt="Values" title="Values" style="height: 250px">
+            </div>
+        </div>
+        <div style="display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    background: #a54e98;
+                    font-family: Pasajero, sans-serif;
+                    font-size: 25px;
+                    font-style: normal;
+                    font-weight: normal;
+                    color: white;
+                    padding: 12px;"> {{values.text_content[1].title}} </div>
+        <div style="display: flex; flex-direction: row; flex-wrap: wrap; margin: auto">
+            <div style="flex: 1; min-width: 250px; padding: 30px; font-family: Calibri;"> 
+                <p>⁄<span style="padding-left:1em">{{values.text_content[1].text}}</span></p>
+                <p>⁄<span style="padding-left:1em">{{values.text_content[1].text_2}}</span></p>
+                <p>⁄<span style="padding-left:1em">{{values.text_content[1].text_3}}</span></p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background:white; padding: 30px; font-family: Calibri;">
+                <p>⁄<span style="padding-left:1em">{{values.text_content[1].text_4}}</span></p>
+                <p>⁄<span style="padding-left:1em">{{values.text_content[1].text_5}}</span></p>
+            </div>
+        </div>
+        <div style="display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    background: #a54e98;
+                    font-family: Pasajero, sans-serif;
+                    font-size: 25px;
+                    font-style: normal;
+                    font-weight: normal;
+                    color: white;
+                    padding: 12px;"> {{values.text_content[2].title}} </div>
+        <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 250px; padding: 30px; font-family: Calibri;"> 
+                <p>{{values.text_content[2].text}}</p>
+                <div>
+                    <div>{{values.text_content[2].text_2}}</div>
+                    <div>
+                        <img src="{{site.baseurl}}/assets/images/Values1.jpg" alt="Values" title="Values" style="height: 100px">
+                    </div>
+                </div>
+            </div>
+            <div style="flex: 1; min-width: 250px; background:white; padding: 30px; font-family: Calibri;">
+                <div><p>{{values.text_content[2].text_3}}</p></div>
+                <div>
+                    <img src="{{site.baseurl}}/assets/images/Illustration_Scan_Coloured.png" alt="Values" title="Values" style="height: 100px">
+                </div>
+            </div>
+        </div>
+        <div style="display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    background: #a54e98;
+                    font-family: Pasajero, sans-serif;
+                    font-size: 25px;
+                    font-style: normal;
+                    font-weight: normal;
+                    color: white;
+                    padding: 12px;"> {{values.text_content[3].title}} </div>
+            <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 250px; padding: 30px; font-family: Calibri;"> 
+                    <p>{{values.text_content[3].text}}</p>
+                    <p>{{values.text_content[3].text_2}}</p>
+                    <div>
+                        <ul style="list-style-type:none;">
+                            <li>⁄<strong style="padding-left:1em">{{values.text_content[3].text_3}}</strong></li>
+                            <li>⁄<strong style="padding-left:1em">{{values.text_content[3].text_4}}</strong></li>
+                        </ul> 
+                    </div>
+                </div>
+                <div style="flex: 1; min-width: 250px; background:white; padding: 30px; font-family: Calibri; margin: auto;">
+                    <div style="background: #a7549a; height: 115px; width: 264px; color: white; padding: 10px; margin: auto;">
+                        {{values.text_content[3].text_5}}
+                    </div>
+                </div>
+            </div> 
+    </div>
+</div>
+</div>

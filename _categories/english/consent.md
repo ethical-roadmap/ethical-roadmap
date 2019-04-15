@@ -1,6 +1,7 @@
 ---
 ref: consent
 lang: en
+category: en
 sequence: 5
 color: "#cdcb36"
 name: consent

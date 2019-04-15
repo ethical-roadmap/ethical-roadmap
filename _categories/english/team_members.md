@@ -1,6 +1,7 @@
 ---
 ref: team_members
 lang: en
+categories: en
 sequence: 2
 color: "#d8b43b"
 name: team members

@@ -1,6 +1,7 @@
 ---
 ref: warp_&_weft
 lang: en
+categories: en
 sequence: 7
 color: "#5d7486"
 name: warp & werp
