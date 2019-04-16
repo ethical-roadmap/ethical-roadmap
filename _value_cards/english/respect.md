@@ -2,5 +2,5 @@
 ref: respect
 lang: en
 sequence: 1
-name: RESPECT
+name: respect
 ---

@@ -1,4 +1,27 @@
 {% assign values = site.categories | where:"ref", "values" | first %}
+
+<style>
+
+ul.prompts {
+	position: relative;
+	list-style: none;
+	margin-left: 0;
+	padding-left: 1.2em;
+}
+ul.prompts li:before {
+	content: "⁄";
+	position: absolute;
+    left: 0;
+    padding-bottom: 20px;
+}
+
+ul.prompts li {
+    padding-bottom: 20px;
+}
+
+</style>
+
+
 <div class="mentor-container">
 <div class="mentor-section">
     <div class="mentor-card-big sh-2" style="flex-direction: column">
@@ -14,12 +37,12 @@
                     padding: 12px;
                     border-top-left-radius: 12px;
                     border-top-right-radius: 12px;"> {{values.text_content[0].title}} </div>
-        <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 250px; padding: 30px; font-family: Calibri;"> 
+        <div style="display: flex; flex-direction: row; flex-wrap: wrap; text-align: center;">
+            <div style="flex: 1; min-width: 250px; padding: 30px; font-family: Calibri;margin: auto;"> 
                 {{values.text_content[0].text}}
             </div>
             <div style="flex: 1; min-width: 250px; background:white; padding: 30px">
-                <img src="{{site.baseurl}}/assets/images/values.jpg" alt="Values" title="Values" style="height: 250px">
+                <img src="{{site.baseurl}}/assets/images/values.jpg" alt="Values" title="Values" style="height: 250px;">
             </div>
         </div>
         <div style="display: flex;
@@ -34,13 +57,17 @@
                     padding: 12px;"> {{values.text_content[1].title}} </div>
         <div style="display: flex; flex-direction: row; flex-wrap: wrap; margin: auto">
             <div style="flex: 1; min-width: 250px; padding: 30px; font-family: Calibri;"> 
-                <p>⁄<span style="padding-left:1em">{{values.text_content[1].text}}</span></p>
-                <p>⁄<span style="padding-left:1em">{{values.text_content[1].text_2}}</span></p>
-                <p>⁄<span style="padding-left:1em">{{values.text_content[1].text_3}}</span></p>
+                <ul class="prompts">
+                    <li>{{values.text_content[1].text}}</li>
+                    <li>{{values.text_content[1].text_2}}</li>
+                    <li>{{values.text_content[1].text_3}}</li>
+                </ul>
             </div>
             <div style="flex: 1; min-width: 250px; background:white; padding: 30px; font-family: Calibri;">
-                <p>⁄<span style="padding-left:1em">{{values.text_content[1].text_4}}</span></p>
-                <p>⁄<span style="padding-left:1em">{{values.text_content[1].text_5}}</span></p>
+                    <ul class="prompts">
+                            <li>{{values.text_content[1].text_4}}</li>
+                            <li>{{values.text_content[1].text_5}}</li>        
+                    </ul>
             </div>
         </div>
         <div style="display: flex;
@@ -56,16 +83,22 @@
         <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
             <div style="flex: 1; min-width: 250px; padding: 30px; font-family: Calibri;"> 
                 <p>{{values.text_content[2].text}}</p>
-                <div>
-                    <div>{{values.text_content[2].text_2}}</div>
-                    <div>
+                <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+                    <div  style="flex: 1; margin: auto">
+                        <div>
+                            {{values.text_content[2].text_2[0]}}<br>
+                            {{values.text_content[2].text_2[1]}}<br>
+                            {{values.text_content[2].text_2[2]}}<br>
+                        </div>    
+                    </div>
+                    <div  style="flex: 1;">
                         <img src="{{site.baseurl}}/assets/images/Values1.jpg" alt="Values" title="Values" style="height: 100px">
                     </div>
                 </div>
             </div>
             <div style="flex: 1; min-width: 250px; background:white; padding: 30px; font-family: Calibri;">
                 <div><p>{{values.text_content[2].text_3}}</p></div>
-                <div>
+                <div style="text-align:center">
                     <img src="{{site.baseurl}}/assets/images/Illustration_Scan_Coloured.png" alt="Values" title="Values" style="height: 100px">
                 </div>
             </div>

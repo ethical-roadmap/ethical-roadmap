@@ -46,8 +46,11 @@ collections:
   categories:
     output: true
     permalink: /:categories/:name
-
   texts:
+    output: false
+  value_cards:
+    output: false
+  lenses:
     output: false
 
 languages:
