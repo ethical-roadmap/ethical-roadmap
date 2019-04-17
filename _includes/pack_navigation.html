@@ -10,8 +10,8 @@ align-items: stretch;">
     <div class="category" data-ref="{{category.ref}}" data-color="{{category.color}}" data-url="{{ site.baseurl }}{{category.url}}" style="height:100px; width:100px; cursor: pointer; display: flex; {% if page.ref==category.ref %} border: {{category.color}}; border-style: double; {% endif %}">
         <div style="display:flex;justify-content:center;align-items:center;width:90px;height:90px; background: {{category.color}}; margin:auto;">
             <div style="margin: auto; font-family: Pasajero; color: white; font-size:14px; word-break: break-word;  overflow-wrap: break-word;
-            word-wrap: break-word; padding-left: 6px;
-            padding-right: 6px;">{{category.name}}</div>
+            word-wrap: break-word; padding-left: 9px;
+            padding-right: 9px;">{{category.name}}</div>
         </div>
     </div>
     {% endfor %}
