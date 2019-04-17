@@ -1,4 +1,8 @@
 {% assign categories = site.categories | sort: 'sequence' %}
+
+
+
+
 <div style="display: flex;
 padding: 20px;
 flex-direction: row;
@@ -7,10 +11,28 @@ justify-content: center;
 text-align: center;
 align-items: stretch;">
     {% for category in categories %}
-    <div style="height:90px; width:90px;">
-        <div style="height:80px; width:80px; background: {{category.color}};">
-            <div style="margin: auto; font-family: Pasajero; color: white; padding-top: 22px; font-size:14px; word-break: break-word;">{{category.name}}</div>
+    <div class="category" data-ref="{{category.ref}}" data-color="{{category.color}}" data-url="{{ site.baseurl }}{{category.url}}" style="height:100px; width:100px; cursor: pointer; display: flex; {% if page.ref==category.ref %} border: {{category.color}}; border-style: double; {% endif %}">
+        <div style="display:flex;justify-content:center;align-items:center;width:90px;height:90px; background: {{category.color}}; margin:auto;">
+            <div style="margin: auto; font-family: Pasajero; color: white; font-size:14px; word-break: break-word;  overflow-wrap: break-word;
+            word-wrap: break-word; padding-left: 6px;
+            padding-right: 6px;">{{category.name}}</div>
         </div>
     </div>
     {% endfor %}
 </div>
+
+<script>
+    $(".category").click(function() {
+        window.location.href = $(this).attr('data-url');
+    });
+
+    $(".category").hover(function() {
+        $(this).css("border", $(this).attr('data-color'));
+        $(this).css("border-style", "double");
+    }, function() {
+        if("{{page.ref}}" != $(this).attr('data-ref')) {
+            $(this).css("border-style", "none");
+        }
+    });
+</script>
+ 
