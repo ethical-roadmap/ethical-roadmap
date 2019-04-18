@@ -1,0 +1,13 @@
+---
+layout: a4-page
+ref: value-cards-page
+---
+{% assign values = site.categories | where:"ref", "values" | first %}
+{% assign value_cards = site.value_cards %}
+<div class="card-list">
+    {% for card in value_cards %}
+    <div class="value-card">
+            <div class="value-card-text">{{card.name}}</div>
+    </div>
+    {% endfor %}
+</div>

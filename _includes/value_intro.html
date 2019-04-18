@@ -38,27 +38,43 @@ ul.prompts li {
                     border-top-left-radius: 12px;
                     border-top-right-radius: 12px;"> {{values.text_content[0].title}} </div>
         <div style="display: flex; flex-direction: row; flex-wrap: wrap; text-align: center;">
-            <div style="flex: 1; min-width: 250px; padding: 30px; font-family: Calibri;margin: auto; text-align: justify"> 
+            <div style="padding-top: 10px;
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-bottom: 10px;
+            font-family: Calibri;">
                 {{values.text_content[0].text}}
-            </div>
-            <div style="flex: 1; min-width: 250px; background:white; padding: 30px">
-                <img src="{{site.baseurl}}/assets/images/values.jpg" alt="Values" title="Values" style="height: 250px;">
             </div>
         </div>
         {% include value_cards.html %}
 
-        <a class="footer-button-big" href="#" style="color: white;
-        padding: 15px 20px;
-        background-color: #f16336;
-        border: 1px solid #fff;
-        margin: 5px;
-        border-radius: 5px;
-        text-transform: uppercase;
-        display: inline-block;
-        text-decoration: none;
-        transition: background-color 0.2s ease-in-out;
-        text-align: right;
-        font-family: Comfortaa, sans-serif;">Download Value Cards</a>
+        <div style="text-align: center; padding-bottom: 20px;">
+            <a class="footer-button-big" href="#" style="color: white;
+            padding: 15px 20px;
+            background-color: #f16336;
+            border: 1px solid #fff;
+            margin: 5px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            display: inline-block;
+            text-decoration: none;
+            transition: background-color 0.2s ease-in-out;
+            text-align: right;
+            font-family: Comfortaa, sans-serif;">Download Value Cards</a>
+
+            <a class="footer-button-big" href="{{site.baseurl}}/en/value-cards-page.html" style="color: white;
+            padding: 15px 20px;
+            background-color: #f16336;
+            border: 1px solid #fff;
+            margin: 5px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            display: inline-block;
+            text-decoration: none;
+            transition: background-color 0.2s ease-in-out;
+            text-align: right;
+            font-family: Comfortaa, sans-serif;">Download Blank Value Cards</a>
+        </div>
 
         <div style="display: flex;
                     flex-direction: row;

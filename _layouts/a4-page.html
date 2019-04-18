@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+{% if page.lang %} {% assign pagelang = page.lang %} {% else %} {% assign pagelang = 'en' %} {% endif %}
+<html lang="{{ pagelang }}">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> To print </title>
+        <link rel='stylesheet' href="{{ site.baseurl }}/styles/fonts.css">
+        <link media='print' rel="stylesheet" href="{{ site.baseurl }}/styles/print.css" />
+        <link media='screen' rel="stylesheet" href="{{ site.baseurl }}/styles/print.css" />
+        
+        <style>
+            @media print {
+                body{
+                    width: 21cm;
+                    height: 29.7cm;
+                    margin: 30mm 45mm 30mm 45mm; 
+                } 
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            {{ content }}
+        </div>
+    </body>
+</html>

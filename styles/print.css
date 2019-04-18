@@ -1,0 +1,23 @@
+.card-list {
+    display: flex;
+    padding: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    align-items: stretch;
+}
+
+.value-card {
+    height:269px;
+    width:269px; 
+    background: #921f82;
+    display: flex;
+}
+
+.value-card-text {
+    margin: auto;
+    font-family: Pasajero;
+    color: white;
+    font-size:18px"
+}
