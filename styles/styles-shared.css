@@ -146,7 +146,6 @@ body {
 #header {
     background: #ffffff;
     z-index: 100;
-    border-bottom: 1px solid rgba(178, 235, 242, 1);
     color: #fff;
 }
 
