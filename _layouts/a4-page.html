@@ -8,7 +8,14 @@
         <link rel='stylesheet' href="{{ site.baseurl }}/styles/fonts.css">
         <link media='print' rel="stylesheet" href="{{ site.baseurl }}/styles/print.css" />
         <link media='screen' rel="stylesheet" href="{{ site.baseurl }}/styles/print.css" />
-        
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+        <script src=https://html2canvas.hertzen.com/dist/html2canvas.min.js></script>
+
+        <script type="text/javascript" src="{{ site.baseurl }}/js/print.js"></script>
+
+
         <style>
             @media print {
                 body{
@@ -17,11 +24,18 @@
                     margin: 30mm 45mm 30mm 45mm; 
                 } 
             }
+
+               body{
+                    width: 21cm;
+                    height: 29.7cm;
+                    margin: 30mm 45mm 30mm 45mm; 
+                } 
         </style>
     </head>
     <body>
         <div class="container">
             {{ content }}
+            <button onclick="print(4)">Click me</button>
         </div>
     </body>
 </html>

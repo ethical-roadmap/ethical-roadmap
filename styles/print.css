@@ -1,3 +1,14 @@
+.a4-page {
+    width: 21cm;
+    height: 29.7cm;
+    margin: 30mm 45mm 30mm 45mm;
+}
+
+.value-card-container {
+    height:310px;
+    width:310px; 
+}
+
 .card-list {
     display: flex;
     padding: 20px;
@@ -9,8 +20,8 @@
 }
 
 .value-card {
-    height:269px;
-    width:269px; 
+    height:300px;
+    width:300px; 
     background: #921f82;
     display: flex;
 }

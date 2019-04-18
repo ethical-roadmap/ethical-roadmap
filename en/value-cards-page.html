@@ -4,10 +4,28 @@ ref: value-cards-page
 ---
 {% assign values = site.categories | where:"ref", "values" | first %}
 {% assign value_cards = site.value_cards %}
-<div class="card-list">
+<div>
     {% for card in value_cards %}
-    <div class="value-card">
-            <div class="value-card-text">{{card.name}}</div>
-    </div>
+        {% assign remainder = forloop.index0 | modulo:4 %}
+        {% if remainder == 0 %}
+            {% if forloop.index0 != 0 %}
+                </div>
+                </div>
+            {% endif%}
+            <div class="a4-page" id="nodeToRenderAsPDF">
+                <div class="card-list">
+                    <div class="value-card-container">
+                        <div class="value-card">
+                            <div class="value-card-text">{{card.name}}</div>
+                        </div>
+                    </div>
+           
+        {% else %}
+            <div class="value-card-container">
+                <div class="value-card">
+                    <div class="value-card-text">{{card.name}}</div>
+                </div>
+            </div>
+        {% endif %}
     {% endfor %}
 </div>
