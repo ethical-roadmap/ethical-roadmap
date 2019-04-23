@@ -49,7 +49,7 @@ ul.prompts li {
         {% include value_cards.html %}
 
         <div style="text-align: center; padding-bottom: 20px;">
-            <a class="footer-button-big" href="#" style="color: white;
+            <a download class="footer-button-big" href="{{site.baseurl}}/assets/pdfs/values/value-cards.pdf" style="color: white;
             padding: 15px 20px;
             background-color: #f16336;
             border: 1px solid #fff;
@@ -62,7 +62,7 @@ ul.prompts li {
             text-align: right;
             font-family: Comfortaa, sans-serif;">Download Value Cards</a>
 
-            <a class="footer-button-big" href="{{site.baseurl}}/en/value-cards-page.html" style="color: white;
+            <a download class="footer-button-big" href="{{site.baseurl}}/assets/pdfs/values/blank-value-cards.pdf" style="color: white;
             padding: 15px 20px;
             background-color: #f16336;
             border: 1px solid #fff;
@@ -111,7 +111,7 @@ ul.prompts li {
                     font-weight: normal;
                     color: white;
                     padding: 12px;"> {{values.text_content[2].title}} </div>
-        <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+        <!--div style="display: flex; flex-direction: row; flex-wrap: wrap;">
             <div style="flex: 1; min-width: 250px; padding: 30px; font-family: Calibri;"> 
                 <p>{{values.text_content[2].text}}</p>
                 <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
@@ -133,8 +133,55 @@ ul.prompts li {
                     <img src="{{site.baseurl}}/assets/images/Illustration_Scan_Coloured.png" alt="Values" title="Values" style="height: 100px">
                 </div>
             </div>
+        </div-->
+        <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 250px; padding: 30px; font-family: Calibri;"> 
+                <p>{{values.text_content[2].text}}</p>
+            </div>
+            <div style="flex: 1; min-width: 250px; background:white; padding: 30px; font-family: Calibri;">
+                <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+                    <div  style="flex: 1; margin: auto">
+                        <div>
+                            {{values.text_content[2].text_2[0]}}<br>
+                            {{values.text_content[2].text_2[1]}}<br>
+                            {{values.text_content[2].text_2[2]}}<br>
+                        </div>    
+                    </div>
+                    <div  style="flex: 1;">
+                        <img src="{{site.baseurl}}/assets/images/Values1.jpg" alt="Values" title="Values" style="height: 100px">
+                    </div>
+                </div>
+            </div>
         </div>
         {% include value_lenses.html %}
+
+        <div style="text-align: center; padding-bottom: 20px;">
+            <a download class="footer-button-big" href="{{site.baseurl}}/assets/pdfs/values/lenses.pdf" style="color: white;
+            padding: 15px 20px;
+            background-color: #f16336;
+            border: 1px solid #fff;
+            margin: 5px;
+            border-radius: 5px;
+            text-transform: uppercase;
+            display: inline-block;
+            text-decoration: none;
+            transition: background-color 0.2s ease-in-out;
+            text-align: right;
+            font-family: Comfortaa, sans-serif;">Download Lenses</a>
+        </div>
+
+        <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 250px; background:white; padding: 30px; font-family: Calibri;">
+                <div><p>{{values.text_content[2].text_3}}</p></div>
+                <div style="text-align:center">
+                    <img src="{{site.baseurl}}/assets/images/Illustration_Scan_Coloured.png" alt="Values" title="Values" style="height: 100px">
+                </div>
+            </div>
+        </div>
+
+ 
+
+
         <div style="display: flex;
                     flex-direction: row;
                     flex-wrap: wrap;
@@ -161,7 +208,50 @@ ul.prompts li {
                         {{values.text_content[3].text_5}}
                     </div>
                 </div>
-            </div> 
+            </div>
+
+            <div style="text-align: center; padding-bottom: 20px;">
+                <a download class="footer-button-big" href="{{site.baseurl}}/assets/pdfs/values/capture-sheets.pdf" style="color: white;
+                padding: 15px 20px;
+                background-color: #f16336;
+                border: 1px solid #fff;
+                margin: 5px;
+                border-radius: 5px;
+                text-transform: uppercase;
+                display: inline-block;
+                text-decoration: none;
+                transition: background-color 0.2s ease-in-out;
+                text-align: right;
+                font-family: Comfortaa, sans-serif;">Download Capture Sheets</a>
+    
+                <a download class="footer-button-big" href="{{site.baseurl}}/assets/pdfs/values/facilitation-sheets.pdf" style="color: white;
+                padding: 15px 20px;
+                background-color: #f16336;
+                border: 1px solid #fff;
+                margin: 5px;
+                border-radius: 5px;
+                text-transform: uppercase;
+                display: inline-block;
+                text-decoration: none;
+                transition: background-color 0.2s ease-in-out;
+                text-align: right;
+                font-family: Comfortaa, sans-serif;">Download Facilitation Sheets</a>
+            </div>
+            <hr>
+            <div style="text-align: center; padding-bottom: 20px;">
+                <a download class="footer-button-big" href="{{site.baseurl}}/assets/pdfs/values/values-all.pdf" style="color: white;
+                padding: 15px 20px;
+                background-color: #f16336;
+                border: 1px solid #fff;
+                margin: 5px;
+                border-radius: 5px;
+                text-transform: uppercase;
+                display: inline-block;
+                text-decoration: none;
+                transition: background-color 0.2s ease-in-out;
+                text-align: right;
+                font-family: Comfortaa, sans-serif;">Download All</a>
+            </div>
     </div>
 </div>
 </div>
