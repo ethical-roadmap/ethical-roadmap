@@ -1,11 +1,5 @@
 {% assign categories = site.categories | sort: 'sequence' %}
-<div style="display: flex;
-padding: 20px;
-flex-direction: row;
-flex-wrap: wrap;
-justify-content: center;
-text-align: center;
-align-items: stretch;">
+<div class="card-list">
     {% for category in categories %}
     <div class="category" data-ref="{{category.ref}}" data-color="{{category.color}}" data-url="{{ site.baseurl }}{{category.url}}" style="height:100px; width:100px; cursor: pointer; display: flex; {% if page.ref==category.ref %} border: {{category.color}}; border-style: double; {% endif %}">
         <div style="display:flex;justify-content:center;align-items:center;width:90px;height:90px; background: {{category.color}}; margin:auto; border-radius: 10px;">

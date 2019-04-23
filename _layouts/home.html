@@ -9,29 +9,13 @@ body {
 }
 </style>
 
-<div style="width: 100%;
-position: relative;
-margin: 0 auto;
-flex: 1;
-flex: 1 1 auto;
-padding-bottom: 30px;">
-    <div style="padding-left: 30px; padding-right: 30px; padding-bottom: 30px;">
-        <div style="flex-direction: column;     background-color: #efedee;
-        border-radius: 10px;
-        min-width: 250px;
-        width: 100%;
-        min-height: 200px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;">
-            <div style="color: black; font-family: Lato; line-height: 1.2; padding-left: 15%;
-            padding-right: 15%;
-            padding-top: 15px;">
-                <div style="text-align: left;">{{intro.text}}</div>
-            </div>
-            <div id="mentor-list">
-                {% include category_cards.html %}  
-            </div>
+<div id="home-container-padding">
+    <div id="home-container">
+        <div id="home-text">
+            {{intro.text}}
+        </div>
+        <div class="card-list">
+            {% include category_cards.html %}  
         </div>
     </div>
 </div>
@@ -84,7 +68,7 @@ $("#new-category").click(function() {
 });
 
 
-$(".mentor-content").click(function() {
+$(".category-content").click(function() {
     window.location.href = $(this).attr('data-url');
 });
 
