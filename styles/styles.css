@@ -83,3 +83,108 @@
     font-weight: 300; 
     line-height: 1.5;
 }
+
+ul.prompts {
+	position: relative;
+	list-style: none;
+	margin-left: 0;
+	padding-left: 1.2em;
+}
+ul.prompts li:before {
+	content: "⁄";
+	position: absolute;
+    left: 0;
+    padding-bottom: 20px;
+}
+
+ul.prompts li {
+    padding-bottom: 20px;
+}
+
+.category-container {
+    max-width: 920px;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    flex: 1;
+    flex: 1 1 auto;
+    padding-bottom: 30px;
+}
+
+.category-section {
+    padding: 30px;
+}
+
+.category-card-big {
+    background-color: #fff;
+    border-radius: 10px;
+    min-width: 250px;
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.category-primary-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-family: Pasajero, sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: normal;
+    color: white;
+    padding: 12px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.category-secondary-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: #a54e98;
+    font-family: Pasajero, sans-serif;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: normal;
+    color: white;
+    padding: 12px;
+}
+
+.category-content-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.category-content-1-column {
+    padding-top: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 10px;
+    font-family: Calibri
+}
+
+.category-content-2-column {
+    flex: 1;
+    min-width: 250px;
+    padding: 30px;
+    font-family: Calibri;
+}
+
+.download-button {
+    color: white;
+    padding: 15px 20px;
+    background-color: #f16336;
+    border: 1px solid #fff;
+    margin: 5px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    display: inline-block;
+    text-decoration: none;
+    transition: background-color 0.2s ease-in-out;
+    text-align: right;
+    font-family: Comfortaa, sans-serif;
+}

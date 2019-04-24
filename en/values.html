@@ -1,0 +1,89 @@
+---
+layout: category
+ref: values
+permalink: /en/values/
+---
+{% assign values = site.categories | where:"ref", "values" | first %}
+
+<div class="category-primary-header" style="background: {{values.color}};"> {{values.text_content[0].title}} </div>
+<div class="category-content-row">
+    <div class="category-content-1-column">
+        {{values.text_content[0].text}}
+        {% include value_cards.html %}
+        <div style="text-align: center">
+            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/value-cards.pdf">Download Value Cards</a>
+            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/blank-value-cards.pdf">Download Blank Value Cards</a>
+        </div>
+    </div>
+</div>
+<div class="category-secondary-header" style="background: #a54e98;"> {{values.text_content[1].title}} </div>
+<div class="category-content-row">
+    <div class="category-content-2-column"> 
+        <ul class="prompts">
+            <li>{{values.text_content[1].text}}</li>
+            <li>{{values.text_content[1].text_2}}</li>
+            <li>{{values.text_content[1].text_3}}</li>
+        </ul>
+    </div>
+    <div class="category-content-2-column">
+        <ul class="prompts">
+                <li>{{values.text_content[1].text_4}}</li>
+                <li>{{values.text_content[1].text_5}}</li>        
+        </ul>
+    </div>
+</div>
+<div class="category-secondary-header" style="background: #a54e98;"> {{values.text_content[2].title}} </div>
+<div class="category-content-row">
+    <div class="category-content-2-column"> 
+        <p>{{values.text_content[2].text}}</p>
+        <div class="category-content-row">
+            <div  style="flex: 1; margin: auto">
+                <div>
+                    {{values.text_content[2].text_2[0]}}<br>
+                    {{values.text_content[2].text_2[1]}}<br>
+                    {{values.text_content[2].text_2[2]}}<br>
+                </div>    
+            </div>
+            <div style="flex: 1;">
+                <img src="{{site.baseurl}}/assets/images/Values1.jpg" alt="Values" title="Values" style="height: 100px">
+            </div>
+        </div>
+    </div>
+    <div class="category-content-2-column">
+        <div><p>{{values.text_content[2].text_3}}</p></div>
+        <div style="text-align:center">
+            <img src="{{site.baseurl}}/assets/images/Illustration_Scan_Coloured.png" alt="Values" title="Values" style="height: 100px">
+        </div>
+    </div>
+    {% include value_lenses.html %}
+    <div style="text-align: center; padding-bottom: 20px; width: 100%">
+        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/lenses.pdf">Download Lenses</a>
+    </div>
+</div>
+<div class="category-primary-header" style="background: #a54e98;"> {{values.text_content[3].title}} </div>
+    <div class="category-content-row">
+        <div class="category-content-2-column"> 
+            <p>{{values.text_content[3].text}}</p>
+            <p>{{values.text_content[3].text_2}}</p>
+            <div>
+                <ul style="list-style-type:none;">
+                    <li>⁄<strong style="padding-left:1em">{{values.text_content[3].text_3}}</strong></li>
+                    <li>⁄<strong style="padding-left:1em">{{values.text_content[3].text_4}}</strong></li>
+                </ul> 
+            </div>
+        </div>
+        <div class="category-content-2-column" style="margin: auto;">
+            <div style="background: #a7549a; height: 115px; width: 264px; color: white; padding: 10px; margin: auto;">
+                {{values.text_content[3].text_5}}
+            </div>
+        </div>
+        <div style="text-align: center; padding-bottom: 20px; width: 100%">
+            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/capture-sheets.pdf">Download Capture Sheets</a>
+            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/facilitation-sheets.pdf">Download Facilitation Sheets</a>
+        </div>
+    </div>
+    <hr>
+    <div style="text-align: center; padding-bottom: 20px; width: 100%">
+        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/values-all.pdf">Download All</a>
+    </div>
+
