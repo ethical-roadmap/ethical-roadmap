@@ -52,6 +52,10 @@ collections:
     output: false
   lenses:
     output: false
+  role_cards:
+    output: false
+  animal_cards:
+    output: false
 
 languages:
   - name: 'English'

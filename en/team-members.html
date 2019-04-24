@@ -19,10 +19,6 @@ permalink: /en/team-members/
             </div>
         </div>     
         <p>{{category.text_content[0].text[4]}}</p>
-        <div style="text-align: center">
-            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/value-cards.pdf">Download Value Cards</a>
-            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/blank-value-cards.pdf">Download Blank Value Cards</a>
-        </div>
     </div>
 </div>
 <div class="category-secondary-header" style="background: #d9bc6b"> {{category.text_content[1].title}} </div>
@@ -39,14 +35,19 @@ permalink: /en/team-members/
             <li style="padding-bottom: 0px">{{category.text_content[1].text[5]}}</li>
         </ul>
     </div>
+    {% include role_cards.html %}
+    <div style="text-align: center; width: 100%">
+            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/team-members/role-cards.pdf">Download Role Cards</a>
+    </div>
 </div>
 <div class="category-secondary-header" style="background: #d9bc6b"> {{category.text_content[2].title}} </div>
 <div class="category-content-row">
     <div class="category-content-1-column"> 
         <p>{{category.text_content[2].text[0]}}</p>
     </div>
+    {% include animal-carousel.html %}
     <div style="text-align: center; padding-bottom: 20px; width: 100%">
-        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/lenses.pdf">Download Lenses</a>
+        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/team-members/animal-cards.pdf">Download Animal Cards</a>
     </div>
 </div>
 <div class="category-primary-header" style="background: #d9bc6b;"> {{category.text_content[3].title}} </div>
