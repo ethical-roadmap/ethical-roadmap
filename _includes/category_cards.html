@@ -2,7 +2,7 @@
 {% assign categories=temp | where:"lang", page.lang %}
 {% for category in categories %}
 <div class="category-card">
-    <div class="category-content sh-2 hv" data-url="{{ site.baseurl }}{{category.url}}" style="background:{{category.color}}; border-color: {{category.color}}; ">
+    <div class="category-content sh-2 hv" data-url="{{ site.baseurl }}{{category.url}}/" style="background:{{category.color}}; border-color: {{category.color}}; ">
         <div class="category-title">{{category.name}}</div>              
         <div class="category-image">
             <img src="{{category.image}}" height="200" width="200">
