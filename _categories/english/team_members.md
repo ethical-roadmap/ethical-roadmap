@@ -8,10 +8,10 @@ name: team members
 image: >-
   https://raw.githubusercontent.com/lapc1995/qudwa/gh-pages/media/2.png
 description: You are aiming to establish a <strong>core research</strong> team who are all going in the <strong>same direction</strong> based on a <strong>shared vision and values</strong>. Dedicate time exploring shared philosophies and values...
-text-content:
+text_content:
   - title: team member roles
     text:
-      - "You are aiming to establish a core research team who are all going in the same direction based on a shared vision and values. Many research projects focus on the skills that individuals bring without considering whether team members have a compatible vision and values. This X invites you to dedicate time exploring together the philosophies and values that you share. Inspired by Belbin’s and Kelly’s research, contained in this resource is:"
+      - "You are aiming to establish a core research team who are all going in the same direction based on a shared vision and values. Many research projects focus on the skills that individuals bring without considering whether team members have a compatible vision and values. This <span class=\"pink-colour\">X</span> invites you to dedicate time exploring together the philosophies and values that you share. Inspired by Belbin’s and Kelly’s research, contained in this resource is:"
       - A team member role map
       - Team member role cards, containing qualities and values of the role
       - Team member traits (animal cards)
