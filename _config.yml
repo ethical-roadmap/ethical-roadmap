@@ -56,6 +56,10 @@ collections:
     output: false
   animal_cards:
     output: false
+  moral_qualities_cards:
+    output: false
+  provocation_cards:
+    output: false
 
 languages:
   - name: 'English'

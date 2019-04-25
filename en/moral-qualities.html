@@ -1,0 +1,21 @@
+---
+layout: category
+ref: moral-qualities
+permalink: /en/moral-qualities/
+---
+{% assign category = site.categories | where:"ref", "moral_qualities" | first %}
+
+<div class="category-primary-header" style="background: {{category.color}};"> {{category.text_content[0].title}} </div>
+<div class="category-content-row">
+    <div class="category-content-1-column">
+        <p style="text-align: justify">{{category.text_content[0].text[0]}}</p>
+        <p style="text-align: justify">{{category.text_content[0].text[1]}}</p>
+        <p style="text-align: justify">{{category.text_content[0].text[2]}}</p>
+        <p style="text-align: justify">{{category.text_content[0].text[3]}}</p>    
+    </div>
+    <div style="text-align: center; padding-bottom: 20px; width: 100%">
+        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/moral-qualities/provocation-cards.pdf">Download Provocation Cards</a>
+    </div>
+</div>
+
+
