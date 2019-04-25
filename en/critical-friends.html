@@ -1,0 +1,82 @@
+---
+layout: category
+ref: critical-friends
+permalink: /en/critical-friends/
+---
+{% assign category = site.categories | where:"ref", "critical_friends" | first %}
+
+<div class="category-primary-header" style="background: {{category.color}};"> {{category.text_content[0].title}} </div>
+<div class="category-content-row">
+    <div class="category-content-1-column">
+        <p style="text-align: justify">{{category.text_content[0].text[0]}}</p>
+        <p style="text-align: justify">{{category.text_content[0].text[1]}}</p>
+        <p style="text-align: justify; margin-bottom: 0px;">{{category.text_content[0].text[2]}}</p>
+        <div style="display:flex;justify-content:center;align-items:center;">
+            <div>
+                <ul class="prompts">
+                    <li style="padding-bottom: 0px"><strong>{{category.text_content[0].text[3]}}</strong></li>
+                    <li style="padding-bottom: 0px"><strong>{{category.text_content[0].text[4]}}</strong></li>
+                    <li style="padding-bottom: 0px"><strong>{{category.text_content[0].text[5]}}</strong></li>
+                    <li style="padding-bottom: 0px"><strong>{{category.text_content[0].text[6]}}</strong></li>
+                </ul>
+            </div>
+        </div>     
+    </div>
+    <div style="text-align: center; padding-bottom: 20px; width: 100%">
+        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/critical-friends/critical-friends-map.pdf">Download Critical Friend Map</a>
+    </div>
+</div>
+<div class="category-secondary-header" style="background: #9580ba"> {{category.text_content[1].title}} </div>
+<div class="category-content-row">
+    <div class="category-content-2-column" style="padding: 30px 30px 20px 30px"> 
+        <p>{{category.text_content[1].text[0]}}</p>
+    </div>
+    <div class="category-content-2-column" style="padding: 30px 30px 20px 30px">
+        <div style="text-align:center">
+            <img src="{{site.baseurl}}/assets/images/{{category.text_content[1].image[0]}}" alt="Critical Friend Role Cards" title="Critical Friend Role Cards" style="height: 100px">
+        </div>
+    </div>
+    <div style="text-align: center; width: 100%; padding-bottom: 20px;">
+            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/critical-friends/critical-friends-role-cards.pdf">Download Critical Friend Role Cards</a>
+    </div>
+</div>
+<div class="category-secondary-header" style="background: #9580ba"> {{category.text_content[2].title}} </div>
+<div class="category-content-row">
+    <div class="category-content-1-column"> 
+        <p style="text-align: justify">{{category.text_content[2].text[0]}}</p>
+        <div style="text-align:center">
+                <img src="{{site.baseurl}}/assets/images/{{category.text_content[2].image[0]}}" alt="Milestones Map" title="Milestones Map" style="height: 200px">
+        </div>
+    </div>
+    <div style="text-align: center; padding-bottom: 20px; width: 100%">
+        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/critical-friends/critical-friends-milestones-map.pdf">Download Milestone Map</a>
+    </div>
+</div>
+<div class="category-secondary-header" style="background: #9580ba;"> {{category.text_content[3].title}} </div>
+    <div class="category-content-row">
+        <div class="category-content-2-column"> 
+            <p>{{category.text_content[3].text[0]}}</p>
+            <p>{{category.text_content[3].text[1]}}</p>
+            <div style="display:flex;justify-content:center;align-items:center;">
+                <div>
+                    <ul class="prompts">
+                        <li style="padding-bottom: 0px"><strong>{{category.text_content[3].text[2]}}</strong></li>
+                        <li style="padding-bottom: 0px"><strong>{{category.text_content[3].text[3]}}</strong></li>
+                    </ul>
+                </div>
+            </div>  
+        </div>
+        <div class="category-content-2-column" style="margin: auto;">
+            <div style="background: #8268ae; height: 115px; width: 264px; color: white; padding: 10px; margin: auto;">
+                {{category.text_content[3].text[4]}}
+            </div>
+        </div>
+        <div style="text-align: center; padding-bottom: 20px; width: 100%">
+            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/critical-friends/critical-friends-facilitation-sheets.pdf">Download Facilitation Sheets</a>
+        </div>
+    </div>
+    <hr>
+    <div style="text-align: center; padding-bottom: 20px; width: 100%">
+        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/critical-friends/critical-friends-all.pdf">Download All</a>
+    </div>
+
