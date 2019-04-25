@@ -1,0 +1,59 @@
+{% assign category = site.categories | where:"ref", "team_members" | first %}
+{% assign role_cards = site.role_cards | sort: "sequence" %}
+
+<div class="role-cards-carousel-container">
+{% for card in role_cards %}
+{% assign remainder = forloop.index0 | modulo:2 %}
+{% if remainder == 0 %}
+    <div class="roleCardPairs">
+        <div class="card-list" style="padding: 0px 40px 40px 40px;">
+{% endif %}           
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <div class="role-card-front" style="background: {{category.color}};">
+                            <div class="role-card-front-tile">{{card.sequence}}. {{card.name}}</div>
+                            <div class="role-card-front-subtile">{{card.subname}}</div>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="role-card-back">
+                            <p style="text-align: center; font-weight: bold">{{card.sequence}}. Contribution</p>
+                            {% for c in card.contribution %}
+                                <p style="text-align: left">{{ c }}</p>
+                            {% endfor %}
+                            <div class="role-card-back-type"> {{ card.type }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% if remainder != 0 %}
+        </div>
+        <div class="role-cards-carousel-number">{{ forloop.index }} / {{ forloop.length }}</div>
+    </div>
+{% endif %} 
+{% endfor %}
+    <a class="role-cards-carousel-prev" onclick="plusPair(-1)">&#10094;</a>
+    <a class="role-cards-carousel-next" onclick="plusPair(1)">&#10095;</a>
+</div>
+
+<script>
+    var pairIndex = 1;
+    showRoleCardPairs(pairIndex);
+
+    function plusPair(n) {
+        showRoleCardPairs(pairIndex += n);
+    }
+
+    function showRoleCardPairs(n) {
+        var i;
+        var slides = document.getElementsByClassName("roleCardPairs");
+        if (n > slides.length) {pairIndex = 1}    
+        if (n < 1) {pairIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slides[pairIndex-1].style.display = "block";   
+    }
+</script>
+

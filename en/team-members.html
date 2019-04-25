@@ -23,11 +23,11 @@ permalink: /en/team-members/
 </div>
 <div class="category-secondary-header" style="background: #d9bc6b"> {{category.text_content[1].title}} </div>
 <div class="category-content-row">
-    <div class="category-content-2-column"> 
+    <div class="category-content-2-column" style="padding: 30px 30px 20px 30px"> 
         <p>{{category.text_content[1].text[0]}}</p>
         <p>{{category.text_content[1].text[1]}}</p>
     </div>
-    <div class="category-content-2-column">
+    <div class="category-content-2-column" style="padding: 30px 30px 20px 30px">
         <p>{{category.text_content[1].text[2]}}</p>
         <ul class="prompts">
             <li style="padding-bottom: 0px">{{category.text_content[1].text[3]}}</li>
@@ -35,8 +35,8 @@ permalink: /en/team-members/
             <li style="padding-bottom: 0px">{{category.text_content[1].text[5]}}</li>
         </ul>
     </div>
-    {% include role_cards.html %}
-    <div style="text-align: center; width: 100%">
+    {% include role-cards-carousel.html %}
+    <div style="text-align: center; width: 100%; padding-bottom: 20px;">
             <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/team-members/role-cards.pdf">Download Role Cards</a>
     </div>
 </div>
