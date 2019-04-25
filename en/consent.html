@@ -1,0 +1,77 @@
+---
+layout: category
+ref: consent
+permalink: /en/consent/
+---
+{% assign category = site.categories | where:"ref", "consent" | first %}
+
+<div class="category-primary-header" style="background: {{category.color}};"> {{category.text_content[0].title}} </div>
+<div class="category-content-row">
+    <div class="category-content-1-column">
+        <p style="text-align: justify">{{category.text_content[0].text[0]}}</p>
+    </div>
+</div>
+<div class="category-secondary-header" style="background: #ced36e;"> {{category.text_content[1].title}} </div>
+<div class="category-content-row">
+    <div class="category-content-2-column" style="padding: 30px 30px 20px 30px"> 
+        <p>{{category.text_content[1].text[0]}}</p>
+        <ul class="prompts">
+            <li style="padding-bottom: 0px">{{category.text_content[1].text[1]}}</li>
+            <li style="padding-bottom: 0px">{{category.text_content[1].text[2]}}</li>
+            <li style="padding-bottom: 0px">{{category.text_content[1].text[3]}}</li>
+            <li style="padding-bottom: 0px">{{category.text_content[1].text[4]}}</li>
+        </ul>
+    </div>
+    <div class="category-content-2-column" style="padding: 30px 30px 20px 30px">
+        <p>{{category.text_content[1].text[5]}}</p>
+    </div>
+    <div style="text-align: center; width: 100%; padding-bottom: 20px;">
+            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/team-members/role-cards.pdf">Download Role Cards</a>
+            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/team-members/team-members-map.pdf">Download Role Map</a>
+    </div>
+</div>
+<div class="category-secondary-header" style="background: #ced36e;"> {{category.text_content[2].title}} </div>
+<div class="category-content-row">
+    <div class="category-content-2-column"> 
+            <p>{{category.text_content[2].text[0]}}</p>
+        </div>
+        <div class="category-content-2-column">
+            <p>{{category.text_content[2].text[1]}}</p>
+            <ul class="prompts">
+                <li>{{category.text_content[2].text[2]}}<br>{{category.text_content[2].text[3]}}</li>
+                <li>{{category.text_content[2].text[4]}}<br>{{category.text_content[2].text[5]}}</li>
+            </ul>
+        </div>
+    <div style="text-align: center; padding-bottom: 20px; width: 100%">
+        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/team-members/animal-cards.pdf">Download Animal Cards</a>
+    </div>
+</div>
+<div class="category-secondary-header" style="background: #ced36e;"> {{category.text_content[3].title}} </div>
+    <div class="category-content-row">
+        <div class="category-content-2-column"> 
+            <p>{{category.text_content[3].text[0]}}</p>
+            <div style="display:flex;justify-content:center;align-items:center;">
+                <div>
+                    <ul class="prompts">
+                        <li style="padding-bottom: 0px"><strong>{{category.text_content[3].text[1]}}</strong></li>
+                        <li style="padding-bottom: 0px"><strong>{{category.text_content[3].text[2]}}</strong></li>
+                        <li style="padding-bottom: 0px"><strong>{{category.text_content[3].text[3]}}</strong></li>
+                    </ul>
+                </div>
+            </div>  
+        </div>
+        <div class="category-content-2-column" style="margin: auto;">
+            <div style="background: #c4ca49; height: 115px; width: 264px; color: white; padding: 10px; margin: auto;">
+                {{category.text_content[3].text[4]}}
+            </div>
+        </div>
+        <div style="text-align: center; padding-bottom: 20px; width: 100%">
+            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/team-members/team-members-capture-sheets.pdf">Download Capture Sheets</a>
+            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/team-members/team-members-facilitation-sheets.pdf">Download Facilitation Sheets</a>
+        </div>
+    </div>
+    <hr>
+    <div style="text-align: center; padding-bottom: 20px; width: 100%">
+        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/team-members/team-members-all.pdf">Download All</a>
+    </div>
+
