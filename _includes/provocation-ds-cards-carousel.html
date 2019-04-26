@@ -1,0 +1,220 @@
+{% assign category = site.categories | where:"ref", "provocations" | first %}
+{% assign provocation_ds_cards = site.provocation_ds_cards | sort: "ref" %}
+
+{% assign technology_cards = provocation_ds_cards | where: "category","technology" %}
+{% assign sense_cards = provocation_ds_cards  | where: "category","sense of self" %}
+{% assign participants_cards = provocation_ds_cards  | where: "category","relationships between researchers and participants" %}
+{% assign family_cards = provocation_ds_cards  | where: "category","relationships between family members" %}
+
+<div class="card-list">
+    <div style=" display: flex;
+    flex-direction: column;">
+    <div class="category-content-title"> technology </div>
+    <div class="role-cards-carousel-container">
+        {% for card in technology_cards %}
+        <div class="technologyCards">        
+            <div class="flip-card provocation-card">
+                <div class="flip-card-inner provocation-card-inner">
+                    <div class="flip-card-front">
+                        <div class="provocation-card-front" style="background: {{category.color}};">
+                            <div style="outline-color: white;
+                            outline-style: solid;
+                            outline-width: 4px;
+                            width: 344px;
+                            height: 221px;
+                            display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;">
+                                {% for text in card.text %}
+                                    <p class="provocation-card-text">{{ text }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div class="provocation-card-back">
+                            <p style="text-align: center; font-weight: bold">{{card.sequence}}. Contribution</p>
+                            <div class="role-card-back-type"> {{ card.type }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="provocation-cards-carousel-number">{{ forloop.index }} / {{ forloop.length }}</div>
+        </div>
+        {% endfor %}
+        <a class="provocation-cards-carousel-prev" onclick="plus1(-1)">&#10094;</a>
+        <a class="provocation-cards-carousel-next" onclick="plus1(1)">&#10095;</a>
+    </div>
+    </div>
+
+    <div style=" display: flex;
+    flex-direction: column;">
+    <div class="category-content-title"> technology </div>
+    <div class="role-cards-carousel-container">
+        {% for card in sense_cards %}
+        <div class="senseCards">        
+                <div class="flip-card provocation-card">
+                        <div class="flip-card-inner provocation-card-inner">
+                            <div class="flip-card-front">
+                                <div class="provocation-card-front" style="background: {{category.color}};">
+                                    {% for text in card.text %}
+                                    <p class="provocation-card-text">{{ text }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="flip-card-back">
+                                <div class="provocation-card-back">
+                                    <p style="text-align: center; font-weight: bold">{{card.sequence}}. Contribution</p>
+                                    <div class="role-card-back-type"> {{ card.type }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <div class="provocation-cards-carousel-number">{{ forloop.index }} / {{ forloop.length }}</div>
+        </div>
+        {% endfor %}
+        <a class="provocation-cards-carousel-prev" onclick="plus2(-1)">&#10094;</a>
+        <a class="provocation-cards-carousel-next" onclick="plus2(1)">&#10095;</a>
+    </div>
+    </div>
+
+    <div style=" display: flex;
+    flex-direction: column;">
+    <div class="category-content-title"> technology </div>
+        <div class="role-cards-carousel-container">
+                {% for card in participants_cards %}
+                <div class="participantsCards">        
+                        <div class="flip-card provocation-card">
+                                <div class="flip-card-inner provocation-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="provocation-card-front" style="background: {{category.color}};">
+                                            {% for text in card.text %}
+                                            <p class="provocation-card-text">{{ text }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <div class="provocation-card-back">
+                                            <p style="text-align: center; font-weight: bold">{{card.sequence}}. Contribution</p>
+                                            <div class="role-card-back-type"> {{ card.type }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    <div class="provocation-cards-carousel-number">{{ forloop.index }} / {{ forloop.length }}</div>
+                </div>
+                {% endfor %}
+                <a class="provocation-cards-carousel-prev" onclick="plus3(-1)">&#10094;</a>
+                <a class="provocation-cards-carousel-next" onclick="plus3(1)">&#10095;</a>
+            </div>
+        </div>
+
+        <div style=" display: flex;
+        flex-direction: column;">
+        <div class="category-content-title"> technology </div>
+            <div class="role-cards-carousel-container">
+                    {% for card in family_cards %}
+                    <div class="familyCards">        
+                            <div class="flip-card provocation-card">
+                                    <div class="flip-card-inner provocation-card-inner">
+                                        <div class="flip-card-front">
+                                            <div class="provocation-card-front" style="background: {{category.color}};">
+                                                {% for text in card.text %}
+                                                <p class="provocation-card-text">{{ text }}</p>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <div class="provocation-card-back">
+                                                <p style="text-align: center; font-weight: bold">{{card.sequence}}. Contribution</p>
+                                                <div class="role-card-back-type"> {{ card.type }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        <div class="provocation-cards-carousel-number">{{ forloop.index }} / {{ forloop.length }}</div>
+                    </div>
+                    {% endfor %}
+                    <a class="provocation-cards-carousel-prev" onclick="plus4(-1)">&#10094;</a>
+                    <a class="provocation-cards-carousel-next" onclick="plus4(1)">&#10095;</a>
+                </div>
+</div>
+</div>
+
+
+<script>
+    var index1 = 1;
+    var index2 = 1;
+    var index3 = 1;
+    var index4 = 1;
+
+    show1(index1);
+    show2(index2);
+    show3(index3);
+    show4(index4);
+
+    function plus1(n) {
+        show1(index1 += n);
+    }
+
+    function plus2(n) {
+        show2(index2 += n);
+    }
+
+    function plus3(n) {
+        show3(index3 += n);
+    }
+
+    function plus4(n) {
+        show4(index4 += n);
+    }
+
+    function show1(n) {
+        var i;
+        var slides = document.getElementsByClassName("technologyCards");
+        if (n > slides.length) {index1 = 1}    
+        if (n < 1) {index1 = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slides[index1-1].style.display = "block";   
+    }
+
+    
+    function show2(n) {
+        var i;
+        var slides = document.getElementsByClassName("senseCards");
+        if (n > slides.length) {index2 = 1}    
+        if (n < 1) {index2 = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slides[index2-1].style.display = "block";   
+    }
+
+    
+    function show3(n) {
+        var i;
+        var slides = document.getElementsByClassName("participantsCards");
+        if (n > slides.length) {index3 = 1}    
+        if (n < 1) {index3 = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slides[index3-1].style.display = "block";   
+    }
+
+    
+    function show4(n) {
+        var i;
+        var slides = document.getElementsByClassName("familyCards");
+        if (n > slides.length) {index4 = 1}    
+        if (n < 1) {index4 = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        slides[index4-1].style.display = "block";   
+    }
+</script>
+

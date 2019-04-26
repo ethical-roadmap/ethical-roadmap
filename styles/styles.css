@@ -429,3 +429,81 @@ ul.prompts li {
     color: white;
     font-size:18px;
 }
+
+.provocation-card {
+    width: 380px;
+    height: 258px;
+}
+
+.provocation-card-inner {
+    width: 360px;
+    height: 238px;
+}
+
+.provocation-card-front {
+    width: 360px;
+    height: 238px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+    /*
+    border-color: white;
+    border-style: double;
+    border-width: 10px;*/
+}
+
+.provocation-card-back {
+    width: 360px;
+    height: 238px;
+    border-style: solid;
+    border-color: #d8b43b;
+    border-width: 5px;
+    background: white;
+    color: black; font-family: Calibri;
+    padding: 0px 20px 65px 20px;
+}
+
+.provocation-card-text {
+    color: rgb(255, 255, 255);
+    font-family: Pasajero, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.2;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.provocation-cards-carousel-number {
+    font-family: Calibri;
+    color: white;
+    font-size: 15px;
+    position: absolute;
+    bottom: 35px;
+    width: 100%;
+    text-align: center;
+}
+
+.provocation-cards-carousel-prev, .provocation-cards-carousel-next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.provocation-cards-carousel-prev {
+    left: 20px;
+}
+
+.provocation-cards-carousel-next {
+    right: 0;
+}
