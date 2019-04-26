@@ -64,6 +64,8 @@ collections:
     output: false
   output_cards:
     output: false
+  provocation_ds_cards:
+    output: false
 
 languages:
   - name: 'English'
