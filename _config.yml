@@ -60,6 +60,10 @@ collections:
     output: false
   provocation_cards:
     output: false
+  methods_cards:
+    output: false
+  output_cards:
+    output: false
 
 languages:
   - name: 'English'

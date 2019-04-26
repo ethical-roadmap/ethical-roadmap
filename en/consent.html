@@ -9,6 +9,10 @@ permalink: /en/consent/
 <div class="category-content-row">
     <div class="category-content-1-column">
         <p style="text-align: justify">{{category.text_content[0].text[0]}}</p>
+        <div style="text-align:center">
+            <img src="{{site.baseurl}}/assets/images/Illustration_Scan_Coloured_22.png" alt="Methods cards" title="Methods cards" style="height: 150px">
+            <img src="{{site.baseurl}}/assets/images/Illustration_Scan_Coloured_23.png" alt="Outcomes cards" title="Outcomes cards" style="height: 150px">
+        </div>
     </div>
 </div>
 <div class="category-secondary-header" style="background: #ced36e;"> {{category.text_content[1].title}} </div>
@@ -25,25 +29,32 @@ permalink: /en/consent/
     <div class="category-content-2-column" style="padding: 30px 30px 20px 30px">
         <p>{{category.text_content[1].text[5]}}</p>
     </div>
+    <div class="category-content-title">methods of enquiry</div>
+    {% include methods_cards.html %}
+    <div class="category-content-title" style="padding-top: 20px;">outcomes</div>
+    {% include output_cards.html %}
     <div style="text-align: center; width: 100%; padding-bottom: 20px;">
-            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/team-members/role-cards.pdf">Download Role Cards</a>
-            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/team-members/team-members-map.pdf">Download Role Map</a>
+            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/consent/methods-cards.pdf">Download Methods Cards</a>
+            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/consent/outcomes-cards.pdf">Download Outcomes Cards</a>
     </div>
 </div>
 <div class="category-secondary-header" style="background: #ced36e;"> {{category.text_content[2].title}} </div>
 <div class="category-content-row">
     <div class="category-content-2-column"> 
             <p>{{category.text_content[2].text[0]}}</p>
-        </div>
-        <div class="category-content-2-column">
-            <p>{{category.text_content[2].text[1]}}</p>
-            <ul class="prompts">
-                <li>{{category.text_content[2].text[2]}}<br>{{category.text_content[2].text[3]}}</li>
-                <li>{{category.text_content[2].text[4]}}<br>{{category.text_content[2].text[5]}}</li>
-            </ul>
-        </div>
+            <div style="text-align:center">
+                <img src="{{site.baseurl}}/assets/images/IMG_3442.png" alt="Consent postcards" title="Consent postcards" style="height: 70px">
+            </div>
+    </div>
+    <div class="category-content-2-column">
+        <p>{{category.text_content[2].text[1]}}</p>
+        <ul class="prompts">
+            <li>{{category.text_content[2].text[2]}}<br><a href="https://{{category.text_content[2].text[3]}}" target="_blank">{{category.text_content[2].text[3]}}</a></li>
+            <li>{{category.text_content[2].text[4]}}<br><a href="https://{{category.text_content[2].text[5]}}" target="_blank">{{category.text_content[2].text[5]}}</a></li>
+        </ul>
+    </div>
     <div style="text-align: center; padding-bottom: 20px; width: 100%">
-        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/team-members/animal-cards.pdf">Download Animal Cards</a>
+        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/consent/consent-postcards.pdf">Download Consent Postcards</a>
     </div>
 </div>
 <div class="category-secondary-header" style="background: #ced36e;"> {{category.text_content[3].title}} </div>
@@ -66,12 +77,12 @@ permalink: /en/consent/
             </div>
         </div>
         <div style="text-align: center; padding-bottom: 20px; width: 100%">
-            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/team-members/team-members-capture-sheets.pdf">Download Capture Sheets</a>
-            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/team-members/team-members-facilitation-sheets.pdf">Download Facilitation Sheets</a>
+            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/consent/consent-capture-sheets.pdf">Download Capture Sheets</a>
+            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/consent/consent-facilitation-sheets.pdf">Download Facilitation Sheets</a>
         </div>
     </div>
     <hr>
     <div style="text-align: center; padding-bottom: 20px; width: 100%">
-        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/team-members/team-members-all.pdf">Download All</a>
+        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/consent/consent-all.pdf">Download All</a>
     </div>
 

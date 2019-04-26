@@ -1,0 +1,11 @@
+{% assign consent = site.categories | where:"ref", "consent" | first %}
+{% assign output_cards = site.output_cards | sort: "sequence" %}
+<div class="card-list" style="width: 100%;">
+    {% for card in output_cards %}
+    <div class="single-side-card-container">
+        <div class="single-side-card-border-color" style="color: {{consent.color}}; border-color: {{consent.color}};">
+            <div class="single-side-card-text" style="color: {{consent.color}}">{{card.name}}</div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
