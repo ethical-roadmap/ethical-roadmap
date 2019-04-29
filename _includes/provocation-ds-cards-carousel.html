@@ -6,36 +6,24 @@
 {% assign participants_cards = provocation_ds_cards  | where: "category","relationships between researchers and participants" %}
 {% assign family_cards = provocation_ds_cards  | where: "category","relationships between family members" %}
 
-<div class="card-list">
+<div class="card-list" style="padding-top: 0;">
     <div style=" display: flex;
     flex-direction: column;">
-    <div class="category-content-title"> technology </div>
+    <div class="category-content-title provocation-cards-title"> 
+        <div class="provocation-cards-title-padding">
+            technology 
+        </div>
+    </div>
     <div class="role-cards-carousel-container">
         {% for card in technology_cards %}
         <div class="technologyCards">        
-            <div class="flip-card provocation-card">
+            <div class="provocation-card">
                 <div class="flip-card-inner provocation-card-inner">
-                    <div class="flip-card-front">
-                        <div class="provocation-card-front" style="background: {{category.color}};">
-                            <div style="outline-color: white;
-                            outline-style: solid;
-                            outline-width: 4px;
-                            width: 344px;
-                            height: 221px;
-                            display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;">
-                                {% for text in card.text %}
-                                    <p class="provocation-card-text">{{ text }}</p>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flip-card-back">
-                        <div class="provocation-card-back">
-                            <p style="text-align: center; font-weight: bold">{{card.sequence}}. Contribution</p>
-                            <div class="role-card-back-type"> {{ card.type }}</div>
+                    <div class="provocation-card-front" style="background: {{category.color}};">
+                        <div class="provocation-card-outline">
+                            {% for text in card.text %}
+                                <p class="provocation-card-text">{{ text }}</p>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -50,23 +38,21 @@
 
     <div style=" display: flex;
     flex-direction: column;">
-    <div class="category-content-title"> technology </div>
+    <div class="category-content-title provocation-cards-title">
+        <div class="provocation-cards-title-padding">
+            sense of self
+        </div>
+    </div>
     <div class="role-cards-carousel-container">
         {% for card in sense_cards %}
         <div class="senseCards">        
-                <div class="flip-card provocation-card">
+                <div class="provocation-card">
                         <div class="flip-card-inner provocation-card-inner">
-                            <div class="flip-card-front">
-                                <div class="provocation-card-front" style="background: {{category.color}};">
+                            <div class="provocation-card-front" style="background: {{category.color}};">
+                                <div class="provocation-card-outline">
                                     {% for text in card.text %}
                                     <p class="provocation-card-text">{{ text }}</p>
                                     {% endfor %}
-                                </div>
-                            </div>
-                            <div class="flip-card-back">
-                                <div class="provocation-card-back">
-                                    <p style="text-align: center; font-weight: bold">{{card.sequence}}. Contribution</p>
-                                    <div class="role-card-back-type"> {{ card.type }}</div>
                                 </div>
                             </div>
                         </div>
@@ -81,65 +67,61 @@
 
     <div style=" display: flex;
     flex-direction: column;">
-    <div class="category-content-title"> technology </div>
-        <div class="role-cards-carousel-container">
-                {% for card in participants_cards %}
-                <div class="participantsCards">        
-                        <div class="flip-card provocation-card">
-                                <div class="flip-card-inner provocation-card-inner">
-                                    <div class="flip-card-front">
-                                        <div class="provocation-card-front" style="background: {{category.color}};">
-                                            {% for text in card.text %}
-                                            <p class="provocation-card-text">{{ text }}</p>
-                                            {% endfor %}
-                                        </div>
-                                    </div>
-                                    <div class="flip-card-back">
-                                        <div class="provocation-card-back">
-                                            <p style="text-align: center; font-weight: bold">{{card.sequence}}. Contribution</p>
-                                            <div class="role-card-back-type"> {{ card.type }}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    <div class="provocation-cards-carousel-number">{{ forloop.index }} / {{ forloop.length }}</div>
-                </div>
-                {% endfor %}
-                <a class="provocation-cards-carousel-prev" onclick="plus3(-1)">&#10094;</a>
-                <a class="provocation-cards-carousel-next" onclick="plus3(1)">&#10095;</a>
+        <div class="category-content-title provocation-cards-title">
+            <div class="provocation-cards-title-padding">
+                relationships between researchers and participants 
             </div>
         </div>
-
-        <div style=" display: flex;
-        flex-direction: column;">
-        <div class="category-content-title"> technology </div>
-            <div class="role-cards-carousel-container">
-                    {% for card in family_cards %}
-                    <div class="familyCards">        
-                            <div class="flip-card provocation-card">
-                                    <div class="flip-card-inner provocation-card-inner">
-                                        <div class="flip-card-front">
-                                            <div class="provocation-card-front" style="background: {{category.color}};">
-                                                {% for text in card.text %}
-                                                <p class="provocation-card-text">{{ text }}</p>
-                                                {% endfor %}
-                                            </div>
-                                        </div>
-                                        <div class="flip-card-back">
-                                            <div class="provocation-card-back">
-                                                <p style="text-align: center; font-weight: bold">{{card.sequence}}. Contribution</p>
-                                                <div class="role-card-back-type"> {{ card.type }}</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                        <div class="provocation-cards-carousel-number">{{ forloop.index }} / {{ forloop.length }}</div>
+        <div class="role-cards-carousel-container">
+            {% for card in participants_cards %}
+            <div class="participantsCards">        
+                <div class="provocation-card">
+                    <div class="flip-card-inner provocation-card-inner">
+                        <div class="provocation-card-front" style="background: {{category.color}};">
+                            <div class="provocation-card-outline">
+                                {% for text in card.text %}
+                                <p class="provocation-card-text">{{ text }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
-                    {% endfor %}
-                    <a class="provocation-cards-carousel-prev" onclick="plus4(-1)">&#10094;</a>
-                    <a class="provocation-cards-carousel-next" onclick="plus4(1)">&#10095;</a>
                 </div>
-</div>
+                <div class="provocation-cards-carousel-number">{{ forloop.index }} / {{ forloop.length }}</div>
+            </div>
+            {% endfor %}
+            <a class="provocation-cards-carousel-prev" onclick="plus3(-1)">&#10094;</a>
+            <a class="provocation-cards-carousel-next" onclick="plus3(1)">&#10095;</a>
+        </div>
+    </div>
+
+    <div style="display: flex;
+                flex-direction: column;">
+        <div class="category-content-title provocation-cards-title">
+            <div class="provocation-cards-title-padding">
+                relationships between family members
+            </div>
+        </div>
+        <div class="role-cards-carousel-container">
+            {% for card in family_cards %}
+            <div class="familyCards">        
+                <div class="provocation-card">
+                    <div class="flip-card-inner provocation-card-inner">
+                        <div class="provocation-card-front" style="background: {{category.color}};">
+                            <div class="provocation-card-outline">
+                                {% for text in card.text %}
+                                <p class="provocation-card-text">{{ text }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="provocation-cards-carousel-number">{{ forloop.index }} / {{ forloop.length }}</div>
+            </div>
+            {% endfor %}
+            <a class="provocation-cards-carousel-prev" onclick="plus4(-1)">&#10094;</a>
+            <a class="provocation-cards-carousel-next" onclick="plus4(1)">&#10095;</a>
+        </div>
+    </div>
 </div>
 
 

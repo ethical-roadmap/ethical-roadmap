@@ -447,21 +447,17 @@ ul.prompts li {
     justify-content:center;
     align-items:center;
     flex-direction: column;
-    /*
-    border-color: white;
-    border-style: double;
-    border-width: 10px;*/
 }
 
 .provocation-card-back {
     width: 360px;
     height: 238px;
-    border-style: solid;
-    border-color: #d8b43b;
-    border-width: 5px;
     background: white;
-    color: black; font-family: Calibri;
-    padding: 0px 20px 65px 20px;
+    color: black; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .provocation-card-text {
@@ -488,7 +484,7 @@ ul.prompts li {
 .provocation-cards-carousel-prev, .provocation-cards-carousel-next {
     cursor: pointer;
     position: absolute;
-    top: 50%;
+    top: 45%;
     width: auto;
     padding: 16px;
     margin-top: -22px;
@@ -501,9 +497,45 @@ ul.prompts li {
 }
 
 .provocation-cards-carousel-prev {
-    left: 20px;
+    left: 10px;
 }
 
 .provocation-cards-carousel-next {
-    right: 0;
+    right: 10px;
+}
+
+.provocation-cards-title {
+    max-width: 380px;
+}
+
+.provocation-cards-title-padding {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.provocation-card-outline {
+    outline-color: white;
+    outline-style: solid;
+    outline-width: 4px;
+    width: 344px;
+    height: 221px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.provocation-card-back-title {
+    font-family: Pasajero;
+    font-size: 25px;
+    color: #80483b;
+    padding-bottom: 15px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.provocation-card-back-subtitle {
+    font-family: Calibri;
 }
