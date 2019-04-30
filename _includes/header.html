@@ -1,42 +1,13 @@
 <div id="header" style="text-align: center">
-    <a href="{{site.baseurl}}/">
-      <div class="logo-img">
-        <img src="{{site.baseurl}}/assets/images/new_logo.PNG" alt="Ethical Roadmap" title="Ethical Roadmap" height="80" style="display: inline-block;
-        padding: 10px;
-        width: 100%;
-        max-width: 400px;
-        height: auto;
-        padding: 10px;">
-        
-      </div>
-    </a>
-    {% include pack_navigation.html %}
-    <!--div id="language-select" class='languages' current-page="{{page.ref}}" style="line-height: 100px; padding-top: 0; padding-bottom: 0;">
+  <a id="logo-link" href="{{site.baseurl}}/">
+    <div id="logo-img">
+      <img src="{{site.baseurl}}/assets/images/new_logo.PNG" alt="Ethical Roadmap" title="Ethical Roadmap" height="80" style="display: inline-block;
+      padding-top: 10px;
+      width: 100%;
+      max-width: 400px;
+      height: auto;">        
+    </div>
+  </a>
+  {% include pack_navigation.html %}
+</div>
 
-      {% assign mentors=site.mentors | where:"ref", page.ref | sort: 'lang' %}
-        {% for mentor in mentors %}
-          {% if pagelang == mentor.lang %}
-            <a class="{{ mentor.lang }} selected" >{{ site.data.t.language[mentor.lang] }}</a>
-          {% else %}
-            {%if mentor.name and mentor.name!='' %}
-              <a class="{{ mentor.lang }}" onclick="javascript:languageSelect('{{ mentor.url | prepend: site.baseurl }}', '{{mentor.lang}}');">{{ site.data.t.language[mentor.lang] }}</a>
-            {% endif %}
-          {% endif %}
-          {% if forloop.last != true %}
-            &nbsp;&nbsp; | &nbsp;&nbsp;
-          {% endif %}
-        {% endfor %}
-        
-        {% assign pages=site.pages | where:"ref", page.ref | sort: 'lang' %}
-        {% for p in pages %}
-          {% if pagelang == p.lang %}
-            <a class="{{ p.lang }} selected" >{{ site.data.t.language[p.lang] }}</a>
-          {% else %}
-            <a class="{{ p.lang }}" onclick="javascript:languageSelect('{{ p.url | prepend: site.baseurl }}', '{{p.lang}}');">{{ site.data.t.language[p.lang] }}</a>
-          {% endif %}
-          {% if forloop.last != true %}
-            &nbsp;&nbsp; | &nbsp;&nbsp;
-          {% endif %}
-        {% endfor %}
-    </div-->
-  </div>
