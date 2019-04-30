@@ -21,56 +21,23 @@ body {
 </div>
 
 
-
-<!--div id="main" {% if page.lang=="ar" %}dir="rtl" {% endif %} data-selected-language="{{ page.lang }}">
-
-    <div id="search" style="color: #fff; font-family: Neue Haas Grotesk; line-height: 1.2; padding: 49.5px">
-        {% assign intro = site.texts | where:"ref", "intro" | first %}
-        <div style="text-align: justify;">{{intro.text}}</div>
-    </div>
-
-    <div id="mentor-list">
-        {% include category_cards.html %}  
-    </div>
-
-    <div style="text-align:center">
-        <a class="footer-button-big" href="#" style="color: white;
-        padding: 15px 20px;
-        background-color: #f16336;
-        border: 1px solid #fff;
-        margin: 5px;
-        border-radius: 5px;
-        text-transform: uppercase;
-        display: inline-block;
-        text-decoration: none;
-        transition: background-color 0.2s ease-in-out;
-        text-align: right;
-        font-family: Comfortaa, sans-serif;">Download Everything</a>
-        
-    </div>
-</div-->
-
-
 <script>
-
-$("#new-category").click(function() {
-    $("<div id=\"new-category\" class=\"mentor-card\" style=\"height: 376px;\">" +
-            "<div class=\"mentor-content sh-2 hv\" style=\"background: #efedee; border-color: black; border-style: solid;border-width: 5px; width: 255px; border-radius: 12px;\">"+
-                "<div class=\"category-title\" style=\"color: #ffffff; font-family: Pasajero, sans-serif; font-size: 25px; font-style: normal; font-weight: normal; color: white; padding:12px\">Click to add a new card</div>" +              
-                "<div style=\"background:white\">" +
-                    "<img src=\"nn\" height=\"200\" width=\"200\" style=\"padding-top: 35px;\">" +
+    $("#new-category").click(function() {
+        $("<div id=\"new-category\" class=\"mentor-card\" style=\"height: 376px;\">" +
+                "<div class=\"mentor-content sh-2 hv\" style=\"background: #efedee; border-color: black; border-style: solid;border-width: 5px; width: 255px; border-radius: 12px;\">"+
+                    "<div class=\"category-title\" style=\"color: #ffffff; font-family: Pasajero, sans-serif; font-size: 25px; font-style: normal; font-weight: normal; color: white; padding:12px\">Click to add a new card</div>" +              
+                    "<div style=\"background:white\">" +
+                        "<img src=\"nn\" height=\"200\" width=\"200\" style=\"padding-top: 35px;\">" +
+                    "</div>"+
+                    "<div style=\"background: white; padding: 17px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;\">" +
+                        "<div class=\"category-description\" style=\"font-family: Calibri Light, sans-serif; font-size: 13px; font-style: normal; font-weight: 300; line-height: 1.5;\">{{category.description}}</div>"+
+                    "</div>"+
                 "</div>"+
-                "<div style=\"background: white; padding: 17px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;\">" +
-                    "<div class=\"category-description\" style=\"font-family: Calibri Light, sans-serif; font-size: 13px; font-style: normal; font-weight: 300; line-height: 1.5;\">{{category.description}}</div>"+
-                "</div>"+
-            "</div>"+
-        "</div>").insertBefore("#new-category");
-});
+            "</div>").insertBefore("#new-category");
+    });
 
 
-$(".category-content").click(function() {
-    window.location.href = $(this).attr('data-url');
-});
-
-
+    $(".category-content").click(function() {
+        window.location.href = $(this).attr('data-url');
+    });
 </script>
