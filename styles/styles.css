@@ -581,5 +581,26 @@ ul.prompts li {
 
 @media only screen and (max-width: 320px) {
 
+  .category-content-1-column {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .category-content-2-column {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .provocation-card-inner {
+    width: 100%;
+  }
+
+  .provocation-card-front {
+    width: 100%
+  }
+
+  .provocation-card-outline {
+    width: 95%;
+  }
 
 }
