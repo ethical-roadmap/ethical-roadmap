@@ -545,9 +545,25 @@ ul.prompts li {
     font-family: Calibri;
 }
 
+.role-cards-list-padding {
+  padding-top: 0px;
+  padding-right: 40px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+}
+
 @media only screen and (max-width: 425px) {
 
   .category-section {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+}
+
+@media only screen and (max-width: 375px) {
+
+  .role-cards-list-padding {
     padding-left: 0px;
     padding-right: 0px;
   }
