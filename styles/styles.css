@@ -544,3 +544,12 @@ ul.prompts li {
 .provocation-card-back-subtitle {
     font-family: Calibri;
 }
+
+@media only screen and (max-width: 425px) {
+
+  .category-section {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+}
