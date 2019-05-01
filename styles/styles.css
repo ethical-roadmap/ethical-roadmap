@@ -552,6 +552,25 @@ ul.prompts li {
   padding-left: 40px;
 }
 
+.alphabet-letter-button {
+  font-weight: bold;
+  border-style: none;
+  font-size: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 2px;
+}
+
+.active_alphabet-letter-button {
+  cursor: pointer;
+}
+
+.active_alphabet-letter-button:hover {
+  outline-color: lightgrey;
+  outline-style: solid;
+  outline-width: 2px;
+}
+
 @media only screen and (max-width: 425px) {
 
   .category-section {
