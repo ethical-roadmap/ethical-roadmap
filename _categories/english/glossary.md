@@ -8,4 +8,7 @@ name: glossary
 image: >-
   https://raw.githubusercontent.com/lapc1995/qudwa/gh-pages/media/8.png
 description: TODO
+text_content:
+  - title: glossary of terms
+    text:
 ---

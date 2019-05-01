@@ -1,0 +1,25 @@
+---
+layout: category
+ref: glossary
+permalink: /en/glossary/
+---
+{% assign category = site.categories | where:"ref", "glossary" | first %}
+
+
+<div class="category-primary-header" style="background: {{category.color}};"> {{category.text_content[0].title}} </div>
+<div class="category-content-row">
+    <div class="category-content-1-column">
+        <div id="alphabet"> 
+
+        </div>
+        <div id="searchbar"> 
+
+        </div>
+        <div id="terms">
+            {% for a in site.glossary %}
+                <p>{{ a.title }}</p>
+                <p>{{ a.definition }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>

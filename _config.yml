@@ -66,6 +66,8 @@ collections:
     output: false
   provocation_ds_cards:
     output: false
+  glossary:
+    output: false
 
 languages:
   - name: 'English'
