@@ -577,6 +577,7 @@ ul.prompts li {
   padding-top: 10px;
   */
   padding-bottom: 20px;
+  text-align: left;
 }
 
 .termTitle {
@@ -588,6 +589,12 @@ ul.prompts li {
   text-align: justify;
 }
 
+.noSearchResults {
+  font-size: 20px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  text-align: center;
+}
 
 @media only screen and (max-width: 425px) {
 
