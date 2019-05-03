@@ -11,6 +11,10 @@ var terms = {
     }
     
 var idx = lunr(function () {
+
+    this.pipeline.remove(lunr.stemmer);
+    this.searchPipeline.remove(lunr.stemmer);
+
     this.ref('term');
     this.field('term');
     this.field('definition');
@@ -39,6 +43,12 @@ allTerms();
     
 function search(search_term) {
     var result = idx.search(search_term);
+
+    result = result.sort(function(a, b) {
+        if(a.ref < b.ref) return -1;
+        if(a.ref > b.ref) return 1;
+        return 0;
+    });
 
     var termsList = document.getElementById('terms');
     while (termsList.firstChild)
@@ -123,7 +133,17 @@ const typeHandler = function(e) {
         if (current.length > 0)
             current[0].classList.remove("active-alphabet-letter-button");
 
-        search('*' + e.target.value +  '*')
+        var inputs = e.target.value.split(" ");
+        var searchRegex = "";
+        for(var i = 0; i < inputs.length; i++) {
+            if(inputs[i] != "") {
+                if(i == inputs.length-1)
+                    searchRegex += (' +' + inputs[i] + '*');
+                else 
+                    searchRegex += (' +' + inputs[i]);
+            }
+        }
+        search(searchRegex);
     }
 }
 
