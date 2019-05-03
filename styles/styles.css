@@ -693,4 +693,9 @@ ul.prompts li {
     width: 95%;
   }
 
+  #home-container-padding {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
 }
