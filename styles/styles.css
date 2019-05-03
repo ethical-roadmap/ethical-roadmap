@@ -610,6 +610,38 @@ ul.prompts li {
   background: white;
 }
 
+.navigation-category {
+  height:100px;
+  width:100px;
+  cursor: pointer;
+  display: flex;
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-bottom: 5px;
+}
+
+.navigation-category-inner {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:90px;
+  height:90px; 
+  margin:auto; 
+  border-radius: 10px;
+}
+
+.navigation-category-text {
+  margin: auto;
+  font-family: Pasajero;
+  color: white;
+  font-size:14px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  padding-left: 9px;
+  padding-right: 9px;
+}
+
 @media only screen and (max-width: 425px) {
 
   .category-section {
