@@ -561,15 +561,33 @@ ul.prompts li {
   margin: 2px;
 }
 
-.active_alphabet-letter-button {
+.alphabet-letter-button:enabled {
   cursor: pointer;
 }
 
-.active_alphabet-letter-button:hover {
+.active-alphabet-letter-button, .alphabet-letter-button:hover:enabled {
   outline-color: lightgrey;
   outline-style: solid;
   outline-width: 2px;
 }
+
+.termBlock {
+  /*
+  border-bottom: 1px solid #ccc; 
+  padding-top: 10px;
+  */
+  padding-bottom: 20px;
+}
+
+.termTitle {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.termDefinition {
+  text-align: justify;
+}
+
 
 @media only screen and (max-width: 425px) {
 

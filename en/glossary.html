@@ -9,14 +9,16 @@ permalink: /en/glossary/
 <div class="category-primary-header" style="background: {{category.color}};"> {{category.text_content[0].title}} </div>
 <div class="category-content-row">
     <div class="category-content-1-column">
-        <div id="alphabet" style="padding-bottom: 30px; text-align: center; padding-top: 20px;"> 
-
+        <div id="alphabet" style="padding-bottom: 15px; text-align: center; padding-top: 20px;"> 
         </div>
-        <div id="searchbar"> 
-
+        <div id="searchbar" style="text-align: center; padding-bottom: 15px;"> 
+            <form>
+                <label for="search">Search</label>
+                <input id="searchInput" type="text" name="search">
+                <button type="button" onclick="clearSearch()"> Clear </button>
+            </form> 
         </div>
         <div id="terms">
-           
         </div>
     </div>
 </div>
@@ -62,29 +64,42 @@ var idx = lunr(function () {
 
 
 function allTerms() {
-    var html = '';
-    for (key in terms) {
-        html += termBlock(key, terms[key].definition) 
-    }
-    document.getElementById('terms').innerHTML = html;
+    var termsList = document.getElementById('terms');
+    while (termsList.firstChild)
+        termsList.removeChild(termsList.firstChild);
+
+    for (key in terms)
+        termsList.appendChild(termBlock(key, terms[key].definition));
 }
 
 allTerms();
 
 function search(search_term) {
     var result = idx.search(search_term);
-    var html_search_result = '';
-    for(var i = 0; i < result.length; i++) {
-        html_search_result += termBlock(result[i].ref, terms[result[i].ref].definition);
-    }
-    document.getElementById('terms').innerHTML = html_search_result;
+
+    var termsList = document.getElementById('terms');
+    while (termsList.firstChild)
+        termsList.removeChild(termsList.firstChild);
+
+    for(var i = 0; i < result.length; i++)
+        termsList.appendChild(termBlock(result[i].ref, terms[result[i].ref].definition));    
 }
 
 function termBlock(term, definition) {
-    return "<div style=\"padding-bottom: 20px;\">" +
-           "    <div style=\"font-weight: bold; font-size: 20px;\">" + term + "</div>" +
-           "    <div style=\"text-align: justify;\">" + definition + "</div>" +
-           "</div>";
+    var termBlock = document.createElement('div');
+    termBlock.className = "termBlock";
+    
+    var termTitle = document.createElement('div');
+    termTitle.className = "termTitle";
+    termTitle.innerText = term;
+    termBlock.appendChild(termTitle);
+
+    var termDefinition = document.createElement('div');
+    termDefinition.className = "termDefinition";
+    termDefinition.innerText = definition;
+    termBlock.appendChild(termDefinition);
+
+    return termBlock;
 }
 
 
@@ -92,40 +107,73 @@ function termBlock(term, definition) {
 
 
 <script>
-    function letterAsTerms(letter) {
-            return idx.search("category: c" + letter).length != 0;
-    }
+    var alphabetList = document.getElementById('alphabet');
 
-    var html = '<button class="alphabet-letter-button" onclick="allTerms()"> All </button>';;
-    var c;
-    for (var i = 65; 90 >= i; i++) {// A-65, Z-90
-        c = String.fromCharCode(i);
-        if(letterAsTerms(c))
-            html += '<button class="alphabet-letter-button active_alphabet-letter-button" onclick="search(\'category: c' + c + '\');">' + c + '</button>';
+    const letterSelectionHandler = function(e) {
+        var current = document.getElementsByClassName("active-alphabet-letter-button");
+
+        // If there's no active class
+        if (current.length > 0)
+            current[0].classList.remove("active-alphabet-letter-button");
+
+        // Add the active class to the current/clicked button
+        this.classList.add("active-alphabet-letter-button");
+
+        if(this.id == "alphabet-all-button")
+            allTerms();
         else
-            html += '<button disabled class="alphabet-letter-button" onclick="search(\'category: c' + c + '\');">' + c + '</button>';
-    }
-    document.getElementById('alphabet').innerHTML = html;
-
-// Get the container element
-var btnContainer = document.getElementById("alphabet");
-
-// Get all buttons with class="btn" inside the container
-var btns = btnContainer.getElementsByClassName("active_alphabet-letter-button");
-
-// Loop through the buttons and add the active class to the current/clicked button
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active");
-
-    // If there's no active class
-    if (current.length > 0) { 
-      current[0].className = current[0].className.replace(" active", "");
+            search('category: c' + this.innerText);
     }
 
-    // Add the active class to the current/clicked button
-    this.className += " active";
-  });
+    var allButton = document.createElement('button');
+    allButton.id = "alphabet-all-button";
+    allButton.classList.add("alphabet-letter-button");
+    allButton.classList.add("active-alphabet-letter-button");
+    allButton.innerText = "All";
+    allButton.addEventListener('click', letterSelectionHandler);
+    alphabetList.appendChild(allButton);
+
+
+    for (var i = 65; 90 >= i; i++) {// A-65, Z-90
+        
+        var letterButton = document.createElement('button');
+        letterButton.classList.add("alphabet-letter-button");
+        letterButton.innerText = String.fromCharCode(i);
+        
+        if(idx.search("category: c" + letterButton.innerText).length == 0) {
+            letterButton.setAttribute("disabled", "true");
+        } else {    
+            letterButton.addEventListener('click', letterSelectionHandler);
+        }
+    
+        alphabetList.appendChild(letterButton);
+    }
+
+    const typeHandler = function(e) {
+        if(e.target.value == '') {
+            clearSearch();
+        } else {
+            var current = document.getElementsByClassName("active-alphabet-letter-button");
+
+            if (current.length > 0)
+                current[0].classList.remove("active-alphabet-letter-button");
+
+            search('*' + e.target.value +  '*')
+        }
+    }
+
+var searchInput = document.getElementById("searchInput");
+searchInput.addEventListener('input', typeHandler);  // register for oninput
+searchInput.addEventListener('propertychange', typeHandler); // for IE8
+searchInput.addEventListener('change', typeHandler); // fallback for Firefox for <select><option>, for <input> oninput is enough
+
+function clearSearch() {
+    var searchInput = document.getElementById("searchInput");
+    if(searchInput.value != '') {
+        searchInput.value= '';
+        allTerms();
+        document.getElementsByClassName("alphabet-all-button")[0].className += " active-alphabet-letter-button ";
+    }
 }
 
 </script>
