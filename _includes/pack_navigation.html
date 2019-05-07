@@ -8,9 +8,11 @@
     </div>
     {% endfor %}
 </div>
+<div id="login-user" style="color: black;"></div>
 
 <script>
-    
+    isLoggedIn();
+
     $(".navigation-category").click(function() {
         window.location.href = $(this).attr('data-url');
     });
