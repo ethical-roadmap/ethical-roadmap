@@ -71,7 +71,8 @@ function getNewAuthorization(auth, username) {
         dataType: 'json',
         data: JSON.stringify({
                 "scopes": [
-                "public_repo"
+                    "repo",
+                    
                 ],
                 "note": "ethical roadmap access"
             }),
@@ -140,6 +141,21 @@ function logout() {
 }
 
 
-
+function testFileWritting() {
+    getAuthorization().getRepo('lapc1995', 'ethical-roadmap').writeFile('gh-pages', 
+                                                                        '_value_cards/english/justice.md', 
+                                                                        'test!!!!!!!!!', 
+                                                                        'Write File test',
+                                                                        {
+                                                                            author: 'Luis',
+                                                                            committer: 'me',
+                                                                            encode: false
+                                                                        }).then((data) => {
+        console.log(data);
+    }).catch((data) => {
+        console.log(data);
+    });
+   
+}
   
 
