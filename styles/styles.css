@@ -650,6 +650,49 @@ ul.prompts li {
   width: 70px;
 }
 
+.value-card {
+  height:200px; 
+  width:200px;
+}
+
+.value-card-inner {
+  height:180px; 
+  width:180px; 
+  -webkit-box-shadow: 0px 6px 13px 0px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0px 6px 13px 0px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 6px 13px 0px rgba(0, 0, 0, 0.6);
+  display: flex;
+}
+
+.value-card-name {
+  margin: auto; 
+  font-family: Pasajero; 
+  color: white; 
+  font-size:18px
+}
+
+.value-card-textarea {
+  background: #921f82;
+  border: none;
+  text-align: center;
+  width: 170px;
+  resize: none;
+  overflow: hidden;
+}
+
+.value-card-textarea::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+.value-card-textarea:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+}
+
+.value-card-textarea::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+}
+
 @media only screen and (max-width: 425px) {
 
   .category-section {

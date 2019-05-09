@@ -1,19 +1,57 @@
 {% assign values = site.categories | where:"ref", "values" | first %}
 {% assign value_cards = site.value_cards %}
-<div style="display: flex;
-padding: 20px;
-flex-direction: row;
-flex-wrap: wrap;
-justify-content: center;
-text-align: center;
-align-items: stretch;">
+<div id="value-card-list" class="card-list">
     {% for card in value_cards %}
-    <div style="height:200px; width:200px;">
-        <div style="height:180px; width:180px; background: {{values.color}};-webkit-box-shadow: 0px 6px 13px 0px rgba(0, 0, 0, 0.6);
-        -moz-box-shadow: 0px 6px 13px 0px rgba(0, 0, 0, 0.6);
-        box-shadow: 0px 6px 13px 0px rgba(0, 0, 0, 0.6); display: flex;">
-            <div style="margin: auto; font-family: Pasajero; color: white; font-size:18px">{{card.name}}</div>
+    <div class="value-card">
+        <div class="value-card-inner" style="background: {{values.color}};">
+            <div class="value-card-name">{{card.name}}</div>
         </div>
     </div>
     {% endfor %}
+    <div id="add-value-card" class="value-card" style="cursor: pointer;" onclick="createNewValueCard()">
+            <div class="value-card-inner" style="background: white;">
+                <div class="value-card-name" style="color: {{values.color}};font-weight: bold;font-size: 60px;">+</div>
+            </div>
+    </div>
 </div>
+
+<script>
+
+function createNewValueCard() {
+    var newValueCard = document.createElement('div');
+    newValueCard.classList.add('new-value-card');
+    newValueCard.classList.add('value-card');
+
+    var newValueCardInner = document.createElement('div');
+    newValueCardInner.classList.add('value-card-inner');
+    newValueCardInner.style = "background: {{values.color}};";
+    newValueCard.appendChild(newValueCardInner);
+
+    var newValueCardTextArea = document.createElement('textarea');
+    newValueCardTextArea.classList.add('value-card-name');
+    newValueCardTextArea.classList.add('value-card-textarea');
+    newValueCardTextArea.placeholder = "add card name";
+    newValueCardTextArea.setAttribute('maxlength', '32');
+    newValueCardTextArea.style = "height: 20px;";
+    newValueCardTextArea.addEventListener('keyup', function() {
+        textareaAutoGrow(newValueCardTextArea, 20);
+    });
+    newValueCardInner.appendChild(newValueCardTextArea);
+
+    document.getElementById('value-card-list').insertBefore(newValueCard, document.getElementById('add-value-card'));
+}
+
+function textareaAutoGrow(element, size) {
+    element.style.height = size+"px";
+    element.style.height = (element.scrollHeight)+"px";
+}
+
+function writeValueCards() {
+    var newCards = document.getElementsByClassName('value-card-textarea');
+    for(var i = 0; i < newCards.length; i++) {
+       writeValueCard("{{ values.lang }}", newCards[i].value);
+    }
+}
+
+
+</script>

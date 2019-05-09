@@ -140,16 +140,47 @@ function logout() {
     window.location.replace("{{site.baseurl}}/");
 }
 
+function valueCardFileContent(ref, lang, sequence, name) {
+    return  `---
+             ref: ${ref}
+             lang: ${lang}
+             sequence: ${sequence}
+             name: ${name}
+             ---`
+}
+
+function writeValueCard(lang, text) {
+ 
+    var filename = text.split(' ').join('-');
+
+    let langFolder;
+    if(lang == 'en') {
+        langFolder='english'; 
+    } 
+ 
+    var path = `_value_cards/${langFolder}/${filename}.md`;
+    var sequence = document.getElementsByClassName('value-card').length - 1;
+
+    getAuthorization().getRepo('lapc1995', 'ethical-roadmap')
+        .writeFile('gh-pages', 
+                    path, 
+                    valueCardFileContent(filename, lang, sequence, text), 
+                    `Added new value card ${path}`,
+                    { encode: true }).then((data) => {
+                        console.log(data);
+                    }).catch((data) => {
+                        console.log(data);
+                    });
+}
 
 function testFileWritting() {
     getAuthorization().getRepo('lapc1995', 'ethical-roadmap').writeFile('gh-pages', 
-                                                                        '_value_cards/english/justice.md', 
-                                                                        'test!!!!!!!!!', 
-                                                                        'Write File test',
+                                                                        '_value_cards/english/test1.md', 
+                                                                        'why', 
+                                                                        'test',
                                                                         {
-                                                                            author: 'Luis',
-                                                                            committer: 'me',
-                                                                            encode: false
+                                            
+                                                                            encode: true
                                                                         }).then((data) => {
         console.log(data);
     }).catch((data) => {
