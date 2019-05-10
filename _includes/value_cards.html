@@ -3,10 +3,10 @@
 <div id="value-card-list" class="card-list">
     {% for card in value_cards %}
     <div class="value-card">
-        <div class="value-card-inner" style="background: {{values.color}}; position: relative;">
+        <div class="value-card-inner" style="background: {{ values.color }};">
             <div class="value-card-name">{{card.name}}</div>
             <div class="deleteValueCardButtonContainer">
-                <button class="deleteValueCardButton" onclick="removeValueCard(this)">
+                <button class="deleteValueCardButton" onclick="removeValueCard(this, '{{ card.ref }}')">
                     <img src="{{site.baseurl}}/assets/images/remove_logo.png" width="25px">
                 </button>
             </div>
@@ -19,11 +19,23 @@
             </div>
     </div>
 </div>
+<div id="edit-buttons-container">
+    <button class=edit-button onclick="saveValueCards()">
+        <img src="{{site.baseurl}}/assets/images/save.png" width="50px" height="50px">
+    </button>
+    <button class="edit-button" onclick="undoAll()">
+        <img src="{{site.baseurl}}/assets/images/undo.png" width="50px" height="50px">
+    </button>
+</div>
 
 
 <script>
 
+var valueCardsToBeRemoved = [];
+
 function createNewValueCard() {
+
+    //regenerate new value card
     var newValueCard = document.createElement('div');
     newValueCard.classList.add('new-value-card');
     newValueCard.classList.add('value-card');
@@ -52,7 +64,7 @@ function createNewValueCard() {
 
     var deleteButtonImg = document.createElement('img');
     deleteButtonImg.src = "{{site.baseurl}}/assets/images/remove_logo.png";
-    deleteButtonImg.width = "25px";
+    deleteButtonImg.setAttribute('width', '25px');
     deleteButton.appendChild(deleteButtonImg);
 
     var deleteButtonContainer = document.createElement('div');
@@ -61,6 +73,9 @@ function createNewValueCard() {
     newValueCardInner.appendChild(deleteButtonContainer);
 
     document.getElementById('value-card-list').insertBefore(newValueCard, document.getElementById('add-value-card'));
+
+    //Show save and undo buttons
+    document.getElementById('edit-buttons-container').style.display = 'block';
 }
 
 function textareaAutoGrow(element, size) {
@@ -68,16 +83,65 @@ function textareaAutoGrow(element, size) {
     element.style.height = (element.scrollHeight)+"px";
 }
 
-function writeValueCards() {
-    var newCards = document.getElementsByClassName('value-card-textarea');
+function saveValueCards() {
+    var newCards = document.querySelectorAll('.value-card-textarea');
     for(var i = 0; i < newCards.length; i++) {
-       writeValueCard("{{ values.lang }}", newCards[i].value);
+        
+        //Replace input with div
+        var parent = newCards[i].parentElement;
+        parent.removeChild(newCards[i]);
+
+        var cardName = document.createElement('div');
+        cardName.classList.add('value-card-name');
+        cardName.innerText = newCards[i].value;
+
+        parent.appendChild(cardName);
+      
+        //Push new value card to repo
+        writeValueCard("{{ values.lang }}", newCards[i].value);
     }
+
+      //Hide editing buttons
+      document.getElementById('edit-buttons-container').style.display = 'none';
 }
 
-function removeValueCard(e) {
+function removeValueCard(e, ref) {
     var valueCard = e.closest(".value-card");
     document.getElementById("value-card-list").removeChild(valueCard);
+
+    //Show save and undo buttons
+    document.getElementById('edit-buttons-container').style.display = 'block';
+
+    //Add card reference to list of cards to be removed
+    if(!valueCard.classList.contains('new-value-card')) 
+        valueCardsToBeRemoved.push({
+                                        'ref': ref,
+                                        'component': valueCard  
+                                    });
 }
+
+function undoAll() {
+
+    //Add all cards removed
+    for(var i = 0; i < valueCardsToBeRemoved.length; i++)
+        document.getElementById('value-card-list').insertBefore(valueCardsToBeRemoved[i].component, document.getElementById('add-value-card'));
+
+    //Remove all references to cards to be removed
+    valueCardsToBeRemoved = [];
+
+    //Remove all new cards added
+    var newCards = document.querySelectorAll('.new-value-card');
+    console.log(newCards);
+    
+    for(var j = 0; j < newCards.length; j++) {
+        document.getElementById('value-card-list').removeChild(newCards[j]);
+    }
+
+    //Hide editing buttons
+    document.getElementById('edit-buttons-container').style.display = 'none';
+
+}
+
+
 
 </script>
