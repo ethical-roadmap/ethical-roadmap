@@ -693,6 +693,23 @@ ul.prompts li {
   color: white;
 }
 
+.deleteValueCardButtonContainer {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  display: none;
+}
+
+.deleteValueCardButton {
+  background: none;
+  border: none;
+  padding: 0px;
+}
+
+.value-card-inner:hover .deleteValueCardButtonContainer {
+  display: flex;
+}
+
 @media only screen and (max-width: 425px) {
 
   .category-section {

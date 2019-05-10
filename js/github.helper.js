@@ -142,17 +142,17 @@ function logout() {
 
 function valueCardFileContent(ref, lang, sequence, name) {
     return  (
-                `---
-                ref: ${ref}
-                lang: ${lang}
-                sequence: ${sequence}
-                name: ${name}
-                ---`
-            );
+`---
+ref: ${ref}
+lang: ${lang}
+sequence: ${sequence}
+name: ${name}
+---`);
 }
 
 function writeValueCard(lang, text) {
  
+    console.log(text);
     var filename = text.split(' ').join('-');
 
     let langFolder;
