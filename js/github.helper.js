@@ -81,6 +81,7 @@ function getNewAuthorization(auth, username) {
                 console.log(data);
                 sessionStorage.setItem("_u", username);
                 sessionStorage.setItem("_t", data.token);
+                sessionStorage.setItem("isLoggedIn", true);
                 console.log("Login successful");
                 window.location.replace("{{site.baseurl}}/");
             } else {
@@ -95,24 +96,29 @@ function getNewAuthorization(auth, username) {
             s.innerText = "Login failed";
             if(document.getElementById("login_info") != null)
                 document.getElementById("login_info").appendChild(s);
+            sessionStorage.setItem("isLoggedIn", false);
         }
     });
 }
 
-
-function getAuthorization() {
-    if(sessionStorage.getItem('_u') == null && sessionStorage.getItem('_t') == null) {
-        return null;
-    } else {
-        return new GitHub({
-                    username: sessionStorage.getItem('_u'),
-                    token: sessionStorage.getItem('_t')
-                });
-    }
+function isLoggedIn(){
+    return (
+                (typeof(Storage) !== "undefined") && 
+                (sessionStorage.getItem('isLoggedIn') != null) &&
+                (sessionStorage.getItem('isLoggedIn') == 'true') &&
+                (sessionStorage.getItem('_u') != null) && 
+                (sessionStorage.getItem('_t') != null)
+           );
 }
 
-function isLoggedIn() {
-    var gh = getAuthorization();
+function getGitHubHelper() {
+    return isLoggedIn() ? new GitHub({username: sessionStorage.getItem('_u'), token: sessionStorage.getItem('_t')}) : null;
+}
+
+
+function packNavigationLogin() {
+    var gh = getGitHubHelper();
+    console.log(gh);
     if(gh != null) {
         gh.getUser().getProfile().then((data) => {
             var username = document.createElement('div');
@@ -137,6 +143,7 @@ function isLoggedIn() {
 function logout() {
     sessionStorage.removeItem('_u');
     sessionStorage.removeItem('_t');
+    sessionStorage.setItem("isLoggedIn", false);
     window.location.replace("{{site.baseurl}}/");
 }
 
