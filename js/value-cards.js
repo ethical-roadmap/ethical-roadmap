@@ -70,11 +70,6 @@ function createNewValueCard() {
     }
 }
 
-function textareaAutoGrow(element, size) {
-    element.style.height = size+"px";
-    element.style.height = (element.scrollHeight)+"px";
-}
-
 function saveValueCards() {
     if(isLoggedIn()) {
         var newCards = document.querySelectorAll('.value-card-textarea');

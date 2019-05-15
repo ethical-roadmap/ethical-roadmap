@@ -673,7 +673,7 @@ ul.prompts li {
   font-size:18px
 }
 
-.value-card-textarea {
+.value-card-textarea {  
   background: #921f82;
   border: none;
   text-align: center;
@@ -682,17 +682,40 @@ ul.prompts li {
   overflow: hidden;
 }
 
-.value-card-textarea::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+.role-card-textarea {
+  padding: 0px;
+  background: #d8b43b;
+  width: 100%;
+  border: none;
+  text-align: center;
+  resize: none;
+  overflow: hidden;
+}
+
+.value-card-textarea::placeholder, .role-card-textarea::placeholder{ /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: white;
   opacity: 1; /* Firefox */
 }
 
-.value-card-textarea:-ms-input-placeholder { /* Internet Explorer 10-11 */
+.value-card-textarea:-ms-input-placeholder, .role-card-textarea:-ms-input-placeholder{ /* Internet Explorer 10-11 */
   color: white;
 }
 
-.value-card-textarea::-ms-input-placeholder { /* Microsoft Edge */
+.value-card-textarea::-ms-input-placeholder, .role-card-textarea::-ms-input-placeholder{ /* Microsoft Edge */
   color: white;
+}
+
+.role-card-back-type::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #d8b43b;
+  opacity: 1; /* Firefox */
+}
+
+.role-card-back-type:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #d8b43b;
+}
+
+.role-card-back-type::-ms-input-placeholder { /* Microsoft Edge */
+  color: #d8b43b;
 }
 
 .deleteValueCardButtonContainer {
@@ -734,6 +757,24 @@ ul.prompts li {
   display: none;
   width: 100%;
   text-align: center
+}
+
+.role-card-contribution-textarea {
+  text-align: left;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  color: black;
+  font-family: Calibri;
+  margin: 11px 1px 11px 0px;
+  width: 224px;
+  resize: none;
+  border: none;
+  font-family: Calibri;
+  font-size: 16px;
+  height: 16px;
 }
 
 @media only screen and (max-width: 425px) {

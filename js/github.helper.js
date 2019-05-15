@@ -159,7 +159,6 @@ name: ${name}
 
 function writeValueCard(lang, text) {
  
-    console.log(text);
     var filename = text.split(' ').join('-');
 
     let langFolder;
@@ -182,6 +181,50 @@ function writeValueCard(lang, text) {
                     });
 }
 
+function roleCardFileContent(ref, lang, sequence, name, subname, contributions, type) {
+    var formatedContributions = '';
+    for(var i = 0; i < contributions.length; i++) {
+        formatedContributions += `- ${contributions[i]}
+`
+    }
+
+    return (
+`---
+ref: ${ref}
+lang: ${lang}
+sequence: ${sequence}
+name: ${name}
+subname: ${subname}
+contribution:
+${formatedContributions}
+type: ${type}
+---`);        
+}
+
+function writeRoleCard(lang, name, subname, contributions, type) {
+    var filename = name.split(' ').join('-');
+
+    let langFolder;
+    if(lang == 'en') {
+        langFolder='english'; 
+    } 
+ 
+    var path = `_value_cards/${langFolder}/${filename}.md`;
+    var sequence = document.getElementsByClassName('flip-card').length + 1;
+
+    getAuthorization().getRepo('lapc1995', 'ethical-roadmap')
+        .writeFile('gh-pages', 
+                    path, 
+                    roleCardFileContent(filename, lang, sequence, name, subname, contributions, type), 
+                    `Added new role card ${path}`,
+                    { encode: true }).then((data) => {
+                        console.log(data);
+                    }).catch((data) => {
+                        console.log(data);
+                    });
+}
+
+
 function testFileWritting() {
     getAuthorization().getRepo('lapc1995', 'ethical-roadmap').writeFile('gh-pages', 
                                                                         '_value_cards/english/test1.md', 
@@ -195,7 +238,13 @@ function testFileWritting() {
     }).catch((data) => {
         console.log(data);
     });
-   
+
 }
+
+function textareaAutoGrow(element, size) {
+    element.style.height = size+"px";
+    element.style.height = (element.scrollHeight)+"px";
+}
+
   
 
