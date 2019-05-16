@@ -1,0 +1,20 @@
+{% assign category = site.categories | where:"ref", include.ref | first %}
+{% assign sequence_number = category.sequence %}
+
+{% if sequence_number == 1 %}
+
+    <i class="fas fa-arrow-circle-right" style="position: fixed; right: 10px; top: 50%; font-size: 100px"></i>
+
+    {% elsif sequence_number == site.categories.size %}
+
+    <i class="fas fa-arrow-circle-left" style="position: fixed; left: 10px; top: 50%; font-size: 100px"></i>
+
+{% else %}
+    <i class="fas fa-arrow-circle-right" style="position: fixed; right: 10px; top: 50%; font-size: 100px"></i>
+
+    <i class="fas fa-arrow-circle-left" style="position: fixed; left: 10px; top: 50%; font-size: 100px"></i>
+
+{% endif %}
+
+
+

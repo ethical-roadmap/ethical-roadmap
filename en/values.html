@@ -5,6 +5,8 @@ permalink: /en/values/
 ---
 {% assign values = site.categories | where:"ref", "values" | first %}
 
+{% include pack-navigation-arrows.html ref=values.ref %}
+
 <div class="category-primary-header" style="background: {{values.color}};"> {{values.text_content[0].title}} </div>
 <div class="category-content-row">
     <div class="category-content-1-column">
