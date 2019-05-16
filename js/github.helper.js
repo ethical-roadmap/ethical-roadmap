@@ -116,27 +116,73 @@ function getGitHubHelper() {
 }
 
 
-function packNavigationLogin() {
+function packNavigationLogin(lang) {
     var gh = getGitHubHelper();
     console.log(gh);
     if(gh != null) {
-        gh.getUser().getProfile().then((data) => {
-            var username = document.createElement('div');
-            username.innerText = data.data.name;
-            document.getElementById("login-user").appendChild(username);
 
-            var logoutButton = document.createElement('button');
-            logoutButton.innerText = "Logout";
-            logoutButton.style = "color: black;"
-            document.getElementById("login-user").appendChild(logoutButton);
-            logoutButton.addEventListener("click", logout);
+        gh.getUser().getProfile().then((data) => {
+
+            var loggedInContainerBig = document.createElement('div');
+            loggedInContainerBig.style = "color: black; display: flex; align-items: center; justify-content: center;";
+            
+            var usernameSpan = document.createElement('span');
+            usernameSpan.innerText = `Hi ${data.data.name}!`;
+            loggedInContainerBig.appendChild(usernameSpan);
+
+            var logoutButtonBig = document.createElement('button');
+            logoutButtonBig.style = "color: black; background: none; border: none; padding 0px; cursor: pointer;";
+            logoutButtonBig.title = 'Logout';
+            logoutButtonBig.addEventListener("click", logout);
+            loggedInContainerBig.appendChild(logoutButtonBig);
+
+            var logoutImg = document.createElement('img');
+            logoutImg.src = '{{site.baseurl}}/assets/images/logout.png';
+            logoutImg.setAttribute('width', '20px');
+            logoutImg.setAttribute('height', '20px');
+            logoutButtonBig.appendChild(logoutImg);
+
+            var headerBig = document.getElementById('login-header-big');
+            headerBig.style.width = 'auto';
+            headerBig.appendChild(loggedInContainerBig);
+
+            document.getElementById('login-header-small').appendChild(loggedInContainerBig.cloneNode(true));
         });
+
     } else {
-        var loginButton = document.createElement('a');
-        loginButton.innerText = "Login";
-        loginButton.href = "{{site.baseurl}}/en/login/";
-        loginButton.style = "color: black;"
-        document.getElementById("login-user").appendChild(loginButton);
+
+        var loginButtonBig = document.createElement('a');
+        loginButtonBig.href = `{{site.baseurl}}/${lang}/login`;
+        document.getElementById('login-header-big').appendChild(loginButtonBig);
+
+        var loginImgBig = document.createElement('img');
+        loginImgBig.src = "{{site.baseurl}}/assets/images/login.png";
+        loginImgBig.alt = "Login";
+        loginImgBig.title = "Login";
+        loginImgBig.style.width = "100%"; 
+        loginButtonBig.appendChild(loginImgBig);
+
+        var loginButtonSmall = document.createElement('a');
+        loginButtonSmall.href = `{{site.baseurl}}/${lang}/login`;
+        loginButtonSmall.style.color = 'black';
+        document.getElementById('login-header-small').appendChild(loginButtonSmall);
+
+        var loginButtonSmallContainer = document.createElement('div');
+        loginButtonSmallContainer.style = "display: flex; align-items: center; height: 100%; text-align: center; justify-content:center;"
+        loginButtonSmall.appendChild(loginButtonSmallContainer);
+
+        var loginImgSmall = document.createElement('img');
+        loginImgSmall.src = src="{{site.baseurl}}/assets/images/login.png";
+        loginImgSmall.alt = "Login";
+        loginImgSmall.title = "Login";
+        loginImgSmall.style.height = "100%"; 
+        loginButtonSmallContainer.appendChild(loginImgSmall);
+
+        var loginSpan = document.createElement('span');
+        loginSpan.innerText = "Login";
+        loginSpan.style.paddingLeft = "5px";
+        loginButtonSmallContainer.appendChild(loginSpan);
+
     }
 }
 

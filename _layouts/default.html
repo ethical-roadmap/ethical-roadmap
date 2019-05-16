@@ -111,6 +111,14 @@
         <a id='cookie-accept' href="#" onclick="allowAllCookies()">{{ site.data.t.allow_cookies[page.lang] }}</a>
     </div>
 
+
+    <script>
+        packNavigationLogin("{{ page.lang }}");
+    
+    </script>
+
+
+
     <script src="{{ site.baseurl }}/js/{{ pagelang }}/index.js"></script>
     <script src="{{ site.baseurl }}/js/{{ pagelang }}/form-validation.js"></script>
     <script>

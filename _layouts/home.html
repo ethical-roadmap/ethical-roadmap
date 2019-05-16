@@ -22,22 +22,9 @@ body {
 
 
 <script>
-    $("#new-category").click(function() {
-        $("<div id=\"new-category\" class=\"mentor-card\" style=\"height: 376px;\">" +
-                "<div class=\"mentor-content sh-2 hv\" style=\"background: #efedee; border-color: black; border-style: solid;border-width: 5px; width: 255px; border-radius: 12px;\">"+
-                    "<div class=\"category-title\" style=\"color: #ffffff; font-family: Pasajero, sans-serif; font-size: 25px; font-style: normal; font-weight: normal; color: white; padding:12px\">Click to add a new card</div>" +              
-                    "<div style=\"background:white\">" +
-                        "<img src=\"nn\" height=\"200\" width=\"200\" style=\"padding-top: 35px;\">" +
-                    "</div>"+
-                    "<div style=\"background: white; padding: 17px; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;\">" +
-                        "<div class=\"category-description\" style=\"font-family: Calibri Light, sans-serif; font-size: 13px; font-style: normal; font-weight: 300; line-height: 1.5;\">{{category.description}}</div>"+
-                    "</div>"+
-                "</div>"+
-            "</div>").insertBefore("#new-category");
-    });
-
 
     $(".category-content").click(function() {
         window.location.href = $(this).attr('data-url');
     });
+    
 </script>
