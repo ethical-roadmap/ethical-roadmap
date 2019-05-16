@@ -1,5 +1,5 @@
 {% assign categories = site.categories | sort: 'sequence' %}
-<div class="card-list">
+<div id="pack-navigation-menu" class="card-list">
     {% for category in categories %}
     <div class="category navigation-category" data-ref="{{category.ref}}" data-color="{{category.color}}" data-url="{{ site.baseurl }}{{category.url}}/" style="{% if page.ref==category.ref %} outline-color: {{category.color}}; outline-style: double; {% endif %}">
         <div class="navigation-category-inner" style="background: {{category.color}};">
@@ -8,7 +8,6 @@
     </div>
     {% endfor %}
 </div>
-<div id="login-user" style="color: black;"></div>
 
 <script>
     packNavigationLogin();

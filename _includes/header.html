@@ -1,13 +1,31 @@
-<div id="header" style="text-align: center">
-  <a id="logo-link" href="{{site.baseurl}}/">
-    <div id="logo-img">
+<div id="header" style="text-align: center; position: relative">
+
+  <div id="login-header-big">
+      <a  href="{{site.baseurl}}/en/login">
+          <img src="{{site.baseurl}}/assets/images/login.png" alt="Login" title="Login" style="width: 100%;">        
+      </a>
+  </div>
+  
+  <div id="logo-img">
+    <a id="logo-link" href="{{site.baseurl}}/">
       <img src="{{site.baseurl}}/assets/images/new_logo.PNG" alt="Ethical Roadmap" title="Ethical Roadmap" height="80" style="display: inline-block;
       padding-top: 10px;
       width: 100%;
       max-width: 400px;
-      height: auto;">        
-    </div>
-  </a>
+      height: auto;">   
+    </a>     
+  </div>
+  
   {% include pack_navigation.html %}
+
+  <div id="login-header-small">
+    <a  href="{{site.baseurl}}/en/login" style="color: black">
+      <div style="display: flex; align-items: center; height: 100%; text-align: center; justify-content:center;">
+        <img src="{{site.baseurl}}/assets/images/login.png" alt="Login" title="Login" style="height: 100%;">
+        Login        
+      </div>
+    </a>
+  </div>
+
 </div>
 
