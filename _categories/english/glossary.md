@@ -6,7 +6,7 @@ sequence: 8
 color: "#595958"
 name: glossary
 image: >-
-  https://raw.githubusercontent.com/lapc1995/qudwa/gh-pages/media/8.png
+  8.png
 description: TODO
 text_content:
   - title: glossary of terms

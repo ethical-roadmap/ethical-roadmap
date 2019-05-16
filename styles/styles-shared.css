@@ -495,6 +495,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     padding: 10px 0;
+    align-items: center;
 }
 
 #footer #footer-left,
