@@ -1,19 +1,20 @@
 {% assign category = site.categories | where:"ref", include.ref | first %}
 {% assign sequence_number = category.sequence %}
 
-{% if sequence_number == 1 %}
+{% if sequence_number > 1 %}
+    {% assign previous_sequence = sequence_number | minus:1 %}
+    {% assign previous_category = site.categories | where:"sequence", previous_sequence | first %}
+    <a href="{{ site.baseurl }}{{previous_category.url}}/">
+        <i class="fas fa-arrow-circle-left" style="position: fixed; left: 10px; top: 50%; font-size: 100px; color: {{previous_category.color}};"></i>
+    </a>
+{% endif %}
 
-    <i class="fas fa-arrow-circle-right" style="position: fixed; right: 10px; top: 50%; font-size: 100px"></i>
-
-    {% elsif sequence_number == site.categories.size %}
-
-    <i class="fas fa-arrow-circle-left" style="position: fixed; left: 10px; top: 50%; font-size: 100px"></i>
-
-{% else %}
-    <i class="fas fa-arrow-circle-right" style="position: fixed; right: 10px; top: 50%; font-size: 100px"></i>
-
-    <i class="fas fa-arrow-circle-left" style="position: fixed; left: 10px; top: 50%; font-size: 100px"></i>
-
+{% if sequence_number < site.categories.size %}
+    {% assign next_sequence = sequence_number | plus:1 %}
+    {% assign next_category = site.categories | where:"sequence", next_sequence | first %}
+    <a href="{{ site.baseurl }}{{next_category.url}}/">
+        <i class="fas fa-arrow-circle-right" style="position: fixed; right: 10px; top: 50%; font-size: 100px; color: {{next_category.color}};"></i>
+    </a>
 {% endif %}
 
 

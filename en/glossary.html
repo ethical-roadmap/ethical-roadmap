@@ -5,6 +5,7 @@ permalink: /en/glossary/
 ---
 {% assign category = site.categories | where:"ref", "glossary" | first %}
 
+{% include pack-navigation-arrows.html ref=category.ref %}
 
 <div class="category-primary-header" style="background: {{category.color}};"> {{category.text_content[0].title}} </div>
 <div class="category-content-row">

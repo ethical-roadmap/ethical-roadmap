@@ -1,19 +1,17 @@
 {% assign categories = site.categories | sort: 'sequence' %}
 <div id="pack-navigation-menu" class="card-list">
     {% for category in categories %}
-    <div class="category navigation-category" data-ref="{{category.ref}}" data-color="{{category.color}}" data-url="{{ site.baseurl }}{{category.url}}/" style="{% if page.ref==category.ref %} outline-color: {{category.color}}; outline-style: double; {% endif %}">
-        <div class="navigation-category-inner" style="background: {{category.color}};">
-            <div class="navigation-category-text">{{category.name}}</div>
+    <a href="{{ site.baseurl }}{{category.url}}/">
+        <div class="category navigation-category" data-ref="{{category.ref}}" data-color="{{category.color}}" style="{% if page.ref==category.ref %} outline-color: {{category.color}}; outline-style: double; {% endif %}">
+            <div class="navigation-category-inner" style="background: {{category.color}};">
+                <div class="navigation-category-text">{{category.name}}</div>
+            </div>
         </div>
-    </div>
+    </a>
     {% endfor %}
 </div>
 
 <script>
-    $(".navigation-category").click(function() {
-        window.location.href = $(this).attr('data-url');
-    });
-
     $(".navigation-category").hover(function() {
         $(this).css("outline-color", $(this).attr('data-color'));
         $(this).css("outline-style", "double");

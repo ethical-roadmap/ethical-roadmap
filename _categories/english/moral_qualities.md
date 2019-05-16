@@ -1,5 +1,5 @@
 ---
-ref: moral_qualities
+ref: moral-qualities
 lang: en
 categories: en
 sequence: 3

@@ -1,9 +1,11 @@
 ---
 layout: category
-ref: warp_&_weft
+ref: warp-weft
 permalink: /en/warp-weft/
 ---
-{% assign category = site.categories | where:"ref", "warp_&_weft" | first %}
+{% assign category = site.categories | where:"ref", "warp-weft" | first %}
+
+{% include pack-navigation-arrows.html ref=category.ref %}
 
 <div class="category-primary-header" style="background: {{category.color}};"> {{category.text_content[0].title}} </div>
 <div class="category-content-row">

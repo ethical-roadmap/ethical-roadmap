@@ -1,5 +1,5 @@
 ---
-ref: warp_&_weft
+ref: warp-weft
 lang: en
 categories: en
 sequence: 7

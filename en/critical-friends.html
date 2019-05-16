@@ -1,9 +1,11 @@
 ---
 layout: category
-ref: critical_friends
+ref: critical-friends
 permalink: /en/critical-friends/
 ---
-{% assign category = site.categories | where:"ref", "critical_friends" | first %}
+{% assign category = site.categories | where:"ref", "critical-friends" | first %}
+
+{% include pack-navigation-arrows.html ref=category.ref %}
 
 <div class="category-primary-header" style="background: {{category.color}};"> {{category.text_content[0].title}} </div>
 <div class="category-content-row">

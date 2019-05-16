@@ -1,5 +1,5 @@
 ---
-ref: team_members
+ref: team-members
 lang: en
 categories: en
 sequence: 2

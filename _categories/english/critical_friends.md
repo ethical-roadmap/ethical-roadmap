@@ -1,5 +1,5 @@
 ---
-ref: critical_friends
+ref: critical-friends
 lang: en
 categories: en
 sequence: 4
