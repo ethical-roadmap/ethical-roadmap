@@ -1,21 +1,10 @@
 {% assign values = site.categories | where:"ref", "values" | first %}
 {% assign lenses = site.lenses %}
-<div style="display: flex;
-padding: 20px;
-flex-direction: row;
-flex-wrap: wrap;
-justify-content: center;
-text-align: center;
-align-items: stretch;">
+<div class="card-list">
     {% for lens in lenses %}
-    <div style="height:240px; width:310px;  position: relative;
-    text-align: center;">
-        <img src="{{site.baseurl}}/assets/images/lens02.png" alt="Values" title="Values" style="width: 300px;">
-        <div style="font-family: Pasajero; color: black; font-size:18px; position: absolute;
-        top: 108px;
-        width: 182px;
-        height: 21px;
-        ">{{lens.name}}</div>
+    <div class="lens-container">
+        <img src="{{site.baseurl}}/assets/images/lens_new.png" alt="Values" title="Values" style="width: 300px;">
+        <div class="lens-text">{{lens.name}}</div>
     </div>
     {% if forloop.last == false %}
     {% endif %} {% endfor %}

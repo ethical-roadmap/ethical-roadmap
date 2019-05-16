@@ -164,7 +164,8 @@ ul.prompts li {
     padding-left: 50px;
     padding-right: 50px;
     padding-bottom: 10px;
-    font-family: Calibri
+    font-family: Calibri;
+    text-align: justify;
 }
 
 .category-content-2-column {
@@ -172,6 +173,7 @@ ul.prompts li {
     min-width: 250px;
     padding: 30px;
     font-family: Calibri;
+    text-align: justify;
 }
 
 .download-button {
@@ -796,6 +798,36 @@ ul.prompts li {
   height: 20px;
   display: none;
   padding-bottom: 10px;
+}
+
+.download-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lens-text {
+  font-family: Pasajero;
+  color: black;
+  font-size: 18px;
+  position: absolute;
+  top: 65px;
+  left: 18px;
+  width: 120px;
+  height: 21px;
+}
+
+.lens-container {
+  height:167px;
+  width:310px;
+  position: relative;
+  text-align: center;
+  margin: 20px;
+}
+
+.horizontal-divider {
+  border-bottom: 0.1px solid lightgray;
+  width: 80%;
 }
 
 @media only screen and (max-width: 750px) {
