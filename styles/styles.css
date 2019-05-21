@@ -185,13 +185,13 @@ ul.prompts li {
     border: 1px solid #fff;
     margin: 5px;
     border-radius: 5px;
-    text-transform: uppercase;
+    text-transform: lowercase;
     display: inline-block;
     text-decoration: none;
     transition: background-color 0.2s ease-in-out;
     -webkit-transition: background-color 0.2s ease-in-out;
     text-align: right;
-    font-family: Comfortaa, sans-serif;
+    font-family: Pasajero;
     width: 250px;
     text-align: center;
 }
@@ -203,13 +203,13 @@ ul.prompts li {
   border: 1px solid #f16336;
   margin: 5px;
   border-radius: 5px;
-  text-transform: uppercase;
+  text-transform: lowercase;
   display: inline-block;
   text-decoration: none;
   transition: background-color 0.2s ease-in-out;
   -webkit-transition: background-color 0.2s ease-in-out;
   text-align: right;
-  font-family: Comfortaa, sans-serif;
+  font-family: Pasajero;
   width: 250px;
   text-align: center;
 }
