@@ -1,21 +1,25 @@
 ---
-layout: category
+layout: default
 permalink: /en/login/
 ---
 
-<div class="category-primary-header" style="background: black;"> <img src="{{site.baseurl}}/assets/images/GitHub_Logo.png" style="width:100%;"> </div>
-<div class="category-content-row">
-    <div class="category-content-1-column">
-        <form>
-            Username:<br>
-            <input id="username" type="text" name="username" value="">
-            <br>
-            Password:<br>
-            <input id="password" type="password" name="password" value="">
-            <br><br>
-            <input type="button" value="Login" onclick="login();">
-        </form> 
-        <div id="login_info"></div>
+<div class="card-list" style="margin-top: 20px; margin-bottom: 20px;">
+    <div id="login-container" style="background: white; border-radius: 12px; width: 300px; padding-top: 30px;">
+        <div id="login-container-header" style="padding-bottom: 10px;">
+            <img src="{{site.baseurl}}/assets/images/GitHub_Logo.png" style="width:90%; height: auto;">
+        </div>
+        <div id="login-container-body" style="padding-left: 30px; padding-right: 30px;">
+            <form>
+                <input id="username" type="text" name="username" value="" placeholder="Username/E-Mail" style="width: 100%; font-size: 18px; margin-bottom: 12px;">
+                <input id="password" type="password" name="password" value="" placeholder="Password" style="width: 100%; font-size: 18px; margin-bottom: 22px;">
+               
+            </form> 
+            <div id="login_info"></div>
+        </div>
+        <div id="login-container-footer">
+            <input type="button" value="LOG IN >" onclick="login();" style="border: none; background: none; height: 60px; width: 100%; border-top-style: solid; border-color: lightgray; border-width: 1px;">
+        </div>
     </div>
 </div>
+
 

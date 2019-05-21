@@ -172,6 +172,8 @@ ul.prompts li {
     flex: 1;
     min-width: 250px;
     padding: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
     font-family: Calibri;
     text-align: justify;
 }
@@ -192,6 +194,24 @@ ul.prompts li {
     font-family: Comfortaa, sans-serif;
     width: 250px;
     text-align: center;
+}
+
+.download-button-inverted {
+  color: #f16336;
+  padding: 15px 20px;
+  background-color: white;
+  border: 1px solid #f16336;
+  margin: 5px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  display: inline-block;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  text-align: right;
+  font-family: Comfortaa, sans-serif;
+  width: 250px;
+  text-align: center;
 }
 
 .pink-colour {
@@ -342,9 +362,7 @@ ul.prompts li {
     background-color: rgba(0,0,0,0.8);
   }
   
-
-
-  .animal-carousel-container {
+  .animal-carousel-container, .lens-carousel-container {
     max-width: 500px;
     position: relative;
     margin: auto;
@@ -824,6 +842,33 @@ ul.prompts li {
   text-align: center;
   margin: 20px;
 }
+
+.lens-text-carousel {
+  font-family: Pasajero;
+  color: black;
+  font-size: 18px;
+  position: absolute;
+  top: 95px;
+  left: 45px;
+  width: 120px;
+  height: 21px;
+}
+
+.lens-container-carousel {
+  position: relative;
+  text-align: center;
+  margin: 20px;
+}
+
+.lens-carousel-number {
+  font-family: Calibri;
+  color: black;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
 
 .horizontal-divider {
   border-bottom: 0.1px solid lightgray;

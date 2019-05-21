@@ -1,0 +1,38 @@
+
+{% assign lenses = site.lenses %}
+
+<div class="lens-carousel-container">
+  {% for lens in lenses %}
+  <div class="lensSlides animal-carousel-fade" style="padding-left: 20px; padding-right: 20px;">
+        <div class="lens-container-carousel">
+            <img src="{{site.baseurl}}/assets/images/lens_new.png" alt="Values" title="Values" style="width: 450px;">
+            <div class="lens-text-carousel">{{lens.name}}</div>
+            <div class="lens-carousel-number">{{ forloop.index }} / {{ forloop.length }} </div>
+        </div>
+  </div>
+  {% endfor %}
+  <a class="animal-carousel-prev" onclick="pluslensSlides(-1)" style="color: black;">&#10094;</a>
+  <a class="animal-carousel-next" onclick="pluslensSlides(1)" style="color: black;">&#10095;</a>
+</div>
+
+<script>
+    var lensSlideIndex = 1;
+    showlensSlides(lensSlideIndex);
+
+    function pluslensSlides(n) {
+        showlensSlides(lensSlideIndex += n);
+    }
+
+    function showlensSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("lensSlides");
+
+      if (n > slides.length) {lensSlideIndex = 1}    
+      if (n < 1) {lensSlideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+      } 
+      slides[lensSlideIndex-1].style.display = "block";    
+    }
+</script>
+
