@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+{% if page.lang %} {% assign pagelang = page.lang %} {% else %} {% assign pagelang = 'en' %} {% endif %}
+<html lang="{{ pagelang }}" {% if pagelang=="ar" %}dir="rtl" {% endif %}>
+{% include head.html %}
+
+<body>
+    
+    <script>
+        var trackerActions = [];
+        function pushAction(action, params){
+            if (typeof tracker != 'undefined'){
+                tracker[action](params);
+            } else {
+                trackerActions.push({action: action, params: params});
+            }
+        }
+        (function(){
+        var s, r, t;
+        r = false;
+        s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.src = 'https://openlab.ncl.ac.uk/dokku/mentoring-editor/javascripts/tracker/tracker.js';
+        s.onload = s.onreadystatechange = function () {
+            if (!r && (!this.readyState || this.readyState == 'complete')) {
+            r = true;
+            while(trackerActions && trackerActions.length > 0){
+                var action = trackerActions.shift();
+                tracker[action.action](action.params);
+            }
+            }
+        };
+        t = document.getElementsByTagName('script')[0];
+        t.parentNode.insertBefore(s, t);
+        }());
+    </script>
+    
+    <script>
+        var pageLayout = '{{ page.layout }}';
+        var pageTitle = '{{ page.ref }}';
+        switch (pageLayout) {
+            case 'request-introduction':
+            case 'request-meeting':
+            case 'request-whatsapp':
+                var params = window.location.search;
+                var searchParams = new JURL.URLSearchParams(params);
+                pageTitle = searchParams.get("mentor");
+                break;
+            default:
+                pageTitle = '{{ page.ref }}';
+                break;
+        }
+
+        //tracker.setPageName(pageTitle, pageLayout);
+        //tracker.init();
+        pushAction( 'setPageName', {pageName:pageTitle, pageType:pageLayout} );
+        pushAction( 'init' );
+    </script>
+
+    <div class="container">
+
+        {% include header.html pagelang=pagelang %}
+
+        {{ content }}
+
+        {% include footer.html %}
+
+    </div>
+
+    <div id="cookie-modal" class="modal cookies">
+        <p>{{ site.data.t.cookie_consent[page.lang] }} <a href="{{ site.baseurl }}/{{ pagelang }}/cookies">{{ site.data.t.read_more[page.lang] }}</a></p>
+        <a id='cookie-accept' href="#" onclick="allowAllCookies()">{{ site.data.t.allow_cookies[page.lang] }}</a>
+        <a id='cookie-edit' href="#" onclick="openSettingsModal(false)">{{ site.data.t.cookie_settings[page.lang] }}</a>
+    </div>
+    <div id="cookie-settings-modal" class="modal cookies">
+        <p>{{ site.data.t.cookie_consent[page.lang] }} <a href="{{ site.baseurl }}/{{ pagelang }}/cookies">{{ site.data.t.read_more[page.lang] }}</a></p>
+        <form name="cookies">
+            <table class="cookie-settings">
+                <tr>
+                    <td>
+                        <input type="checkbox" name="necessary" disabled checked><label for="necessary">{{ site.data.t.necessary[page.lang] }}</label>
+                    </td>
+                    <td>
+                        <div class="cookie-settings-desc">
+                                {{ site.data.t.necessary_desc[page.lang] }}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="statistics" checked><label for="statistics">{{ site.data.t.statistics[page.lang] }}</label>
+                    </td>
+                    <td>
+                        <div class="cookie-settings-desc">
+                                {{ site.data.t.statistics_desc[page.lang] }}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="checkbox" name="personalisation"><label for="personalisation">{{ site.data.t.personalisation[page.lang] }}</label>
+                    </td>
+                    <td>
+                        <div class="cookie-settings-desc">
+                                {{ site.data.t.personalisation_desc[page.lang] }}
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <a id='cookie-save' href="#" onclick="saveCookieSettings()">{{ site.data.t.save_cookies[page.lang] }}</a>
+        <a id='cookie-accept' href="#" onclick="allowAllCookies()">{{ site.data.t.allow_cookies[page.lang] }}</a>
+    </div>
+
+
+    <script>
+        packNavigationLogin("{{ pagelang }}");
+    
+    </script>
+
+
+
+    <script src="{{ site.baseurl }}/js/{{ pagelang }}/index.js"></script>
+    <script src="{{ site.baseurl }}/js/{{ pagelang }}/form-validation.js"></script>
+    <script>
+    $(document).ready(function(){
+        if ('{{page.ref}}' == 'cookies') return;
+        var cookieValue;
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++){
+            if (cookies[i].trim().indexOf('_qcs') === 0){
+                cookieValue=cookies[i].trim().replace('_qcs' + '=', '');
+                break;
+            }
+        }  
+        if (!cookieValue){
+            $("#cookie-modal").modal({
+                escapeClose: false,
+                clickClose: false,
+                showClose: false
+            });
+        }
+    });
+    function openSettingsModal(close){
+        var cookieValue;
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++){
+            if (cookies[i].trim().indexOf('_qcs') === 0){
+                cookieValue=cookies[i].trim().replace('_qcs' + '=', '');
+                break;
+            }
+        }  
+        if (cookieValue){
+            var cookieSettings = JSON.parse(decodeURIComponent(cookieValue));
+            $('input[name=necessary]').prop('checked',  cookieSettings.necessary);
+            $('input[name=statistics]').prop('checked',  cookieSettings.statistics);
+            $('input[name=personalisation]').prop('checked',  cookieSettings.personalisation);
+        }
+
+        $("#cookie-settings-modal").modal({
+            escapeClose: close,
+            clickClose: close,
+            showClose: close
+        });
+    }
+    function allowAllCookies(){
+        var cookieSettings = {
+            necessary: true,
+            statistics: true,
+            personalisation: true,
+            timestamp: Date.now()
+        }
+        document.cookie = '_qcs=' + encodeURIComponent(JSON.stringify(cookieSettings)) + ';max-age=' + 60*60*24*365 + ';path={{site.baseurl}}/';
+        $.modal.close()
+        if (tracker) tracker.reInit();
+    }
+    function saveCookieSettings(){
+        var cookieSettings = {
+            necessary: $('input[name=necessary]').is(":checked"),
+            statistics: $('input[name=statistics]').is(":checked") || $('input[name=personalisation]').is(":checked"),
+            personalisation: $('input[name=personalisation]').is(":checked"),
+            timestamp: Date.now()
+        }
+        document.cookie = '_qcs=' + encodeURIComponent(JSON.stringify(cookieSettings)) + ';max-age=' + 60*60*24*365 + ';path={{site.baseurl}}/';
+        $.modal.close();
+        if (tracker) tracker.reInit();
+    }
+    </script>
+
+</body>
+
+</html>

@@ -843,6 +843,37 @@ ul.prompts li {
   padding-right: 25px;
 }
 
+.pack-navigation-arrow {
+  position: fixed;
+  top: 50%;
+  font-size: 100px;
+  display: inline-block;
+}
+
+.pack-navigation-arrow-left {
+  left: 10px;
+}
+
+.pack-navigation-arrow-right {
+  right: 10px;
+}
+
+@media only screen and (max-height: 615px) {
+  
+  .pack-navigation-arrow {
+    display: none;
+  }
+
+}
+
+@media only screen and (max-width: 1120px) {
+  
+  .pack-navigation-arrow {
+    display: none;
+  }
+
+}
+
 @media only screen and (max-width: 750px) {
   
   #login-header-big { 
@@ -859,7 +890,6 @@ ul.prompts li {
 
 }
 
-
 @media only screen and (max-width: 500px) {
   
   .footer-section { 
@@ -868,7 +898,13 @@ ul.prompts li {
 
 }
 
+@media only screen and (max-width: 500px) {
+  
+  .footer-section { 
+    text-align: center;
+  }
 
+}
 
 @media only screen and (max-width: 425px) {
 

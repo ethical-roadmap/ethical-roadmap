@@ -1,40 +1,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> {{ site.data.t.qudwa[page.lang] }} - {{ page.title | replace: '_', ' ' | capitalize }}</title>
+    <title> Ethical Roadmap {{ page.title | replace: '_', ' ' | capitalize }}</title>
 
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script src='https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/jquery.validate.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-    
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
-    <script src="{{ site.baseurl }}/js/language.js"></script>
-    <script>
-        {% assign categories = site.categories | where: "ref", page.ref | sort: 'lang' %}
-        {% assign pages = site.pages | where: "ref", page.ref | sort: 'lang' %}
-        {% if mentors.size > 0 %}
-        {% assign url_ar = mentors | where: "lang", "ar" %}
-        {% assign url_en = mentors | where: "lang", "en" %}
-        checkLanguage('{{page.url  | prepend: site.baseurl}}', { en: '{{ url_en.first.url  | prepend: site.baseurl}}', ar: '{{ url_ar.first.url  | prepend: site.baseurl}}' });
-        {% elsif pages.size > 0 %}
-        {% assign url_en = pages | where: "lang", "en" %}
-        checkLanguage('{{page.url  | prepend: site.baseurl}}', { en: '{{ url_en.first.url  | prepend: site.baseurl}}', ar: '{{ url_ar.first.url  | prepend: site.baseurl}}' });
-        {% endif %}
-
-    </script>
-    
-    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
-    <link rel="stylesheet" href="{{ site.baseurl }}/styles/styles-shared.css">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    {% if page.lang %}<link rel="stylesheet" href="{{ site.baseurl }}/styles/styles-{{ page.lang }}.css"> {% else %}<link rel="stylesheet" href="{{ site.baseurl }}/styles/styles-en.css">{% endif%}
-    <script src="{{ site.baseurl }}/js/shared.js"></script>
-    <script type="text/javascript" src="{{ site.baseurl }}/js/url.bc.js"></script>
-
-    <link rel="stylesheet" href="{{ site.baseurl }}/styles/styles.css">
-    <link rel='stylesheet' href="{{ site.baseurl }}/styles/fonts.css">
 
     <script src="https://unpkg.com/github-api/dist/GitHub.bundle.min.js"></script>
     <script src="{{ site.baseurl }}/js/github.helper.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">    
+    <link rel="stylesheet" href="{{ site.baseurl }}/styles/styles-shared.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+     
+    <link rel="stylesheet" href="{{ site.baseurl }}/styles/styles.css">
+    <link rel='stylesheet' href="{{ site.baseurl }}/styles/fonts.css">
+
 </head>

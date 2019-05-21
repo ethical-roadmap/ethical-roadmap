@@ -5,7 +5,7 @@
     {% assign previous_sequence = sequence_number | minus:1 %}
     {% assign previous_category = site.categories | where:"sequence", previous_sequence | first %}
     <a href="{{ site.baseurl }}{{previous_category.url}}/">
-        <i class="fas fa-arrow-circle-left" style="position: fixed; left: 10px; top: 50%; font-size: 100px; color: {{previous_category.color}};"></i>
+        <i class="fas fa-arrow-circle-left pack-navigation-arrow pack-navigation-arrow-left" style="color: {{previous_category.color}};"></i>
     </a>
 {% endif %}
 
@@ -13,7 +13,7 @@
     {% assign next_sequence = sequence_number | plus:1 %}
     {% assign next_category = site.categories | where:"sequence", next_sequence | first %}
     <a href="{{ site.baseurl }}{{next_category.url}}/">
-        <i class="fas fa-arrow-circle-right" style="position: fixed; right: 10px; top: 50%; font-size: 100px; color: {{next_category.color}};"></i>
+        <i class="fas fa-arrow-circle-right pack-navigation-arrow pack-navigation-arrow-right" style="color: {{next_category.color}};"></i>
     </a>
 {% endif %}
 

@@ -1,22 +1,14 @@
 <head>
-    <script src="{{ site.baseurl }}/js/language.js"></script>
     <script>
-        if (localStorage.lang)
-            redirectToHome(localStorage.lang);
-        else {
-            var userLang = navigator.language || navigator.userLanguage;
-            if (userLang) userLang = userLang.split('-')[0];
+        var userLang = navigator.language || navigator.userLanguage;
+        if (userLang) userLang = userLang.split('-')[0];
             redirectToHome(userLang);
-        }
-
+    
         function redirectToHome(userLanguage) {
             if (userLanguage == 'en')
                 location.href = '{{site.baseurl}}/en';
-            else if (userLanguage == 'ar')
-                location.href = '{{site.baseurl}}/ar';
             else
                 location.href = '{{site.baseurl}}/en';
         }
-
     </script>
 </head>
