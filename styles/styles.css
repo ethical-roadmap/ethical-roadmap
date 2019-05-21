@@ -830,6 +830,19 @@ ul.prompts li {
   width: 80%;
 }
 
+.moral-qualities-card-back {
+  background: #767756;
+  color: white; 
+  border: none; 
+  font-family: Pasajero;
+  display: flex;
+  justify-content:center; 
+  align-items:center;
+  height: 100%;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
 @media only screen and (max-width: 750px) {
   
   #login-header-big { 

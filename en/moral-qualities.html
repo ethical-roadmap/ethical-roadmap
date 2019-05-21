@@ -11,10 +11,13 @@ permalink: /en/moral-qualities/
 <div class="category-content-row">
     <div class="category-content-1-column">
         <p style="text-align: justify">{{category.text_content[0].text[0]}}</p>
-        <p style="text-align: justify">{{category.text_content[0].text[1]}}</p>
+        <p style="text-align: justify; margin-bottom: 30px;">{{category.text_content[0].text[1]}}</p>
+        {% include moral_qualities_cards.html %}
         <p style="text-align: justify">{{category.text_content[0].text[2]}}</p>
+        {% include provocation_cards.html %}
         <p style="text-align: justify">{{category.text_content[0].text[3]}}</p>    
     </div>
+  
     <hr class="horizontal-divider">
     <div style="text-align: center; padding-bottom: 20px; width: 100%">
         <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/moral-qualities/provocation-cards.pdf">Download Provocation Cards</a>

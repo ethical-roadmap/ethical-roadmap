@@ -1,0 +1,14 @@
+{% assign category = site.categories | where:"ref", "moral-qualities" | first %}
+{% assign cards = site.provocation_cards%}
+<div id="value-card-list" class="card-list">
+    {% for card in cards %}
+    <div class="value-card" data-ref="{{ card.ref }}">
+        <div class="value-card-inner" style="background: {{ category.color }}; color: white;">
+            <div class="value-card-name" style="padding-left: 15px; padding-right: 15px;">{{ card.front }}</div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
