@@ -819,9 +819,12 @@ ul.prompts li {
 }
 
 .download-button-container {
-  display: flex;
+  /*display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center;*/
+  text-align: center;
+  width: 100%;
+  padding-bottom: 20px;
 }
 
 .lens-text {

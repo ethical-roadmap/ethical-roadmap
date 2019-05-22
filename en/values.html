@@ -13,10 +13,10 @@ title: Values
     <div class="category-content-1-column">
         {{values.text_content[0].text}}
         {% include value_cards.html %}
-        <div class="download-button-container">
-            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/value-cards.pdf"> <i class="fas fa-download"></i> value cards </a>
-            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/blank-value-cards.pdf"> <i class="fas fa-download"></i> Blank Value Cards</a>
-        </div>
+    </div>
+    <div class="download-button-container">
+        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/value-cards.pdf"> <i class="fas fa-download"></i> value cards </a>
+        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/blank-value-cards.pdf"> <i class="fas fa-download"></i> Blank Value Cards</a>
     </div>
 </div>
 <div class="category-secondary-header" style="background: #a54e98;"> {{values.text_content[1].title}} </div>
@@ -82,7 +82,7 @@ title: Values
                 {{values.text_content[3].text_5}}
             </div>
         </div>
-        <div style="text-align: center; width: 100%">
+        <div class="download-button-container" style="padding-bottom: 0px;">
             <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/capture-sheets.pdf"><i class="fas fa-download"></i> Capture Sheets</a>
             <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/facilitation-sheets.pdf"><i class="fas fa-download"></i> Facilitation Sheets</a>
         </div>

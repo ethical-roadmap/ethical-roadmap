@@ -8,7 +8,14 @@ title: Glossary
 
 {% include pack-navigation-arrows.html ref=category.ref %}
 
-<div class="category-primary-header" style="background: {{category.color}};"> {{category.text_content[0].title}} </div>
+<div class="category-primary-header" style="display: block; background: {{category.color}};"> 
+    <span style="float: left;"> {{category.text_content[0].title}} </span>
+    <span style="float: right;"> 
+        <a download href="{{site.baseurl}}/assets/pdfs/glossary/glossary-of-terms-a3-folded.pdf" title="Download Glossary">
+            <i class="fas fa-download" style="color: white;"></i>
+        </a>
+    </span>
+</div>
 <div class="category-content-row">
     <div class="category-content-1-column">
         <div id="alphabet" style="padding-bottom: 15px; text-align: center; padding-top: 20px;"> 
