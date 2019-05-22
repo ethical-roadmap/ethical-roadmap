@@ -5,7 +5,7 @@
   {% for lens in lenses %}
   <div class="lensSlides animal-carousel-fade" style="padding-left: 20px; padding-right: 20px;">
         <div class="lens-container-carousel">
-            <img src="{{site.baseurl}}/assets/images/lens_new.png" alt="Values" title="Values" style="width: 450px;">
+            <img src="{{site.baseurl}}/assets/images/lens_new.png" alt="Values" title="Values" style="max-width: 450px; width: 100%; height: auto;">
             <div class="lens-text-carousel">{{lens.name}}</div>
             <div class="lens-carousel-number">{{ forloop.index }} / {{ forloop.length }} </div>
         </div>
