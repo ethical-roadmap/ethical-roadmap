@@ -22,7 +22,7 @@ text_content:
       - We’ve included a set of cards that list the potential methods of enquiry and outcomes that might occur in a research project. Use these to have general conversations with participants selecting the ones that they consent to.
   - title: prompts & activities
     text: 
-    - To capture more detail about a participants level of consent we’ve included some consent postcards. These can be used at each research activity for participants to express their level of consent relating to photographs, videos, audio recordings and quotations.
+    - To capture more detail about a participant's level of consent we’ve included some consent postcards. These can be used at each research activity for participants to express their level of consent relating to photographs, videos, audio recordings and quotations.
     - "For other examples of visual, interactive methods of gaining informed look at:"
     - Jet Gipsen
     - www.ethicsfordesigners.com

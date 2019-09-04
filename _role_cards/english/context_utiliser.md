@@ -6,8 +6,8 @@ name: context-utiliser
 subname: (Learning from context)
 contribution:
     - Reframes a problem in a new way.
-    - Understands a context.
-    - Seeking inspiration in unusual places.
-    - Experienced in ethnographic practices.
+    - Understands context.
+    - Seeks inspiration in unusual places.
+    - Has experience in ethnographic practices.
 type: learning
 ---

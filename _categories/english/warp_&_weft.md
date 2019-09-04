@@ -12,17 +12,16 @@ text_content:
   - title: Warp & Weft
     text:
     - One of the limitations of existing approaches to ethics is that the process itself leaves very little for negotiation in terms of what participants need to enable them to feel comfortable and to have a sense of agency within the process. If we are to move from a position of researching on people, to research with people, we need to develop methods to allow individuals to have a voice in the development of ethics protocols.
-    - Research undertaken within the Ongoingness project has highlighted that individuals would like to be able to choose and develop statements relating to what they would and would not like to happen during the research process.
+    - You may choose and develop statements relating to what your participants, team member and stakeholders would and would not like to happen during the research process.
   - title: prompts & activities
     text:
     - Using the warp & weft strips of paper, encourage research participants, team members and critical friends to write their statements surrounding what they would and would not like to happen during the research process.
     - Blue strips = I would like...
     - Red strips = I would not like...
     - These statements can be woven together like the warp and weft when creating a tapestry. This can be added to throughout the project and shared with everyone in the team.
-    - We have included some pre-completed statements that can be used as inspiration or as part of the final tapestry.
   - title: prompts & activities
     text: 
-    - The prompt cards work well with the value cards and when discussing what we can and cannot do within a research project. We’ve enclosed another one of these worksheets to help capture discussions.
+    - During this exercise you will discuss activities that you can and cannot do within this project which relates to your values.  Make a note of them on the capture sheet and refer to them during team meating - add to them, change them!
   - title: capture
     text:
     - As you are facilitating the activities, it’s important that another team member is in charge of capturing the discussions and decisions. We would suggest capturing the statements on the worksheet as well as on the paper strips. We’ve enclosed a Warp and Weft worksheet for this purpose.

@@ -10,7 +10,7 @@ image: >-
 description: <strong>Values</strong> underpin everything you do. But do you share the <strong>same understanding</strong> of key values, and what do you think are the <strong>most important</strong> values for working within the context of your project?...
 text_content:
   - title: values
-    text: "<p>Values underpin everything you do. But do you share the same understanding of key values, and what do you think are the most important values for working within the context of your project?</p>
+    text: "<p>Values underpin everything you do. But do you share the same understanding of key values with your team members? What do you think are the most important values for working within the context of your project?</p>
     <p>You’ll find 8 value cards in the pack, which can be used in different ways to create conversations within your team. Add additional values that you think are important to the blank cards in the pack.</p>"
   - title: prompts
     text: "How do you define these values?"

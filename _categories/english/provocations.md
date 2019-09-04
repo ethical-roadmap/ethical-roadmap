@@ -11,10 +11,10 @@ description: These provocations start <strong>discussions</strong> around ethica
 text_content:
   - title: provocations
     text:
-      - The purpose of the provocation cards is to start discussions between the team members on ethical concerns or issues arising from working with potentially vulnerable group of participants. The selected provocation cards may make team members think about the research context more broadly and/or align new members with the thinking and values of the existing team. Think about them as “wild cards” in games.
+      - The purpose of the provocation cards is to start discussions between the team members on ethical concerns or issues arising from working with potentially vulnerable groups of participants. The selected provocation cards may make team members think about the research context more broadly and/or align new members with the thinking and values of the existing team. Think about them as “wild cards” in games.
   - title: prompts & activities
     text: 
-      - Pick up a card and discuss it with your team at any point of the research program. Try and find some common ground in the situations described in the cards. What would you do? How would you tackle the issue?
+      - Pick up a card and discuss it with your team at any point of the research programme. Try and find some common ground in the situations described in the cards. What would you do? How would you tackle the issue?
       - "The cards are divided in four categories:"
       - Technology
       - Sense of Self

@@ -6,7 +6,7 @@ name: shaper
 subname: (Organising research aims and objectives)
 contribution:
     - Empowers and inspires the team.
-    - Understands of the bigger picture.
+    - Understands the bigger picture.
     - Brings out the best in people.
     - Listens critically and shapes the research.
 type: organising
