@@ -25,11 +25,13 @@ url: "" # `the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 
+
+
 # Build settings
 markdown: kramdown
 plugins:
   - jekyll-feed
-  
+
 defaults:
   - scope:
       path: ""
@@ -67,6 +69,8 @@ collections:
 languages:
   - name: 'English'
     key: 'en'
+
+encoding: utf-8
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

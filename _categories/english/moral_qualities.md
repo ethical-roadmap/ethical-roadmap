@@ -19,6 +19,8 @@ text_content:
   - title: prompts & activities
     text: 
       -  Finally look at ways you can support each other to build confidence in areas through socialisation and shadowing for example.
+    image:
+      - moral-qualities-activity.png
   - title: capture
     text:
       - As you are facilitating activities, it's important that another team member is in charge of capturing the discussions and decisions.

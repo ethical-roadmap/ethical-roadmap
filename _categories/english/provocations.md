@@ -27,7 +27,7 @@ text_content:
   - title: capture
     text:
       - "As you are facilitating the activities, it’s important that another team member is in charge of capturing the discussions and decisions. For the provocation activities we have enclosed 1 worksheet to help in capturing an overview that can be referred to throughout your project:"
-      - We can/ we cannot
+      - We can / we cannot
       - We suggest that you revisit and adjust your captured notes at every key team meeting to remind and realign the team. You can also re-run the activities to establish changes as a project progresses.
 
 ---

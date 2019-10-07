@@ -11,7 +11,7 @@ description: You are aiming to establish a <strong>core research</strong> team w
 text_content:
   - title: team member roles
     text:
-      - "You are aiming to establish a core research team who are all going in the same direction based on a shared vision and values. Many research projects focus on the skills that individuals bring without considering whether team members have a compatible vision and values. This <span class=\"pink-colour\">X</span> invites you to dedicate time exploring together the philosophies and values that you share. Contained in this resource is:"
+      - "You are aiming to establish a core research team who are all going in the same direction based on a shared vision and values. Many research projects focus on the skills that individuals bring without considering whether team members have a compatible vision and values. This road-map invites you to dedicate time exploring together the philosophies and values that you share. Contained in this resource is:"
       - A team member role map
       - Team member role cards, containing qualities and values of the role
       - Team member traits (animal cards)

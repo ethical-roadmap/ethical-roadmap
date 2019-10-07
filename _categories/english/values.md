@@ -19,11 +19,11 @@ text_content:
     text_4: "How do these values relate to the research questions that you are asking?"
     text_5: "How might these values be reflected in how you develop your research, design and methods?"
   - title: prompts & activities
-    text: "You may need to explore these values through different lenses to define them in terms of specific contexts, people and projects. Explore the values under the different lenses provided that are relevant to you..."
+    text: "You may need to explore these values through a different lens to define them in terms of specific contexts and disciplines. Explore the values under the different lenses provided that are relevant to you... or create your own!"
     text_2: 
-      - "Eg. Context"
-      - "Technology"
-      - "Ways of knowing"
+      - "Eg. Technology"
+      - "Health, Design"
+      - "Psychology"
     text_3: "To encourage further thought or discussion, use the value cards with the provocation cards. For example, if you want to open the conversation around technology further, grab the technology provocation cards..."
   - title: capture
     text: "As you are facilitating the activities, it’s important that another team member is in charge of capturing the discussions and decisions."
