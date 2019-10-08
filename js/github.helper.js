@@ -1,15 +1,15 @@
 ---
 ---
 
-function login() {
+function login(url) {
     var username = document.getElementById('username').value;
     var password = document.getElementById('password').value;
 
     let auth = btoa(username + ":" + password);
-    getPreviousAuthorizarion(auth, username);
+    getPreviousAuthorizarion(auth, username, url);
 }
 
-function getPreviousAuthorizarion(auth, username) {
+function getPreviousAuthorizarion(auth, username, url) {
     $.ajax({
         type: 'GET',
         url: 'https://api.github.com/authorizations',
@@ -25,20 +25,24 @@ function getPreviousAuthorizarion(auth, username) {
                     authId = data[i].id;
             }
             if(authId != null) 
-                deleteAuthorization(auth, authId, username)    
+                deleteAuthorization(auth, authId, username, url)
+            else 
+                getNewAuthorization(auth, username, url) 
         
         },
         error: function(data) {
             console.log("Login failed");
             var s = document.createElement('div');
+            s.id = "login_failed"
             s.innerText = "Login failed";
-            if(document.getElementById("login_info") != null)
+            s.style = ""
+            if(document.getElementById("login_info") != null && document.getElementById("login_failed") == null) 
                 document.getElementById("login_info").appendChild(s);
         }
     });
 }
 
-function deleteAuthorization(auth, authId, username) {
+function deleteAuthorization(auth, authId, username, url) {
     $.ajax({
         type: 'DELETE',
         url: 'https://api.github.com/authorizations/'+ authId,
@@ -48,7 +52,7 @@ function deleteAuthorization(auth, authId, username) {
         },
         dataType: 'json',
         success: function(data) {
-            getNewAuthorization(auth, username);
+            getNewAuthorization(auth, username, url);
         },
         error: function(data) {
             console.log("Login failed");
@@ -60,7 +64,7 @@ function deleteAuthorization(auth, authId, username) {
     });
 }
 
-function getNewAuthorization(auth, username) {
+function getNewAuthorization(auth, username, url) {
     $.ajax({
         type: 'POST',
         url: 'https://api.github.com/authorizations',
@@ -83,7 +87,7 @@ function getNewAuthorization(auth, username) {
                 sessionStorage.setItem("_t", data.token);
                 sessionStorage.setItem("isLoggedIn", true);
                 console.log("Login successful");
-                window.location.replace("{{site.baseurl}}/");
+                window.location.replace(url);
             } else {
                 var s = document.createElement('div');
                 s.innerText = "Sorry, your browser does not support Web Storage...";
@@ -128,6 +132,7 @@ function packNavigationLogin(lang) {
             
             var usernameSpan = document.createElement('span');
             usernameSpan.innerText = `Hi ${data.data.name}!`;
+            usernameSpan.style = "font-family: Calibri;"
             loggedInContainerBig.appendChild(usernameSpan);
 
             var logoutButtonBig = document.createElement('button');
@@ -290,6 +295,24 @@ function testFileWritting() {
 function textareaAutoGrow(element, size) {
     element.style.height = size+"px";
     element.style.height = (element.scrollHeight)+"px";
+}
+
+async function submitFeedback(subject, body) {
+    return new Promise(resolve => { 
+        var gh = getGitHubHelper();
+        if(gh != null) {
+            var issue = {
+                "title": subject,
+                "body": body
+            }
+            var issuesHelper = gh.getIssues('ethical-roadmap', 'ethical-roadmap')
+            issuesHelper.createIssue(issue).then((data) => {
+                resolve(true);
+            }).catch((data) => {
+                resolve(false);
+            });
+        } 
+    })
 }
 
   

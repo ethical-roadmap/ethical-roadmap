@@ -7,7 +7,7 @@ color: "#595958"
 name: glossary
 image: >-
   8.png
-description: TODO
+description: 
 text_content:
   - title: glossary of terms
     text:
