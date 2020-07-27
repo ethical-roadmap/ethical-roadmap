@@ -30,9 +30,8 @@ text_content:
   - title: Capture
     text: 
     - As you are facilitating the activities, it’s important that another team member is in charge of capturing the discussions and decisions.
-    - "For the team member role activities we have enclosed 3 worksheets to help in capturing an overview and to consider strategies for resolving conflict within the team:"
+    - "For the team member role activities we have enclosed 2 worksheets to help in capturing an overview and to consider strategies for resolving conflict within the team:"
     - Team Member Role Map
-    - I am...
     - Resolving challenges
     - We suggest that you revisit and adjust your captured notes at every key team meeting to remind and realign the team. You can also re-run the activities to establish changes as a project progresses.
 
