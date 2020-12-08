@@ -1,7 +1,7 @@
 ---
 ref: intro
 lang: en
-text: "<p>The Ethical Roadmap is a set of discursive resources developed within the EPSRC project [Enabling Ongoingness](https://enablingongoingness.com) to support research teams in navigating ethical issues, concerns and opportunities.</p>
+text: "<p>The Ethical Roadmap is a set of discursive resources developed within the EPSRC project <a href="https://enablingongoingness.com">Enabling Ongoingness</a> to support research teams in navigating ethical issues, concerns and opportunities.</p>
 
 <p>Any moral framework, by its very nature, will be general and broad. Therefore, in order to support the understanding of ethical processes within research across disciplines, this series of practical resources enables group discussion from a range of different angles. The resources are free and open and we hope that different teams will find them useful as they are, but also that some teams will add content to extend the resources in this shared platform. The diversity of research contexts within our global research community will require nuanced content in some resources and we hope that this will become a space to create and share these.</p>
 
