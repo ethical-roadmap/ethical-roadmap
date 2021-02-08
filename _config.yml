@@ -83,3 +83,25 @@ encoding: utf-8
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+
+prose:
+  rooturl: '/'
+  ignore:
+    - /_animal_cards
+    - /_data
+    - /_includes
+    - /_layouts
+    - /_posts
+    - /.vscode
+    - /assets
+    - /en
+    - /js
+    - /styles
+    - _config.yml
+    - .gitignore
+    - 404.html
+    - CNAME
+    - Gemfile
+    - Gemfile.lock
+    - index.html
