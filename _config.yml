@@ -115,8 +115,6 @@ prose:
         field: 
           element: "hidden"
           value: "en"
-      - name: "sequence" 
-          element: "number"
       - name: "name"
           element: "text"
           label: "Content to be displayed in the card"
