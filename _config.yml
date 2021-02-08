@@ -86,7 +86,6 @@ encoding: utf-8
 
 
 prose:
-  rooturl: '/'
   ignore:
     - /_animal_cards
     - /_data
