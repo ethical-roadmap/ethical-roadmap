@@ -110,11 +110,11 @@ prose:
       - name: "ref"
         field:
           element: "text"
-#          label: "Refence name to the card (can not have white spaces)"
-#      - name: "lang"
-#        field: 
-#          element: "hidden"
-#          value: "en"
+          label: "Refence name to the card (can not have white spaces)"
+      - name: "lang"
+        field: 
+          element: "hidden"
+          value: "en"
 #      - name: "sequence" 
 #          element: "number"
 #      - name: "name"
