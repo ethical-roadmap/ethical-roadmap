@@ -24,7 +24,7 @@ text_content:
     text: 
     - To capture more detail about a participant's level of consent we’ve included some consent postcards. These can be used at each research activity for participants to express their level of consent relating to photographs, videos, audio recordings and quotations.
     - "For other examples of visual, interactive methods of gaining informed look at:"
-    - Jet Gipsen
+    - Jet Gispen
     - www.ethicsfordesigners.com
     - Cara Broadley, Visual Questionnaire
     - www.carabroadley.weebly.com 
