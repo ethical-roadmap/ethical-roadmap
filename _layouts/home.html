@@ -18,16 +18,99 @@ body {
             {% include category_cards.html %}  
         </div>
         <div class="download-button-container">
-            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/all.pdf" style="font-size: 25px; padding: 25px 40px;"><i class="fas fa-download"></i> All Content</a>
+            <a id="downloadAll" download class="download-button" href="javascript:downloadAll()" style="font-size: 25px; padding: 25px 40px;"><i class="fas fa-download"></i> All Content</a>
         </div>
     </div>
 </div>
 
 
 <script>
-
     $(".category-content").click(function() {
         window.location.href = $(this).attr('data-url');
     });
-    
+</script>
+
+{% assign provocation_ds_cards = site.provocation_ds_cards | sort: "ref" %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script>
+<script src="{{ site.baseurl }}/pdf_maker/pdfMaker.js"></script>
+<script src="{{ site.baseurl }}/pdf_maker/Calibri-normal.js"></script>
+<script src="{{ site.baseurl }}/pdf_maker/Pasajero-normal.js"></script>
+<script src="https://unpkg.com/pdf-lib"></script>
+
+<script>
+
+    addPasajeroFont(window.jspdf.jsPDF);
+    addCalibriFont(window.jspdf.jsPDF);
+
+    const provocationCardsForPDF = [];
+
+    let c = {};
+    let texts = [];
+
+{% for card in provocation_ds_cards %}
+    c.ref = "{{card.ref}}";
+    c.category = "{{card.category}}";
+    c.subcategory = "{{card.subcategory}}";
+    {% for text in card.text %}
+    texts.push("{{text}}");
+    {% endfor %}
+    c.texts = [...texts];
+    provocationCardsForPDF.push({...c});
+    c = {};
+    texts = []; 
+{% endfor %}
+
+    const loadPdfFile = async(url) => {
+        const arrayBuffer = await fetch(url).then(res => res.arrayBuffer());
+        const pdf = await PDFLib.PDFDocument.load(arrayBuffer);
+        return pdf;
+    }
+
+    const downloadAll = async() => {
+        
+        const documentsToMerge = [];
+
+        documentsToMerge.push(await loadPdfFile('{{site.baseurl}}/assets/pdfs/values/values-all.pdf'));
+        documentsToMerge.push(await loadPdfFile('{{site.baseurl}}/assets/pdfs/team-members/team-members-all.pdf'));
+        documentsToMerge.push(await loadPdfFile('{{site.baseurl}}/assets/pdfs/moral-qualities/moral-qualities-all.pdf'));
+        documentsToMerge.push(await loadPdfFile('{{site.baseurl}}/assets/pdfs/critical-friends/critical-friends-all.pdf'));
+        documentsToMerge.push(await loadPdfFile('{{site.baseurl}}/assets/pdfs/consent/consent-all.pdf'));
+        documentsToMerge.push(await loadPdfFile('{{site.baseurl}}/assets/pdfs/provocations/provocations-facilitation-sheets.pdf'));
+
+        //Load provocation cards
+        const doc = provocationCardsPDFGenerator().generatePdf(provocationCardsForPDF);
+        let cards = doc.output('arraybuffer');
+        documentsToMerge.push(await PDFLib.PDFDocument.load(cards));
+        
+        documentsToMerge.push(await loadPdfFile('{{site.baseurl}}/assets/pdfs/provocations/provocations-capture-sheets.pdf'));
+        documentsToMerge.push(await loadPdfFile('{{site.baseurl}}/assets/pdfs/warp-&-weft/warp-&-weft-all.pdf'));
+        documentsToMerge.push(await loadPdfFile('{{site.baseurl}}/assets/pdfs/glossary/glossary-of-terms-a3-folded.pdf'));
+        
+        const mergedPdf = await PDFLib.PDFDocument.create();
+        console.log(documentsToMerge);
+
+        for(let doc of documentsToMerge) {
+            const copiedPages = await mergedPdf.copyPages(doc, doc.getPageIndices());
+            copiedPages.forEach((page) => {
+                mergedPdf.addPage(page);
+            });
+        }
+
+        //Download File
+        const mergedPdfFile = await mergedPdf.save();
+
+        const blob = new Blob( [ mergedPdfFile ], { type: 'application/pdf' } );	
+        const objectURL = URL.createObjectURL( blob );
+
+        const link = document.createElement( 'a' );
+        link.style.display = 'none';
+        document.body.appendChild( link );
+
+        link.href = objectURL;
+        link.href = URL.createObjectURL( blob );
+        link.download = 'ethical-roadmap-all';
+        link.click();
+
+    }
+
 </script>
