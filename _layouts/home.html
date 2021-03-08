@@ -18,7 +18,7 @@ body {
             {% include category_cards.html %}  
         </div>
         <div class="download-button-container">
-            <a id="downloadAll" download class="download-button" href="javascript:downloadAll()" style="font-size: 25px; padding: 25px 40px;"><i class="fas fa-download"></i> All Content</a>
+            <button id="downloadAll" download class="download-button" onclick=downloadAll() style="font-size: 25px; padding: 25px 0px; height: 139px;"><i class="fas fa-download"></i> All Content</button>
         </div>
     </div>
 </div>
@@ -67,7 +67,19 @@ body {
     }
 
     const downloadAll = async() => {
+
+        const downloadButton = document.getElementById('downloadAll');
+        downloadButton.disabled = true;
+
+        while (downloadButton.firstChild) {
+            downloadButton.removeChild(downloadButton.lastChild);
+        }
+
+        const innerDiv = document.createElement('div');
+        innerDiv.classList.add("lds-dual-ring")
+        downloadButton.append(innerDiv);
         
+
         const documentsToMerge = [];
 
         documentsToMerge.push(await loadPdfFile('{{site.baseurl}}/assets/pdfs/values/values-all.pdf'));
@@ -111,6 +123,19 @@ body {
         link.download = 'ethical-roadmap-all';
         link.click();
 
+        
+        while (downloadButton.firstChild) {
+            downloadButton.removeChild(downloadButton.lastChild);
+        }
+
+        const downloadIcon = document.createElement('i');
+        downloadIcon.classList.add("fas", "fa-download");
+        
+        const downloadText = document.createTextNode("All Content");
+
+        downloadButton.append(downloadIcon);
+        downloadButton.append(downloadText);
+        downloadButton.disabled = false;
     }
 
 </script>
