@@ -9,6 +9,13 @@
         </div>
     </a>
     {% endfor %}
+    <a href="{{ site.baseurl }}/en/case-studies">
+        <div class="category navigation-category" data-ref="case-studies" data-color="black" style="{% if page.ref==category.ref %} outline-color: {{category.color}}; outline-style: double; {% endif %}">
+            <div class="navigation-category-inner" style="background: black;">
+                <div class="navigation-category-text">Case Studies</div>
+            </div>
+        </div>
+    </a>
 </div>
 
 <script>

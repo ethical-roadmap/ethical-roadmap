@@ -1,0 +1,22 @@
+---
+layout: category
+title: Ethical Roadmap - Case Studies
+ref: case-studies
+---
+{% assign case_studies = site.case_studies | sort: "date" %}
+
+<h1 style="font-family: Calibri; text-align: center"> Case Studies </h1>
+<div style="padding:0px 30px 30px 30px; font-family: Calibri;" >
+    {% for case_study in site.case_studies %}
+    <h2 style="margin-bottom: 2px;">{{ case_study.name }}</h2>
+    <small>{{ case_study.date | date: "%d/%m/%Y" }}</small>
+    <p>{{ case_study.description }}</p>
+    <p style="margin-bottom: 10px;"><strong>Documents:</strong></p>
+    {% for doc in case_study.documents %}
+    <p style="margin-left: 25px; margin-top: 0px">- <a download href="{{{{site.baseurl}}/assets/case_study_documents/{{doc}}">{{doc}}</a></p>
+    {% endfor %}
+    <p style="margin-top: 30px;"><strong>Version</strong>: {{case_study.version}}</p>
+    <hr style="border-top: 1px solid #bbb; width: 100%;">
+    {% endfor %}
+</div>
+  

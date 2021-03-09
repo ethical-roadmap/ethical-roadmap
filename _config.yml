@@ -65,6 +65,8 @@ collections:
     output: false
   glossary:
     output: false
+  case_studies:
+    output: false
 
 languages:
   - name: 'English'

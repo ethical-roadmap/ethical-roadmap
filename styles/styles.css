@@ -1039,3 +1039,7 @@ ul.prompts li {
     transform: rotate(360deg);
   }
 }
+
+hr.solid {
+  border-top: 3px solid #bbb;
+}

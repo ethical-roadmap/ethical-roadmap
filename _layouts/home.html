@@ -99,7 +99,6 @@ body {
         documentsToMerge.push(await loadPdfFile('{{site.baseurl}}/assets/pdfs/glossary/glossary-of-terms-a3-folded.pdf'));
         
         const mergedPdf = await PDFLib.PDFDocument.create();
-        console.log(documentsToMerge);
 
         for(let doc of documentsToMerge) {
             const copiedPages = await mergedPdf.copyPages(doc, doc.getPageIndices());
