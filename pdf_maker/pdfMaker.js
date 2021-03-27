@@ -119,7 +119,7 @@ const provocationCardsPDFGenerator = () => {
         const splittedCategory = category.split(' ');
 
         for(let word of splittedCategory) {
-            if(line.length + word.length + 1 < /*14*/21) {
+            if(line.length + word.length + 1 < 21) {
                 line += `${word} `;
             } else {
                 lines.push(line);
@@ -215,4 +215,3 @@ const provocationCardsPDFGenerator = () => {
         downloadPdf,
     }
 }
-

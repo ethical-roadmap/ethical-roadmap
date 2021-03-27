@@ -16,7 +16,7 @@ lang: en
         {% include value_cards.html %}
     </div>
     <div class="download-button-container">
-        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/value-cards.pdf"> <i class="fas fa-download"></i> value cards </a>
+        <a download class="download-button" href="javascript:valueCardsPDFGenerator().downloadPdf(valueCardsForPDF)"> <i class="fas fa-download"></i> value cards </a>
         <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/blank-value-cards.pdf"> <i class="fas fa-download"></i> Blank Value Cards</a>
     </div>
 </div>
@@ -63,33 +63,59 @@ lang: en
     </div>
     {% include value_lenses_carousel.html %}
     <div style="text-align: center; padding-bottom: 20px; width: 100%">
-        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/lenses.pdf"><i class="fas fa-download"></i> Lenses </a>
+        <a download class="download-button" href="javascript:lensesCardsPDFGenerator().downloadPdf(lensCardsForPDF)"><i class="fas fa-download"></i> Lenses </a>
     </div>
 </div>
 <div class="category-secondary-header" style="background: #a54e98;"> {{values.text_content[3].title}} </div>
-    <div class="category-content-row">
-        <div class="category-content-2-column"> 
-            <p>{{values.text_content[3].text}}</p>
-            <p>{{values.text_content[3].text_2}}</p>
-            <div>
-                <ul style="list-style-type:none;">
-                    <li>⁄<strong style="padding-left:1em">{{values.text_content[3].text_3}}</strong></li>
-                    <li>⁄<strong style="padding-left:1em">{{values.text_content[3].text_4}}</strong></li>
-                </ul> 
-            </div>
-        </div>
-        <div class="category-content-2-column" style="margin: auto;">
-            <div style="background: #a7549a; height: 115px; width: 264px; color: white; padding: 10px; margin: auto;">
-                {{values.text_content[3].text_5}}
-            </div>
-        </div>
-        <div class="download-button-container" style="padding-bottom: 0px;">
-            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/capture-sheets.pdf"><i class="fas fa-download"></i> Capture Sheets</a>
-            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/facilitation-sheets.pdf"><i class="fas fa-download"></i> Facilitation Sheets</a>
+<div class="category-content-row">
+    <div class="category-content-2-column"> 
+        <p>{{values.text_content[3].text}}</p>
+        <p>{{values.text_content[3].text_2}}</p>
+        <div>
+            <ul style="list-style-type:none;">
+                <li>⁄<strong style="padding-left:1em">{{values.text_content[3].text_3}}</strong></li>
+                <li>⁄<strong style="padding-left:1em">{{values.text_content[3].text_4}}</strong></li>
+            </ul> 
         </div>
     </div>
-    <hr class="horizontal-divider">
-    <div style="text-align: center; padding-bottom: 20px; width: 100%">
-        <a download class="download-button-inverted" href="{{site.baseurl}}/assets/pdfs/values/values-all.pdf">Download All</a>
+    <div class="category-content-2-column" style="margin: auto;">
+        <div style="background: #a7549a; height: 115px; width: 264px; color: white; padding: 10px; margin: auto;">
+            {{values.text_content[3].text_5}}
+        </div>
     </div>
+    <div class="download-button-container" style="padding-bottom: 0px;">
+        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/capture-sheets.pdf"><i class="fas fa-download"></i> Capture Sheets</a>
+        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/values/facilitation-sheets.pdf"><i class="fas fa-download"></i> Facilitation Sheets</a>
+    </div>
+</div>
+<hr class="horizontal-divider">
+<div style="text-align: center; padding-bottom: 20px; width: 100%">
+    <a download class="download-button-inverted" href="{{site.baseurl}}/assets/pdfs/values/values-all.pdf">Download All</a>
+</div>
 
+{% assign value_cards = site.value_cards | sort: "sequence" %}
+{% assign lenses = site.lenses %}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script>
+<script src="{{ site.baseurl }}/pdf_maker/pdfMaker-values.js"></script>
+<script src="{{ site.baseurl }}/pdf_maker/Calibri-normal.js"></script>
+<script src="{{ site.baseurl }}/pdf_maker/Pasajero-normal.js"></script>
+<script src="https://unpkg.com/pdf-lib"></script>
+
+<script>
+
+    addPasajeroFont(window.jspdf.jsPDF);
+    addCalibriFont(window.jspdf.jsPDF);
+
+    const valueCardsForPDF = [];
+    {% for card in value_cards %}
+    valueCardsForPDF.push("{{card.name}}");
+    {% endfor %}
+
+    const lensCardsForPDF = [];
+    {% for lens in lenses %}
+    lensCardsForPDF.push("{{lens.name}}");
+    {% endfor %}
+
+</script>
