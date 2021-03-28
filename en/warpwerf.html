@@ -69,6 +69,11 @@ lang: en
     </div>
     <hr class="horizontal-divider">
     <div style="text-align: center; padding-bottom: 20px; width: 100%">
-        <a download class="download-button-inverted" href="{{site.baseurl}}/assets/pdfs/warp-&-weft/warp-&-weft-all.pdf">Download All</a>
+        <a download class="download-button-inverted" href="javascript:downloadWarpWerfZip()">Download All</a>
     </div>
+
+
+    <script src="{{ site.baseurl }}/js/jszip.min.js"></script>
+    <script src="{{ site.baseurl }}/js/FileSaver.min.js"></script>
+    <script src="{{ site.baseurl }}/pdf_maker/zip-helper.js"></script>
 

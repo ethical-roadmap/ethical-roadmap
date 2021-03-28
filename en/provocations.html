@@ -75,7 +75,7 @@ lang: en
 <hr class="horizontal-divider">
 <div style="text-align: center; padding-bottom: 20px; width: 100%">
     <!--a download class="download-button-inverted" href="{{site.baseurl}}/assets/pdfs/provocations/provocations-all.pdf">Download All</a-->
-    <a download class="download-button-inverted" href="javascript:joinPdfFiles()">Download All</a>
+    <a download class="download-button-inverted" href="javascript:downloadProvocationsZip()">Download All</a>
 </div>
 
 {% assign provocation_ds_cards = site.provocation_ds_cards | sort: "ref" %}
@@ -83,7 +83,10 @@ lang: en
 <script src="{{ site.baseurl }}/pdf_maker/pdfMaker.js"></script>
 <script src="{{ site.baseurl }}/pdf_maker/Calibri-normal.js"></script>
 <script src="{{ site.baseurl }}/pdf_maker/Pasajero-normal.js"></script>
-<script src="https://unpkg.com/pdf-lib"></script>
+
+<script src="{{ site.baseurl }}/js/jszip.min.js"></script>
+<script src="{{ site.baseurl }}/js/FileSaver.min.js"></script>
+<script src="{{ site.baseurl }}/pdf_maker/zip-helper.js"></script>
 
 <script>
 
@@ -108,6 +111,7 @@ lang: en
     texts = []; 
 {% endfor %}
 
+/*
     const joinPdfFiles = async() => {
 
         //Load Facilitation Sheets
@@ -158,5 +162,5 @@ lang: en
         link.download = 'provocations-all';
         link.click();
     }   
-
+*/
 </script>

@@ -15,58 +15,233 @@ const downloadZip = (files, filename) => {
 
 }
 
-const downloadValueZip = async() => {
+const getFiles = async(urlList, functionList) => {
 
     const files = [];
 
-    //Load Facilitation Sheets    
-    const urlFS = "{{site.baseurl}}/assets/pdfs/values/facilitation-sheets.pdf";
-    const arrayBufferFS = await fetch(urlFS).then(res => res.arrayBuffer());
-    files.push({
-        name: "facilitation_sheets.pdf",
-        data: arrayBufferFS,
-    });
+    for(let {name, url} of urlList) {
+        const arrayBuffer = await fetch(url).then(res => res.arrayBuffer());
+        files.push({
+            name,
+            data: arrayBuffer,
+        });
+    }
 
-    //Load Value Cards
-    const doc1 = valueCardsPDFGenerator().generatePdf(valueCardsForPDF);
-    let valueCards = doc1.output('arraybuffer');
-    files.push({
-        name: "value_cards.pdf",
-        data: valueCards,
-    });
+    for(let {name, func, arg} of functionList) {
+        const doc = func().generatePdf(arg);
+        let result = doc.output('arraybuffer');
+        files.push({
+            name,
+            data: result,
+        });
+    }
 
-    //Load Blank Value Cards
-    const urlBVC = "{{site.baseurl}}/assets/pdfs/values/blank-value-cards.pdf";
-    const arrayBufferBVC = await fetch(urlBVC).then(res => res.arrayBuffer());
-    files.push({
-        name: "blank_value_cards.pdf",
-        data: arrayBufferBVC,
-    });
+    return files;
+}
 
-    //Load Value Cards Board
-    const urlVCB = "{{site.baseurl}}/assets/pdfs/values/value-cards-board.pdf";
-    const arrayBufferVCB = await fetch(urlVCB).then(res => res.arrayBuffer());
-    files.push({
-        name: "value_cards_board.pdf",
-        data: arrayBufferVCB,
-    });
 
-    //Load Lens Cards
-    const doc2 = lensesCardsPDFGenerator().generatePdf(lensCardsForPDF);
-    let lensCards = doc2.output('arraybuffer');
-    files.push({
-        name: "lens_cards.pdf",
-        data: lensCards,
-    });
+const downloadValueZip = async() => {
 
-    //Load Capture Sheets
-    const urlCS = "{{site.baseurl}}/assets/pdfs/values/capture-sheets.pdf";
-    const arrayBufferCS = await fetch(urlCS).then(res => res.arrayBuffer());
-    files.push({
-        name: "capture_Sheets.pdf",
-        data: arrayBufferCS,
-    });
+    const urlList = [
+        {
+            name: "facilitation_sheets.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/values/facilitation-sheets.pdf"
+        },
+        {
+            name: "blank_value_cards.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/values/blank-value-cards.pdf"
+        },
+        {
+            name: "value_cards_board.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/values/value-cards-board.pdf"
+        },
+        {
+            name: "capture_Sheets.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/values/capture-sheets.pdf"
+        }
+    ];
 
+    const functionList = [
+        {
+            name: "value_cards.pdf",
+            func: valueCardsPDFGenerator,
+            arg: valueCardsForPDF,
+        },
+        {
+            name: "lens_cards.pdf",
+            func: lensesCardsPDFGenerator,
+            arg: lensCardsForPDF
+        }
+    ];
+
+    const files = await getFiles(urlList, functionList);
     downloadZip(files, "value.zip");
 }
 
+const downloadTeamMembersZip = async() => {
+    
+    const urlList = [
+        {
+            name: "facilitation_sheets.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/team-members/team-members-facilitation-sheets.pdf"
+        },
+        {
+            name: "capture_Sheets.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/team-members/team-members-capture-sheets.pdf"
+        },
+        {
+            name: "team_members_map.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/team-members/team-members-map.pdf"
+        }
+    ];
+
+    const functionList = [
+        {
+            name: "role_cards.pdf",
+            func: roleCardsPDFGenerator,
+            arg: roleCardsForPDF
+        }
+    ];
+
+    const files = await getFiles(urlList, functionList);
+    downloadZip(files, "team_members.zip");
+}
+
+const downloadMoralQualitiesZip = async() => {
+    
+    const urlList = [
+        {
+            name: "facilitation_sheets.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/moral-qualities/moral-qualities-facilitation-sheets.pdf"
+        },
+        {
+            name: "capture_Sheets.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/moral-qualities/moral-qualities-capture-sheets.pdf"
+        }
+    ];
+
+    const functionList = [
+        {
+            name: "moral_qualities_cards.pdf",
+            func: moralQualitiesCardsPDFGenerator,
+            arg: moralQualitiesCardsForPDF
+        },
+        {
+            name: "provocation_cards.pdf",
+            func: moralQualitiesProvocationCardsPDFGenerator,
+            arg: moralQualitiesProvocationCardsForPDF
+        }
+    ];
+
+    const files = await getFiles(urlList, functionList);
+    downloadZip(files, "moral_qualities.zip");
+}
+
+const downloadCriticalFriendsZip = async() => {
+    
+    const urlList = [
+        {
+            name: "critical_friends_map.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/critical-friends/critical-friends-map.pdf"
+        },
+        {
+            name: "role_cards.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/critical-friends/critical-friends-role-cards.pdf"
+        },
+        {
+            name: "milestones_map.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/critical-friends/critical-friends-milestones-map.pdf"
+        },
+        {
+            name: "facilitation_sheets.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/critical-friends/critical-friends-facilitation-sheets.pdf"
+        },
+    ];
+
+    const functionList = [];
+
+    const files = await getFiles(urlList, functionList);
+    downloadZip(files, "critical_friends.zip");
+}
+
+const downloadConsentZip = async() => {
+    
+    const urlList = [
+        {
+            name: "consent_postcards.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/consent/consent-postcards.pdf"
+        },
+        {
+            name: "capture_sheets.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/consent/consent-capture-sheets.pdf"
+        },
+        {
+            name: "facilitation_sheets.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/consent/consent-facilitation-sheets.pdf"
+        },
+    ];
+
+    const functionList = [
+        {
+            name: "methods_cards.pdf",
+            func: methodsCardsPDFGenerator,
+            arg: methodsCardsForPDF
+        },
+        {
+            name: "outcome_cards.pdf",
+            func: outcomeCardsPDFGenerator,
+            arg: outputCardsForPDF
+        }
+    ];
+
+    const files = await getFiles(urlList, functionList);
+    downloadZip(files, "consent.zip");
+}
+
+const downloadProvocationsZip = async() => {
+    
+    const urlList = [
+        {
+            name: "capture_sheets.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/provocations/provocations-capture-sheets.pdf"
+        },
+        {
+            name: "facilitation_sheets.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/provocations/provocations-facilitation-sheets.pdf"
+        },
+    ];
+
+    const functionList = [
+        {
+            name: "provocation_cards.pdf",
+            func: provocationCardsPDFGenerator,
+            arg: provocationCardsForPDF
+        },
+    ];
+
+    const files = await getFiles(urlList, functionList);
+    downloadZip(files, "provocations.zip");
+}
+
+const downloadWarpWerfZip = async() => {
+    
+    const urlList = [
+        {
+            name: "strips.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/warp-&-weft/warp-&-weft-strips.pdf",
+        },
+        {
+            name: "capture_sheets.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/warp-&-weft/warp-&-weft-capture-sheets.pdf"
+        },
+        {
+            name: "facilitation_sheets.pdf",
+            url: "{{site.baseurl}}/assets/pdfs/warp-&-weft/warp-&-weft-facilitation-sheets.pdf"
+        },
+    ];
+
+    const functionList = [];
+
+    const files = await getFiles(urlList, functionList);
+    downloadZip(files, "warpwerf.zip");
+}

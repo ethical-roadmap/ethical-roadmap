@@ -87,7 +87,7 @@ lang: en
 </div>
 <hr class="horizontal-divider">
 <div style="text-align: center; padding-bottom: 20px; width: 100%">
-    <a download class="download-button-inverted" href="{{site.baseurl}}/assets/pdfs/consent/consent-all.pdf">Download All</a>
+    <a download class="download-button-inverted" href="javascript:downloadConsentZip()">Download All</a>
 </div>
 
 {% assign methods_cards = site.methods_cards | sort: "sequence" %}
@@ -96,8 +96,10 @@ lang: en
 <script src="{{ site.baseurl }}/pdf_maker/pdfMaker-consent.js"></script>
 <script src="{{ site.baseurl }}/pdf_maker/Calibri-normal.js"></script>
 <script src="{{ site.baseurl }}/pdf_maker/Pasajero-normal.js"></script>
-<script src="https://unpkg.com/pdf-lib"></script>
 
+<script src="{{ site.baseurl }}/js/jszip.min.js"></script>
+<script src="{{ site.baseurl }}/js/FileSaver.min.js"></script>
+<script src="{{ site.baseurl }}/pdf_maker/zip-helper.js"></script>
 <script>    
     addPasajeroFont(window.jspdf.jsPDF);
     addCalibriFont(window.jspdf.jsPDF);

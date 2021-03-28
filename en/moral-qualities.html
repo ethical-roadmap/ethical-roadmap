@@ -68,7 +68,7 @@ lang: en
 </div>
 <hr class="horizontal-divider">
 <div style="text-align: center; padding-bottom: 20px; width: 100%">
-    <a download class="download-button-inverted" href="{{site.baseurl}}/assets/pdfs/moral-qualities/moral-qualities-all.pdf">Download All</a>
+    <a download class="download-button-inverted" href="javascript:downloadMoralQualitiesZip()">Download All</a>
 </div>
 
 {% assign moral_qualities_cards = site.moral_qualities_cards %}
@@ -77,7 +77,10 @@ lang: en
 <script src="{{ site.baseurl }}/pdf_maker/pdfMaker-moral-qualities.js"></script>
 <script src="{{ site.baseurl }}/pdf_maker/Calibri-normal.js"></script>
 <script src="{{ site.baseurl }}/pdf_maker/Pasajero-normal.js"></script>
-<script src="https://unpkg.com/pdf-lib"></script>
+
+<script src="{{ site.baseurl }}/js/jszip.min.js"></script>
+<script src="{{ site.baseurl }}/js/FileSaver.min.js"></script>
+<script src="{{ site.baseurl }}/pdf_maker/zip-helper.js"></script>
 
 <script>
     addPasajeroFont(window.jspdf.jsPDF);
