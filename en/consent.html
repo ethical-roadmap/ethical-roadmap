@@ -38,8 +38,8 @@ lang: en
     <div class="category-content-title" style="padding-top: 20px;">outcomes</div>
     {% include output_cards.html %}
     <div style="text-align: center; width: 100%; padding-bottom: 20px;">
-            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/consent/methods-cards.pdf"><i class="fas fa-download"></i> Methods Cards</a>
-            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/consent/outcomes-cards.pdf"><i class="fas fa-download"></i> Outcomes Cards</a>
+            <a download class="download-button" href="javascript:methodsCardsPDFGenerator().downloadPdf(methodsCardsForPDF);"><i class="fas fa-download"></i> Methods Cards</a>
+            <a download class="download-button" href="javascript:outcomeCardsPDFGenerator().downloadPdf(outputCardsForPDF);"><i class="fas fa-download"></i> Outcomes Cards</a>
     </div>
 </div>
 <div class="category-secondary-header" style="background: #ced36e;"> {{category.text_content[2].title}} </div>
@@ -62,31 +62,58 @@ lang: en
     </div>
 </div>
 <div class="category-secondary-header" style="background: #ced36e;"> {{category.text_content[3].title}} </div>
-    <div class="category-content-row">
-        <div class="category-content-2-column"> 
-            <p>{{category.text_content[3].text[0]}}</p>
-            <div style="display:flex;justify-content:center;align-items:center;">
-                <div>
-                    <ul class="prompts">
-                        <li style="padding-bottom: 0px"><strong>{{category.text_content[3].text[1]}}</strong></li>
-                        <li style="padding-bottom: 0px"><strong>{{category.text_content[3].text[2]}}</strong></li>
-                        <li style="padding-bottom: 0px"><strong>{{category.text_content[3].text[3]}}</strong></li>
-                    </ul>
-                </div>
-            </div>  
-        </div>
-        <div class="category-content-2-column" style="margin: auto;">
-            <div style="background: #c4ca49; height: 115px; width: 264px; color: white; padding: 10px; margin: auto;">
-                {{category.text_content[3].text[4]}}
+<div class="category-content-row">
+    <div class="category-content-2-column"> 
+        <p>{{category.text_content[3].text[0]}}</p>
+        <div style="display:flex;justify-content:center;align-items:center;">
+            <div>
+                <ul class="prompts">
+                    <li style="padding-bottom: 0px"><strong>{{category.text_content[3].text[1]}}</strong></li>
+                    <li style="padding-bottom: 0px"><strong>{{category.text_content[3].text[2]}}</strong></li>
+                    <li style="padding-bottom: 0px"><strong>{{category.text_content[3].text[3]}}</strong></li>
+                </ul>
             </div>
-        </div>
-        <div style="text-align: center; width: 100%">
-            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/consent/consent-capture-sheets.pdf"><i class="fas fa-download"></i> Capture Sheets</a>
-            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/consent/consent-facilitation-sheets.pdf"><i class="fas fa-download"></i> Facilitation Sheets</a>
+        </div>  
+    </div>
+    <div class="category-content-2-column" style="margin: auto;">
+        <div style="background: #c4ca49; height: 115px; width: 264px; color: white; padding: 10px; margin: auto;">
+            {{category.text_content[3].text[4]}}
         </div>
     </div>
-    <hr class="horizontal-divider">
-    <div style="text-align: center; padding-bottom: 20px; width: 100%">
-        <a download class="download-button-inverted" href="{{site.baseurl}}/assets/pdfs/consent/consent-all.pdf">Download All</a>
+    <div style="text-align: center; width: 100%">
+        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/consent/consent-capture-sheets.pdf"><i class="fas fa-download"></i> Capture Sheets</a>
+        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/consent/consent-facilitation-sheets.pdf"><i class="fas fa-download"></i> Facilitation Sheets</a>
     </div>
+</div>
+<hr class="horizontal-divider">
+<div style="text-align: center; padding-bottom: 20px; width: 100%">
+    <a download class="download-button-inverted" href="{{site.baseurl}}/assets/pdfs/consent/consent-all.pdf">Download All</a>
+</div>
 
+{% assign methods_cards = site.methods_cards | sort: "sequence" %}
+{% assign output_cards = site.output_cards | sort: "sequence" %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script>
+<script src="{{ site.baseurl }}/pdf_maker/pdfMaker-consent.js"></script>
+<script src="{{ site.baseurl }}/pdf_maker/Calibri-normal.js"></script>
+<script src="{{ site.baseurl }}/pdf_maker/Pasajero-normal.js"></script>
+<script src="https://unpkg.com/pdf-lib"></script>
+
+<script>    
+    addPasajeroFont(window.jspdf.jsPDF);
+    addCalibriFont(window.jspdf.jsPDF);
+    
+    const methodsCardsForPDF = [];
+
+{% for card in methods_cards %}
+    methodsCardsForPDF.push("{{card.name}}");
+{% endfor %}
+
+    const outputCardsForPDF = [];
+
+{% for card in output_cards %}
+    outputCardsForPDF.push("{{card.name}}");
+{% endfor %}
+
+    
+   
+</script>
