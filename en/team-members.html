@@ -42,20 +42,10 @@ lang: en
         {% include role-cards-carousel.html %}
     </div>
     <div style="text-align: center; width: 100%; padding-bottom: 20px;">
-            <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/team-members/role-cards.pdf"><i class="fas fa-download"></i> Role Cards</a>
+            <a download class="download-button" href="javascript:roleCardsPDFGenerator().downloadPdf(roleCardsForPDF);"><i class="fas fa-download"></i> Role Cards</a>
             <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/team-members/team-members-map.pdf"><i class="fas fa-download"></i> Role Map</a>
     </div>
 </div>
-<!--div class="category-secondary-header" style="background: #d9bc6b"> {{category.text_content[2].title}} </div>
-<div class="category-content-row">
-    <div class="category-content-1-column"> 
-        <p>{{category.text_content[2].text[0]}}</p>
-    </div>
-    {% include animal-carousel.html %}
-    <div style="text-align: center; padding-bottom: 20px; width: 100%">
-        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/team-members/animal-cards.pdf"><i class="fas fa-download"></i> Animal Cards</a>
-    </div>
-</div-->
 <div class="category-secondary-header" style="background: #d9bc6b;"> {{category.text_content[3].title}} </div>
     <div class="category-content-row">
         <div class="category-content-2-column"> 
@@ -85,3 +75,35 @@ lang: en
         <a download class="download-button-inverted" href="{{site.baseurl}}/assets/pdfs/team-members/team-members-all.pdf">Download All</a>
     </div>
 
+    {% assign role_cards = site.role_cards | sort: "sequence" %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script>
+    <script src="{{ site.baseurl }}/pdf_maker/pdfMaker-team-members.js"></script>
+    <script src="{{ site.baseurl }}/pdf_maker/Calibri-normal.js"></script>
+    <script src="{{ site.baseurl }}/pdf_maker/Pasajero-normal.js"></script>
+    <script src="https://unpkg.com/pdf-lib"></script>
+    
+    <script>
+        addPasajeroFont(window.jspdf.jsPDF);
+        addCalibriFont(window.jspdf.jsPDF);
+        
+        const roleCardsForPDF = [];
+
+        let c = {};
+        let contribution = [];
+
+    {% for card in role_cards %}
+        c.ref = "{{card.ref}}";
+        c.name = "{{card.name}}";
+        c.subname = "{{card.subname}}";
+        c.sequence = "{{card.sequence}}";
+        c.type= "{{card.type}}";
+        {% for contribution in card.contribution %}
+        contribution.push("{{contribution}}");
+        {% endfor %}
+        c.contribution = [...contribution];
+        roleCardsForPDF.push({...c});
+        c = {};
+        contribution = []; 
+    {% endfor %}
+    
+    </script>
