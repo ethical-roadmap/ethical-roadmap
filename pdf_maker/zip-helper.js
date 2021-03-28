@@ -40,7 +40,7 @@ const getFiles = async(urlList, functionList) => {
 }
 
 
-const downloadValueZip = async() => {
+const getValueFiles = async() => {
 
     const urlList = [
         {
@@ -75,11 +75,15 @@ const downloadValueZip = async() => {
     ];
 
     const files = await getFiles(urlList, functionList);
+    return files;
+}
+
+const downloadValueZip = async() => {
+    const files = await getValueFiles();
     downloadZip(files, "value.zip");
 }
 
-const downloadTeamMembersZip = async() => {
-    
+const getTeamMembersFiles = async() => {
     const urlList = [
         {
             name: "facilitation_sheets.pdf",
@@ -104,11 +108,15 @@ const downloadTeamMembersZip = async() => {
     ];
 
     const files = await getFiles(urlList, functionList);
+    return files;
+}
+
+const downloadTeamMembersZip = async() => {
+    const files = await getTeamMembersFiles();
     downloadZip(files, "team_members.zip");
 }
 
-const downloadMoralQualitiesZip = async() => {
-    
+const getMoralQualitiesFiles = async() => {
     const urlList = [
         {
             name: "facilitation_sheets.pdf",
@@ -134,11 +142,15 @@ const downloadMoralQualitiesZip = async() => {
     ];
 
     const files = await getFiles(urlList, functionList);
+    return files;
+}
+
+const downloadMoralQualitiesZip = async() => {
+    const files = await getMoralQualitiesFiles();
     downloadZip(files, "moral_qualities.zip");
 }
 
-const downloadCriticalFriendsZip = async() => {
-    
+const getCriticalFriendsFiles = async() => {
     const urlList = [
         {
             name: "critical_friends_map.pdf",
@@ -161,11 +173,15 @@ const downloadCriticalFriendsZip = async() => {
     const functionList = [];
 
     const files = await getFiles(urlList, functionList);
+    return files;
+}
+
+const downloadCriticalFriendsZip = async() => {
+    const files = await getCriticalFriendsFiles();
     downloadZip(files, "critical_friends.zip");
 }
 
-const downloadConsentZip = async() => {
-    
+const getConsentFiles = async() => {
     const urlList = [
         {
             name: "consent_postcards.pdf",
@@ -195,11 +211,15 @@ const downloadConsentZip = async() => {
     ];
 
     const files = await getFiles(urlList, functionList);
+    return files;
+}
+
+const downloadConsentZip = async() => {
+    const files = await getConsentFiles();
     downloadZip(files, "consent.zip");
 }
 
-const downloadProvocationsZip = async() => {
-    
+const getProvocationsFiles = async() => {
     const urlList = [
         {
             name: "capture_sheets.pdf",
@@ -220,11 +240,15 @@ const downloadProvocationsZip = async() => {
     ];
 
     const files = await getFiles(urlList, functionList);
+    return files;
+}
+
+const downloadProvocationsZip = async() => {
+    const files = await getProvocationsFiles();
     downloadZip(files, "provocations.zip");
 }
 
-const downloadWarpWerfZip = async() => {
-    
+const getWarpWerfFiles = async() => {
     const urlList = [
         {
             name: "strips.pdf",
@@ -243,5 +267,50 @@ const downloadWarpWerfZip = async() => {
     const functionList = [];
 
     const files = await getFiles(urlList, functionList);
+    return files;
+}
+
+const downloadWarpWerfZip = async() => {
+    const files = await getWarpWerfFiles();
     downloadZip(files, "warpwerf.zip");
+}
+
+const addFilesToFolderZip = async(zip, folderName, files) => {
+    const folder = zip.folder(folderName);
+    for(let {name, data} of files) {
+        folder.file(name, data);
+    }
+    return zip;
+}
+
+const downloadAllZip = async() => {
+
+    let zip = new JSZip();
+
+    const valuesFiles = await getValueFiles();
+    zip = await addFilesToFolderZip(zip, "values", valuesFiles);
+
+    const teamMembersFiles = await getTeamMembersFiles();
+    zip = await addFilesToFolderZip(zip, "team members", teamMembersFiles);
+
+    const moralQualitiesFiles = await getMoralQualitiesFiles();
+    zip = await addFilesToFolderZip(zip, "moral qualities", moralQualitiesFiles);
+
+    const criticalFriendsFiles = await getCriticalFriendsFiles();
+    zip = await addFilesToFolderZip(zip, "critial friends", criticalFriendsFiles);
+
+    const consentFiles = await getConsentFiles();
+    zip = await addFilesToFolderZip(zip, "consent", consentFiles);
+
+    const provocationsFiles = await getProvocationsFiles();
+    zip = await addFilesToFolderZip(zip, "provocations", provocationsFiles);
+
+    const warpWerfFiles = await getWarpWerfFiles();
+    zip = await addFilesToFolderZip(zip, "warp and werf", warpWerfFiles);
+
+    zip.generateAsync({type:"blob"})
+    .then(function(content) {
+        saveAs(content, filename);
+    });
+
 }
