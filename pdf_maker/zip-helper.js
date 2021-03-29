@@ -308,9 +308,7 @@ const downloadAllZip = async() => {
     const warpWerfFiles = await getWarpWerfFiles();
     zip = await addFilesToFolderZip(zip, "warp and werf", warpWerfFiles);
 
-    zip.generateAsync({type:"blob"})
-    .then(function(content) {
-        saveAs(content, filename);
-    });
+    const content = await zip.generateAsync({type:"blob"});
+    saveAs(content, "ethical-roadmap.zip");
 
 }

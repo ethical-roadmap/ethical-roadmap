@@ -1,3 +1,24 @@
+---
+---
+{% assign provocation_ds_cards = site.provocation_ds_cards | sort: "ref" %}
+
+const provocationCardsForPDF = [];
+
+let tempP = {};
+let texts = [];
+
+{% for card in provocation_ds_cards %}
+tempP.ref = "{{card.ref}}";
+tempP.category = "{{card.category}}";
+tempP.subcategory = "{{card.subcategory}}";
+{% for text in card.text %}
+texts.push("{{text}}");
+{% endfor %}
+tempP.texts = [...texts];
+provocationCardsForPDF.push({...tempP});
+tempP = {};
+texts = []; 
+{% endfor %}
 
 const provocationCardsPDFGenerator = () => {
 
@@ -165,7 +186,7 @@ const provocationCardsPDFGenerator = () => {
     const generatePdf = (cards) => {
 
         const doc = new jsPDF({
-            orientation: 'p',
+            orientation: 'l',
             unit: 'mm',
             format: 'a4',
         });

@@ -1,3 +1,29 @@
+---
+---
+{% assign moral_qualities_cards = site.moral_qualities_cards %}
+{% assign provocation_cards = site.provocation_cards %}
+
+const moralQualitiesCardsForPDF = [];
+
+let tempMQ = {};
+
+{% for card in moral_qualities_cards %}
+tempMQ.ref = "{{card.ref}}";
+tempMQ.front = "{{card.front}}";
+tempMQ.back = "{{card.back}}";
+moralQualitiesCardsForPDF.push({...tempMQ});
+tempMQ = {};
+{% endfor %}
+
+const moralQualitiesProvocationCardsForPDF = [];
+
+{% for card in provocation_cards %}
+tempMQ.ref = "{{card.ref}}";
+tempMQ.front = "{{card.front}}";
+moralQualitiesProvocationCardsForPDF.push({...tempMQ});
+tempMQ = {};
+{% endfor %}
+
 const moralQualitiesCardsPDFGenerator = () => {
 
     const jsPDF = window.jspdf.jsPDF;
@@ -158,9 +184,34 @@ const moralQualitiesCardsPDFGenerator = () => {
         doc.save("moral_quality_cards.pdf")
     }
 
+    const generateMiroPdf = (cards) => {
+
+        const doc = new jsPDF({
+            orientation: 'p',
+            unit: 'mm',
+            format: [CARD_WIDTH, CARD_HEIGHT * 2],
+        }); 
+
+        for (let i=0; i < cards.length; i++) {
+            if(i != 0)
+                doc.addPage();
+            cardFront(doc, 0, 0, cards[i].front);
+            cardBack(doc, 0, CARD_HEIGHT, cards[i].back);
+        }
+
+        return doc;
+    }
+
+    const downloadMiroPdf = (cards) => {
+        const doc = generateMiroPdf(cards);
+        doc.save("moral_quality_cards_miro.pdf");
+    }
+
     return {
         generatePdf,
         downloadPdf,
+        generateMiroPdf,
+        downloadMiroPdf,
     }
 
 }
@@ -292,12 +343,36 @@ const moralQualitiesProvocationCardsPDFGenerator = () => {
 
     const downloadPdf = (cards) => {
         const doc = generatePdf(cards);
-        doc.save("moral_quality_cards.pdf")
+        doc.save("provocation_cards.pdf")
+    }
+
+    const generateMiroPdf = (cards) => {
+
+        const doc = new jsPDF({
+            orientation: 'p',
+            unit: 'mm',
+            format: [CARD_WIDTH, CARD_HEIGHT],
+        }); 
+
+        for (let i=0; i < cards.length; i++) {
+            if(i != 0)
+                doc.addPage();
+            cardFront(doc, 0, 0, cards[i].front);
+        }
+
+        return doc;
+    }
+
+    const downloadMiroPdf = (cards) => {
+        const doc = generateMiroPdf(cards);
+        doc.save("provocation_cards_miro.pdf");
     }
 
     return {
         generatePdf,
         downloadPdf,
+        generateMiroPdf,
+        downloadMiroPdf,
     }
 
 }

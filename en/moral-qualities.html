@@ -71,8 +71,6 @@ lang: en
     <a download class="download-button-inverted" href="javascript:downloadMoralQualitiesZip()">Download All</a>
 </div>
 
-{% assign moral_qualities_cards = site.moral_qualities_cards %}
-{% assign provocation_cards = site.provocation_cards %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script>
 <script src="{{ site.baseurl }}/pdf_maker/pdfMaker-moral-qualities.js"></script>
 <script src="{{ site.baseurl }}/pdf_maker/Calibri-normal.js"></script>
@@ -85,29 +83,9 @@ lang: en
 <script>
     addPasajeroFont(window.jspdf.jsPDF);
     addCalibriFont(window.jspdf.jsPDF);
-    
-    const moralQualitiesCardsForPDF = [];
-
-    let c = {};
-
-{% for card in moral_qualities_cards %}
-    c.ref = "{{card.ref}}";
-    c.front = "{{card.front}}";
-    c.back = "{{card.back}}";
-    moralQualitiesCardsForPDF.push({...c});
-    c = {};
-{% endfor %}
-
-    const moralQualitiesProvocationCardsForPDF = [];
-
-{% for card in provocation_cards %}
-    c.ref = "{{card.ref}}";
-    c.front = "{{card.front}}";
-    moralQualitiesProvocationCardsForPDF.push({...c});
-    c = {};
-{% endfor %}
-
     //moralQualitiesCardsPDFGenerator().downloadPdf(moralQualitiesCardsForPDF);
-
     //moralQualitiesProvocationCardsPDFGenerator().downloadPdf(moralQualitiesProvocationCardsForPDF);
+
+    //moralQualitiesCardsPDFGenerator().downloadMiroPdf(moralQualitiesCardsForPDF);
+    //moralQualitiesProvocationCardsPDFGenerator().downloadMiroPdf(moralQualitiesProvocationCardsForPDF);
 </script>

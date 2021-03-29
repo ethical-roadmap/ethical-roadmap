@@ -1,3 +1,27 @@
+---
+---
+{% assign role_cards = site.role_cards | sort: "sequence" %}
+
+const roleCardsForPDF = [];
+
+let tempR = {};
+let contribution = [];
+
+{% for card in role_cards %}
+tempR.ref = "{{card.ref}}";
+tempR.name = "{{card.name}}";
+tempR.subname = "{{card.subname}}";
+tempR.sequence = "{{card.sequence}}";
+tempR.type= "{{card.type}}";
+{% for contribution in card.contribution %}
+contribution.push("{{contribution}}");
+{% endfor %}
+tempR.contribution = [...contribution];
+roleCardsForPDF.push({...tempR});
+tempR = {};
+contribution = []; 
+{% endfor %}
+
 const roleCardsPDFGenerator = () => {
 
     const jsPDF = window.jspdf.jsPDF;
@@ -179,9 +203,34 @@ const roleCardsPDFGenerator = () => {
         doc.save("role_cards.pdf")
     }
 
+    const generateMiroPdf = (cards) => {
+
+        const doc = new jsPDF({
+            orientation: 'p',
+            unit: 'mm',
+            format: [CARD_WIDTH, CARD_HEIGHT * 2],
+        }); 
+
+        for (let i=0; i < cards.length; i++) {
+            if(i != 0)
+                doc.addPage();
+            cardFront(doc, 0, 0, cards[i]);
+            cardBack(doc, 0, CARD_HEIGHT, cards[i]);
+        }
+
+        return doc;
+    }
+
+    const downloadMiroPdf = (cards) => {
+        const doc = generateMiroPdf(cards);
+        doc.save("role_cards_miro.pdf");
+    }
+
     return {
         generatePdf,
         downloadPdf,
+        generateMiroPdf,
+        downloadMiroPdf,
     }
 
 }

@@ -90,8 +90,6 @@ lang: en
     <a download class="download-button-inverted" href="javascript:downloadConsentZip()">Download All</a>
 </div>
 
-{% assign methods_cards = site.methods_cards | sort: "sequence" %}
-{% assign output_cards = site.output_cards | sort: "sequence" %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script>
 <script src="{{ site.baseurl }}/pdf_maker/pdfMaker-consent.js"></script>
 <script src="{{ site.baseurl }}/pdf_maker/Calibri-normal.js"></script>
@@ -103,19 +101,7 @@ lang: en
 <script>    
     addPasajeroFont(window.jspdf.jsPDF);
     addCalibriFont(window.jspdf.jsPDF);
-    
-    const methodsCardsForPDF = [];
 
-{% for card in methods_cards %}
-    methodsCardsForPDF.push("{{card.name}}");
-{% endfor %}
-
-    const outputCardsForPDF = [];
-
-{% for card in output_cards %}
-    outputCardsForPDF.push("{{card.name}}");
-{% endfor %}
-
-    
-   
+    //methodsCardsPDFGenerator().downloadMiroPdf(methodsCardsForPDF);
+    //outcomeCardsPDFGenerator().downloadMiroPdf(outputCardsForPDF);
 </script>

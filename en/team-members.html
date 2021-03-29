@@ -75,7 +75,6 @@ lang: en
         <a download class="download-button-inverted" href="javascript:downloadTeamMembersZip()">Download All</a>
     </div>
 
-    {% assign role_cards = site.role_cards | sort: "sequence" %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script>
     <script src="{{ site.baseurl }}/pdf_maker/pdfMaker-team-members.js"></script>
     <script src="{{ site.baseurl }}/pdf_maker/Calibri-normal.js"></script>
@@ -88,25 +87,6 @@ lang: en
     <script>
         addPasajeroFont(window.jspdf.jsPDF);
         addCalibriFont(window.jspdf.jsPDF);
-        
-        const roleCardsForPDF = [];
 
-        let c = {};
-        let contribution = [];
-
-    {% for card in role_cards %}
-        c.ref = "{{card.ref}}";
-        c.name = "{{card.name}}";
-        c.subname = "{{card.subname}}";
-        c.sequence = "{{card.sequence}}";
-        c.type= "{{card.type}}";
-        {% for contribution in card.contribution %}
-        contribution.push("{{contribution}}");
-        {% endfor %}
-        c.contribution = [...contribution];
-        roleCardsForPDF.push({...c});
-        c = {};
-        contribution = []; 
-    {% endfor %}
-    
+        //roleCardsPDFGenerator().downloadMiroPdf(roleCardsForPDF);
     </script>

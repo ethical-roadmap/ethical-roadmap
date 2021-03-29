@@ -1,3 +1,19 @@
+---
+---
+{% assign value_cards = site.value_cards | sort: "sequence" %}
+{% assign lenses = site.lenses %}
+
+const valueCardsForPDF = [];
+{% for card in value_cards %}
+valueCardsForPDF.push("{{card.name}}");
+{% endfor %}
+
+const lensCardsForPDF = [];
+{% for lens in lenses %}
+lensCardsForPDF.push("{{lens.name}}");
+{% endfor %}
+
+
 const valueCardsPDFGenerator = () => {
 
     const jsPDF = window.jspdf.jsPDF;
@@ -79,9 +95,33 @@ const valueCardsPDFGenerator = () => {
         doc.save("value_cards.pdf")
     }
 
+    const generateMiroPdf = (cards) => {
+
+        const doc = new jsPDF({
+            orientation: 'p',
+            unit: 'mm',
+            format: [95, 95],
+        });
+
+        for (let i=0; i < cards.length; i++) {
+            if(i != 0)
+                doc.addPage();
+            cardFront(doc, 0, 0, cards[i]);
+        }
+
+        return doc;
+    }
+
+    const downloadMiroPdf = (cards) => {
+        const doc = generateMiroPdf(cards);
+        doc.save("value_cards_miro.pdf");
+    }
+
     return {
         generatePdf,
         downloadPdf,
+        generateMiroPdf,
+        downloadMiroPdf,
     }
 
 }
@@ -157,9 +197,33 @@ const lensesCardsPDFGenerator = () => {
         doc.save("lens_cards.pdf")
     }
 
+    const generateMiroPdf = (cards) => {
+
+        const doc = new jsPDF({
+            orientation: 'p',
+            unit: 'mm',
+            format: [CARD_WIDTH, CARD_HEIGHT],
+        }); 
+
+        for (let i=0; i < cards.length; i++) {
+            if(i != 0)
+                doc.addPage();
+            cardFront(doc, 0, 0, cards[i]);
+        }
+
+        return doc;
+    }
+
+    const downloadMiroPdf = (cards) => {
+        const doc = generateMiroPdf(cards);
+        doc.save("lens_cards_miro.pdf");
+    }
+
     return {
         generatePdf,
         downloadPdf,
+        generateMiroPdf,
+        downloadMiroPdf,
     }
 
 }

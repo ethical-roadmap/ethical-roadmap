@@ -32,33 +32,21 @@ body {
 
 {% assign provocation_ds_cards = site.provocation_ds_cards | sort: "ref" %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script>
-<script src="{{ site.baseurl }}/pdf_maker/pdfMaker.js"></script>
+<script src="{{ site.baseurl }}/pdf_maker/pdfMaker-values.js"></script>
+<script src="{{ site.baseurl }}/pdf_maker/pdfMaker-team-members.js"></script>
+<script src="{{ site.baseurl }}/pdf_maker/pdfMaker-moral-qualities.js"></script>
+<script src="{{ site.baseurl }}/pdf_maker/pdfMaker-consent.js"></script>
+<script src="{{ site.baseurl }}/pdf_maker/pdfMaker-provocations.js"></script>
+
 <script src="{{ site.baseurl }}/pdf_maker/Calibri-normal.js"></script>
 <script src="{{ site.baseurl }}/pdf_maker/Pasajero-normal.js"></script>
-<script src="https://unpkg.com/pdf-lib"></script>
+<script src="{{ site.baseurl }}/js/jszip.min.js"></script>
+<script src="{{ site.baseurl }}/js/FileSaver.min.js"></script>
+<script src="{{ site.baseurl }}/pdf_maker/zip-helper.js"></script>
 
 <script>
-
     addPasajeroFont(window.jspdf.jsPDF);
     addCalibriFont(window.jspdf.jsPDF);
-
-    const provocationCardsForPDF = [];
-
-    let c = {};
-    let texts = [];
-
-{% for card in provocation_ds_cards %}
-    c.ref = "{{card.ref}}";
-    c.category = "{{card.category}}";
-    c.subcategory = "{{card.subcategory}}";
-    {% for text in card.text %}
-    texts.push("{{text}}");
-    {% endfor %}
-    c.texts = [...texts];
-    provocationCardsForPDF.push({...c});
-    c = {};
-    texts = []; 
-{% endfor %}
 
     const loadPdfFile = async(url) => {
         const arrayBuffer = await fetch(url).then(res => res.arrayBuffer());
@@ -79,7 +67,9 @@ body {
         innerDiv.classList.add("lds-dual-ring")
         downloadButton.append(innerDiv);
         
+        await downloadAllZip();
 
+        /*
         const documentsToMerge = [];
 
         documentsToMerge.push(await loadPdfFile('{{site.baseurl}}/assets/pdfs/values/values-all.pdf'));
@@ -121,7 +111,7 @@ body {
         link.href = URL.createObjectURL( blob );
         link.download = 'ethical-roadmap-all';
         link.click();
-
+        */
         
         while (downloadButton.firstChild) {
             downloadButton.removeChild(downloadButton.lastChild);

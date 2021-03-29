@@ -78,9 +78,8 @@ lang: en
     <a download class="download-button-inverted" href="javascript:downloadProvocationsZip()">Download All</a>
 </div>
 
-{% assign provocation_ds_cards = site.provocation_ds_cards | sort: "ref" %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script>
-<script src="{{ site.baseurl }}/pdf_maker/pdfMaker.js"></script>
+<script src="{{ site.baseurl }}/pdf_maker/pdfMaker-provocations.js"></script>
 <script src="{{ site.baseurl }}/pdf_maker/Calibri-normal.js"></script>
 <script src="{{ site.baseurl }}/pdf_maker/Pasajero-normal.js"></script>
 
@@ -89,78 +88,6 @@ lang: en
 <script src="{{ site.baseurl }}/pdf_maker/zip-helper.js"></script>
 
 <script>
-
     addPasajeroFont(window.jspdf.jsPDF);
     addCalibriFont(window.jspdf.jsPDF);
-
-    const provocationCardsForPDF = [];
-
-    let c = {};
-    let texts = [];
-
-{% for card in provocation_ds_cards %}
-    c.ref = "{{card.ref}}";
-    c.category = "{{card.category}}";
-    c.subcategory = "{{card.subcategory}}";
-    {% for text in card.text %}
-    texts.push("{{text}}");
-    {% endfor %}
-    c.texts = [...texts];
-    provocationCardsForPDF.push({...c});
-    c = {};
-    texts = []; 
-{% endfor %}
-
-/*
-    const joinPdfFiles = async() => {
-
-        //Load Facilitation Sheets
-        const urlFS = '{{site.baseurl}}/assets/pdfs/provocations/provocations-facilitation-sheets.pdf'
-        const arrayBufferFS = await fetch(urlFS).then(res => res.arrayBuffer())
-        const pdfFS = await PDFLib.PDFDocument.load(arrayBufferFS)
-
-        //Load Capture Sheets
-        const urlCS = '{{site.baseurl}}/assets/pdfs/provocations/provocations-capture-sheets.pdf'
-        const arrayBufferCS = await fetch(urlCS).then(res => res.arrayBuffer())
-        const pdfCS = await PDFLib.PDFDocument.load(arrayBufferCS)
-
-        //Load Cards
-        const doc = provocationCardsPDFGenerator().generatePdf(provocationCardsForPDF);
-        let cards = doc.output('arraybuffer');
-        const pdfCards = await PDFLib.PDFDocument.load(cards)
-        
-        //Merge Files
-        const mergedPdf = await PDFLib.PDFDocument.create();
-        
-        const copiedPagesFS = await mergedPdf.copyPages(pdfFS, pdfFS.getPageIndices());
-        copiedPagesFS.forEach((page) => {
-            mergedPdf.addPage(page);
-        });
-
-        const copiedPagesCards = await mergedPdf.copyPages(pdfCards, pdfCards.getPageIndices());
-        copiedPagesCards.forEach((page) => {
-            mergedPdf.addPage(page);
-        });
-
-        const copiedPagesCS = await mergedPdf.copyPages(pdfCS, pdfCS.getPageIndices());
-        copiedPagesCS.forEach((page) => {
-            mergedPdf.addPage(page);
-        });
-
-        //Download Files
-        const mergedPdfFile = await mergedPdf.save();
-
-        const blob = new Blob( [ mergedPdfFile ], { type: 'application/pdf' } );	
-        const objectURL = URL.createObjectURL( blob );
-        
-        const link = document.createElement( 'a' );
-        link.style.display = 'none';
-        document.body.appendChild( link );
-
-        link.href = objectURL;
-        link.href = URL.createObjectURL( blob );
-        link.download = 'provocations-all';
-        link.click();
-    }   
-*/
 </script>
