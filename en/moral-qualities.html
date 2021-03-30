@@ -26,7 +26,8 @@ lang: en
         {% include provocation_cards.html %}
     </div>
     <div style="text-align: center; padding-bottom: 20px; width: 100%">
-        <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/moral-qualities/provocation-cards.pdf"><i class="fas fa-download"></i> Moral Qualities & Provocation Cards</a>
+        <a download class="download-button" href="javascript:downloadMoralQualitiesJustCardsZip(false)"><i class="fas fa-download"></i> Printable - Moral Qualities & Provocation Cards</a>
+        <a download class="download-button" href="javascript:downloadMoralQualitiesJustCardsZip(true)"><i class="fas fa-download"></i> Miro - Moral Qualities & Provocation Cards</a>
     </div>
 </div>
 <div class="category-secondary-header" style="background: {{category.color}}"> {{category.text_content[2].title}} </div>
@@ -35,11 +36,7 @@ lang: en
         <p>{{category.text_content[2].text[0]}}</p>
     </div>
     <div class="category-content-1-column" style="margin: auto;"> 
-       
-       
-                <img src="{{site.baseurl}}/assets/images/{{category.text_content[2].image[0]}}" alt="Moral Qualities Activity" title="Moral Qualities Activity" style="width: 500px">
-       
-    
+        <img src="{{site.baseurl}}/assets/images/{{category.text_content[2].image[0]}}" alt="Moral Qualities Activity" title="Moral Qualities Activity" style="max-width: 500px;width: 100%;">
     </div>
 </div>
 <div class="category-secondary-header" style="background: {{category.color}}"> {{category.text_content[3].title}} </div>
@@ -68,7 +65,8 @@ lang: en
 </div>
 <hr class="horizontal-divider">
 <div style="text-align: center; padding-bottom: 20px; width: 100%">
-    <a download class="download-button-inverted" href="javascript:downloadMoralQualitiesZip()">Download All</a>
+    <a download class="download-button-inverted" href="javascript:downloadMoralQualitiesZip(false)">Printable - Download All</a>
+    <a download class="download-button-inverted" href="javascript:downloadMoralQualitiesZip(true)">Miro - Download All</a>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script>
@@ -83,9 +81,4 @@ lang: en
 <script>
     addPasajeroFont(window.jspdf.jsPDF);
     addCalibriFont(window.jspdf.jsPDF);
-    //moralQualitiesCardsPDFGenerator().downloadPdf(moralQualitiesCardsForPDF);
-    //moralQualitiesProvocationCardsPDFGenerator().downloadPdf(moralQualitiesProvocationCardsForPDF);
-
-    //moralQualitiesCardsPDFGenerator().downloadMiroPdf(moralQualitiesCardsForPDF);
-    //moralQualitiesProvocationCardsPDFGenerator().downloadMiroPdf(moralQualitiesProvocationCardsForPDF);
 </script>

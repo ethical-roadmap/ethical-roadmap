@@ -39,8 +39,32 @@ const getFiles = async(urlList, functionList) => {
     return files;
 }
 
+const getMiroFiles = async(urlList, functionList) => {
 
-const getValueFiles = async() => {
+    const files = [];
+
+    for(let {name, url} of urlList) {
+        const arrayBuffer = await fetch(url).then(res => res.arrayBuffer());
+        files.push({
+            name,
+            data: arrayBuffer,
+        });
+    }
+
+    for(let {name, func, arg} of functionList) {
+        const doc = func().generateMiroPdf(arg);
+        let result = doc.output('arraybuffer');
+        files.push({
+            name,
+            data: result,
+        });
+    }
+
+    return files;
+}
+
+
+const getValueFiles = async(forMiro = false) => {
 
     const urlList = [
         {
@@ -63,27 +87,27 @@ const getValueFiles = async() => {
 
     const functionList = [
         {
-            name: "value_cards.pdf",
+            name: forMiro ? "value_cards_miro.pdf" : "value_cards.pdf",
             func: valueCardsPDFGenerator,
             arg: valueCardsForPDF,
         },
         {
-            name: "lens_cards.pdf",
+            name: forMiro ? "lens_cards_miro.pdf" : "lens_cards.pdf",
             func: lensesCardsPDFGenerator,
             arg: lensCardsForPDF
         }
     ];
 
-    const files = await getFiles(urlList, functionList);
+    const files = forMiro ? await getMiroFiles(urlList, functionList) : await getFiles(urlList, functionList);
     return files;
 }
 
-const downloadValueZip = async() => {
-    const files = await getValueFiles();
-    downloadZip(files, "value.zip");
+const downloadValueZip = async(forMiro = false) => {
+    const files = await getValueFiles(forMiro);
+    downloadZip(files, forMiro ? "value_miro.zip" : "value.zip");
 }
 
-const getTeamMembersFiles = async() => {
+const getTeamMembersFiles = async(forMiro = false) => {
     const urlList = [
         {
             name: "facilitation_sheets.pdf",
@@ -101,22 +125,22 @@ const getTeamMembersFiles = async() => {
 
     const functionList = [
         {
-            name: "role_cards.pdf",
+            name: forMiro ? "role_cards_miro.pdf" : "role_cards.pdf",
             func: roleCardsPDFGenerator,
             arg: roleCardsForPDF
         }
     ];
 
-    const files = await getFiles(urlList, functionList);
+    const files = forMiro ? await getMiroFiles(urlList, functionList) : await getFiles(urlList, functionList);
     return files;
 }
 
-const downloadTeamMembersZip = async() => {
-    const files = await getTeamMembersFiles();
-    downloadZip(files, "team_members.zip");
+const downloadTeamMembersZip = async(forMiro = false) => {
+    const files = await getTeamMembersFiles(forMiro);
+    downloadZip(files, forMiro ? "team_members_miro.zip" : "team_member.zip");
 }
 
-const getMoralQualitiesFiles = async() => {
+const getMoralQualitiesFiles = async(forMiro = false) => {
     const urlList = [
         {
             name: "facilitation_sheets.pdf",
@@ -130,25 +154,45 @@ const getMoralQualitiesFiles = async() => {
 
     const functionList = [
         {
-            name: "moral_qualities_cards.pdf",
+            name: forMiro ? "moral_qualities_cards_miro.pdf" : "moral_qualities_cards.pdf",
             func: moralQualitiesCardsPDFGenerator,
             arg: moralQualitiesCardsForPDF
         },
         {
-            name: "provocation_cards.pdf",
+            name: forMiro ? "provocation_cards_miro.pdf" : "provocation_cards.pdf",
             func: moralQualitiesProvocationCardsPDFGenerator,
             arg: moralQualitiesProvocationCardsForPDF
         }
     ];
 
-    const files = await getFiles(urlList, functionList);
+    const files = forMiro ? await getMiroFiles(urlList, functionList) : await getFiles(urlList, functionList);
     return files;
 }
 
-const downloadMoralQualitiesZip = async() => {
-    const files = await getMoralQualitiesFiles();
-    downloadZip(files, "moral_qualities.zip");
+const downloadMoralQualitiesZip = async(forMiro = false) => {
+    const files = await getMoralQualitiesFiles(forMiro);
+    downloadZip(files, forMiro ? "moral_qualities_miro.zip" : "moral_qualities.zip");
 }
+
+const downloadMoralQualitiesJustCardsZip = async(forMiro) => {
+    const functionList = [
+        {
+            name: forMiro ? "moral_qualities_cards_miro.pdf" : "moral_qualities_cards.pdf",
+            func: moralQualitiesCardsPDFGenerator,
+            arg: moralQualitiesCardsForPDF
+        },
+        {
+            name: forMiro ? "provocation_cards_miro.pdf" : "provocation_cards.pdf",
+            func: moralQualitiesProvocationCardsPDFGenerator,
+            arg: moralQualitiesProvocationCardsForPDF
+        }
+    ];
+
+    const files = forMiro ? await getMiroFiles([], functionList) : await getFiles([], functionList);
+    downloadZip(files, forMiro ? "moral_qualities_and_provocation_cards_miro.zip" : "moral_qualities_and_provocation_cards.zip");
+}
+
+
 
 const getCriticalFriendsFiles = async() => {
     const urlList = [
@@ -181,7 +225,7 @@ const downloadCriticalFriendsZip = async() => {
     downloadZip(files, "critical_friends.zip");
 }
 
-const getConsentFiles = async() => {
+const getConsentFiles = async(forMiro = false) => {
     const urlList = [
         {
             name: "consent_postcards.pdf",
@@ -199,27 +243,27 @@ const getConsentFiles = async() => {
 
     const functionList = [
         {
-            name: "methods_cards.pdf",
+            name: forMiro ? "methods_cards_miro.pdf" : "methods_card.pdf",
             func: methodsCardsPDFGenerator,
             arg: methodsCardsForPDF
         },
         {
-            name: "outcome_cards.pdf",
+            name: forMiro ? "outcome_cards_miro.pdf" : "outcome_cards.pdf",
             func: outcomeCardsPDFGenerator,
             arg: outputCardsForPDF
         }
     ];
 
-    const files = await getFiles(urlList, functionList);
+    const files = forMiro ? await getMiroFiles(urlList, functionList) : await getFiles(urlList, functionList);
     return files;
 }
 
-const downloadConsentZip = async() => {
-    const files = await getConsentFiles();
-    downloadZip(files, "consent.zip");
+const downloadConsentZip = async(forMiro = false) => {
+    const files = await getConsentFiles(forMiro);
+    downloadZip(files, forMiro ? "consent_miro.zip" : "consent.zip");
 }
 
-const getProvocationsFiles = async() => {
+const getProvocationsFiles = async(forMiro = false) => {
     const urlList = [
         {
             name: "capture_sheets.pdf",
@@ -233,19 +277,19 @@ const getProvocationsFiles = async() => {
 
     const functionList = [
         {
-            name: "provocation_cards.pdf",
+            name: forMiro ? "provocation_cards_miro.pdf" : "provocation_cards.pdf",
             func: provocationCardsPDFGenerator,
             arg: provocationCardsForPDF
         },
     ];
 
-    const files = await getFiles(urlList, functionList);
+    const files = forMiro ? await getMiroFiles(urlList, functionList) : await getFiles(urlList, functionList);
     return files;
 }
 
-const downloadProvocationsZip = async() => {
-    const files = await getProvocationsFiles();
-    downloadZip(files, "provocations.zip");
+const downloadProvocationsZip = async(forMiro = false) => {
+    const files = await getProvocationsFiles(forMiro);
+    downloadZip(files, forMiro ? "provocations_miro.zip" : "provocations.zip");
 }
 
 const getWarpWerfFiles = async() => {
@@ -283,32 +327,38 @@ const addFilesToFolderZip = async(zip, folderName, files) => {
     return zip;
 }
 
-const downloadAllZip = async() => {
+const downloadAllZip = async(forMiro = false) => {
 
     let zip = new JSZip();
 
-    const valuesFiles = await getValueFiles();
+    //Glossary
+    const url = "{{site.baseurl}}/assets/pdfs/glossary/glossary-of-terms-a3-folded.pdf";
+    const arrayBuffer = await fetch(url).then(res => res.arrayBuffer());
+    zip.file("glossary.pdf", arrayBuffer);
+
+    const valuesFiles = await getValueFiles(forMiro);
     zip = await addFilesToFolderZip(zip, "values", valuesFiles);
 
-    const teamMembersFiles = await getTeamMembersFiles();
+    const teamMembersFiles = await getTeamMembersFiles(forMiro);
     zip = await addFilesToFolderZip(zip, "team members", teamMembersFiles);
 
-    const moralQualitiesFiles = await getMoralQualitiesFiles();
+    const moralQualitiesFiles = await getMoralQualitiesFiles(forMiro);
     zip = await addFilesToFolderZip(zip, "moral qualities", moralQualitiesFiles);
 
-    const criticalFriendsFiles = await getCriticalFriendsFiles();
+    const criticalFriendsFiles = await getCriticalFriendsFiles(forMiro);
     zip = await addFilesToFolderZip(zip, "critial friends", criticalFriendsFiles);
 
-    const consentFiles = await getConsentFiles();
+    const consentFiles = await getConsentFiles(forMiro);
     zip = await addFilesToFolderZip(zip, "consent", consentFiles);
 
-    const provocationsFiles = await getProvocationsFiles();
+    const provocationsFiles = await getProvocationsFiles(forMiro);
     zip = await addFilesToFolderZip(zip, "provocations", provocationsFiles);
 
-    const warpWerfFiles = await getWarpWerfFiles();
+    const warpWerfFiles = await getWarpWerfFiles(forMiro);
     zip = await addFilesToFolderZip(zip, "warp and werf", warpWerfFiles);
 
     const content = await zip.generateAsync({type:"blob"});
-    saveAs(content, "ethical-roadmap.zip");
+    saveAs(content, forMiro ? "ethical-roadmap-miro.zip" : "ethical-roadmap.zip") ;
 
 }
+

@@ -33,23 +33,23 @@ const provocationCardsPDFGenerator = () => {
 
         doc.setDrawColor(0);
         doc.setFillColor(CARD_COLOR);
-        doc.rect(x, y, CARD_HEIGHT, CARD_WIDTH, 'F');
+        doc.rect(x, y, CARD_WIDTH, CARD_HEIGHT, 'F');
 
         x += 1;
         y += 1;
         
         doc.setFillColor('#ffffff');
-        doc.rect(x, y, 91, 134, 'F'); 
+        doc.rect(x, y, 134, 91, 'F'); 
 
         x += 2;
         y += 2;
 
         doc.setFillColor(CARD_COLOR);
-        doc.rect(x, y, 87, 130, 'F');
+        doc.rect(x, y, 130, 87, 'F');
 
         let formatedTexts = [];
 
-        let xToBeMoved = 0;
+        let yToBeMoved = 0;
 
         for(let sentence of texts) {
             const lines = [];
@@ -63,17 +63,17 @@ const provocationCardsPDFGenerator = () => {
                 } else {
                     lines.push(line);
                     line = `${word} `; 
-                    xToBeMoved += 7
+                    yToBeMoved += 7
                 }
             }
             lines.push(line);
         
             formatedTexts.push(lines);
-            xToBeMoved += 10;
+            yToBeMoved += 10;
         }
 
-        x += (87 / 2) - (xToBeMoved / 2);
-        y += 130 / 2;
+        x += 130 / 2; 
+        y += (87 / 2) - (yToBeMoved / 2);
 
         for(let formatedText of formatedTexts) {
             
@@ -81,11 +81,11 @@ const provocationCardsPDFGenerator = () => {
                 doc.setTextColor(255, 255, 255);
                 doc.setFontSize(16);
                 doc.setFont('Pasajero');
-                doc.text(x, y + doc.getTextWidth(sentence) / 2, sentence, null, 90);
-                x += 7
+                doc.text(x - doc.getTextWidth(sentence) / 2, y, sentence, null);
+                y += 7
             }
 
-            x += 10
+            y += 10
         }
         
     }
@@ -94,13 +94,13 @@ const provocationCardsPDFGenerator = () => {
 
         doc.setDrawColor(0);
         doc.setFillColor(CARD_COLOR);
-        doc.rect(x, y, CARD_HEIGHT, CARD_WIDTH, 'F');
+        doc.rect(x, y, CARD_WIDTH, CARD_HEIGHT, 'F');
 
         x += 1;
         y += 1;
         
         doc.setFillColor('#ffffff');
-        doc.rect(x, y, 91, 134, 'F');
+        doc.rect(x, y, 134, 91, 'F');
 
     }
 
@@ -111,9 +111,9 @@ const provocationCardsPDFGenerator = () => {
 
         const positions = [
             {x, y},
-            {x: x + CARD_HEIGHT + CARD_DISTANCE, y},
-            {x, y: y + CARD_WIDTH + CARD_DISTANCE},
-            {x: x + CARD_HEIGHT + CARD_DISTANCE, y: y + CARD_WIDTH + CARD_DISTANCE}
+            {x: x + CARD_WIDTH + CARD_DISTANCE, y},
+            {x, y: y + CARD_HEIGHT + CARD_DISTANCE},
+            {x: x + CARD_WIDTH + CARD_DISTANCE, y: y + CARD_HEIGHT + CARD_DISTANCE}
         ]
 
         for(let i = 0; i < positions.length ; i++) {
@@ -130,9 +130,9 @@ const provocationCardsPDFGenerator = () => {
         doc.setDrawColor(0);
         doc.setLineWidth(0.1);
         doc.setFillColor('#ffffff');
-        doc.rect(x, y, CARD_HEIGHT, CARD_WIDTH, 'D');
+        doc.rect(x, y, CARD_WIDTH, CARD_HEIGHT, 'D');
 
-        let xToBeMoved = 0;
+        let yToBeMoved = 0;
 
         const lines = [];
         category = category.toLowerCase();
@@ -145,29 +145,29 @@ const provocationCardsPDFGenerator = () => {
             } else {
                 lines.push(line);
                 line = `${word} `; 
-                xToBeMoved += 10
+                yToBeMoved += 10
             }
         }
         lines.push(line);
 
-        xToBeMoved += 17;
+        yToBeMoved += 17;
 
-        x += (CARD_HEIGHT / 2) - (xToBeMoved / 2);
-        y += CARD_WIDTH / 2;
+        x += CARD_WIDTH / 2;
+        y += (CARD_HEIGHT / 2) - (yToBeMoved / 2);
         
         for(let l of lines) {
             doc.setTextColor(CARD_COLOR);
             doc.setFontSize(27);
             doc.setFont('Pasajero');
-            doc.text(x, y + doc.getTextWidth(l) / 2, l.toLowerCase(), null, 90);
-            x += 10
+            doc.text(x - doc.getTextWidth(l) / 2, y , l.toLowerCase(), null);
+            y += 10
         }
 
         doc.setTextColor('#000000');
         doc.setFontSize(16);
         doc.setFont('Calibri', 'normal');
-        doc.text(x + 17, y + doc.getTextWidth(subcategory) / 2, subcategory.toLowerCase(), null, 90);
-        x += 7
+        doc.text(x - doc.getTextWidth(subcategory) / 2, y + 17, subcategory.toLowerCase(), null);
+        y += 7
     }
 
     const createCardBackPage = (doc, category, subcategory) => {
@@ -176,9 +176,9 @@ const provocationCardsPDFGenerator = () => {
         const y = 6;
 
         cardBack(doc, x, y, category, subcategory);
-        cardBack(doc, x + CARD_HEIGHT + CARD_DISTANCE, y, category, subcategory);
-        cardBack(doc, x, y + CARD_WIDTH + CARD_DISTANCE, category, subcategory);
-        cardBack(doc, x + CARD_HEIGHT + CARD_DISTANCE, y + CARD_WIDTH + CARD_DISTANCE, category, subcategory);
+        cardBack(doc, x + CARD_WIDTH + CARD_DISTANCE, y, category, subcategory);
+        cardBack(doc, x, y + CARD_HEIGHT + CARD_DISTANCE, category, subcategory);
+        cardBack(doc, x + CARD_WIDTH + CARD_DISTANCE, y + CARD_HEIGHT + CARD_DISTANCE, category, subcategory);
 
     }
 
@@ -207,15 +207,13 @@ const provocationCardsPDFGenerator = () => {
         
         cardsByCategory.forEach((cards) => {
 
-            if(!firstPage)
-                doc.addPage();
-            else
-                firstPage = false;
-
-            createCardBackPage(doc, cards[0].category, cards[0].subcategory);
-
             for(let i = 0; i < cards.length; i+=4) {
                 const temp = cards.slice(i,i+4);
+                if(!firstPage)
+                    doc.addPage();
+                else
+                    firstPage = false;
+                createCardBackPage(doc, cards[0].category, cards[0].subcategory);
                 doc.addPage();
                 createCardFrontPage(doc, temp);
             }
@@ -231,8 +229,35 @@ const provocationCardsPDFGenerator = () => {
         doc.save("provocation_cards.pdf")
     }
 
+    const generateMiroPdf = (cards) => {
+
+        const doc = new jsPDF({
+            orientation: 'p',
+            unit: 'mm',
+            format: [CARD_WIDTH, CARD_HEIGHT * 2],
+        }); 
+
+        console.log(cards);
+
+        for (let i=0; i < cards.length; i++) {
+            if(i != 0)
+                doc.addPage();
+            cardBack(doc, 0, 0, cards[i].category, cards[i].subcategory);
+            cardFront(doc, 0, CARD_HEIGHT, cards[i].texts);
+        }
+
+        return doc;
+    }
+
+    const downloadMiroPdf = (cards) => {
+        const doc = generateMiroPdf(cards);
+        doc.save("provocation_cards_miro.pdf");
+    }
+
     return {
         generatePdf,
         downloadPdf,
+        generateMiroPdf,
+        downloadMiroPdf,
     }
 }

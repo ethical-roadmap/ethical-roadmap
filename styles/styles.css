@@ -962,7 +962,15 @@ ul.prompts li {
 
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 590px) {
+
+  .role-cards-list-padding {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+@media only screen and (max-width: 475px) {
 
   .role-cards-list-padding {
     padding-left: 0px;
@@ -985,7 +993,7 @@ ul.prompts li {
 
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 475px) {
 
   .category-content-1-column {
     padding-left: 10px;

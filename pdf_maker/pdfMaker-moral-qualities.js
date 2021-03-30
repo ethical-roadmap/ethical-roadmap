@@ -318,14 +318,14 @@ const moralQualitiesProvocationCardsPDFGenerator = () => {
 
     const generatePdf = (cards) => {
 
+        let firstPage = true;
+
         const doc = new jsPDF({
             orientation: 'p',
             unit: 'mm',
             format: 'a4',
         });
-
-        let firstPage = true;
-
+    
         const chunk = 4;
         for (let i=0; i< cards.length; i+=chunk) {
             const tempArray = cards.slice(i,i+chunk);
@@ -374,5 +374,4 @@ const moralQualitiesProvocationCardsPDFGenerator = () => {
         generateMiroPdf,
         downloadMiroPdf,
     }
-
 }

@@ -42,7 +42,8 @@ lang: en
         {% include role-cards-carousel.html %}
     </div>
     <div style="text-align: center; width: 100%; padding-bottom: 20px;">
-            <a download class="download-button" href="javascript:roleCardsPDFGenerator().downloadPdf(roleCardsForPDF);"><i class="fas fa-download"></i> Role Cards</a>
+            <a download class="download-button" href="javascript:roleCardsPDFGenerator().downloadPdf(roleCardsForPDF);"><i class="fas fa-download"></i> Printable - Role Cards</a>
+            <a download class="download-button" href="javascript:roleCardsPDFGenerator().downloadMiroPdf(roleCardsForPDF);"><i class="fas fa-download"></i> Miro - Role Cards</a>
             <a download class="download-button" href="{{site.baseurl}}/assets/pdfs/team-members/team-members-map.pdf"><i class="fas fa-download"></i> Role Map</a>
     </div>
 </div>
@@ -72,7 +73,8 @@ lang: en
     </div>
     <hr class="horizontal-divider">
     <div style="text-align: center; padding-bottom: 20px; width: 100%">
-        <a download class="download-button-inverted" href="javascript:downloadTeamMembersZip()">Download All</a>
+        <a download class="download-button-inverted" href="javascript:downloadTeamMembersZip(false)">Printable - Download All</a>
+        <a download class="download-button-inverted" href="javascript:downloadTeamMembersZip(true)">Miro - Download All</a>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script>
@@ -88,5 +90,5 @@ lang: en
         addPasajeroFont(window.jspdf.jsPDF);
         addCalibriFont(window.jspdf.jsPDF);
 
-        //roleCardsPDFGenerator().downloadMiroPdf(roleCardsForPDF);
+        //r
     </script>

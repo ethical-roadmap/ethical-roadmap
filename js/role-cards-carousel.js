@@ -133,29 +133,6 @@
         return flipCard;
     }
 
-    function saveRoleCards() {
-        if(isLoggedIn()) {
-            var title = document.getElementById('new-role-card-title').value;
-            var subTitle = document.getElementById('new-role-card-subtitle').value;
-            var tempCon = document.getElementsByClassName('role-card-contribution-textarea');
-            var contributions = [];
-            for(var i = 0; i < tempCon.length; i++) {
-                contributions.push(tempCon[i].value);
-            }
-            var type = document.getElementById('new-role-card-type').value;
-            createNewCardPair(title, subTitle, contributions, type);
-        
-
-            //writeRoleCard('{{page.lang}}', title, subtTitle, contributions, type);
-        }
-    }
-
-    function undoRoleCard() {
-        if(isLoggedIn()) {
-        
-        }
-    }
-
     function createNewRoleMemberCardForm() {
 
         //create add new card container
@@ -289,6 +266,3 @@
 
     }
 
-    if(isLoggedIn()) {
-        createNewRoleMemberCardForm();
-    }
