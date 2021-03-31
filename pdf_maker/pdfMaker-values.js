@@ -143,7 +143,6 @@ const lensesCardsPDFGenerator = () => {
         doc.setTextColor(0, 0, 0);
         doc.setFontSize(20);
         doc.setFont('Pasajero');
-        //doc.text(x + CARD_HEIGHT / 2, y + 33 - doc.getTextWidth(text) / 2, text.toLowerCase(0), null, 270);
         doc.text(x + 36 - doc.getTextWidth(text) / 2, y + CARD_HEIGHT / 2 - 3, text.toLowerCase());
     }
 

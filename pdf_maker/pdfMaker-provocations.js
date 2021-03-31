@@ -237,8 +237,6 @@ const provocationCardsPDFGenerator = () => {
             format: [CARD_WIDTH, CARD_HEIGHT * 2],
         }); 
 
-        console.log(cards);
-
         for (let i=0; i < cards.length; i++) {
             if(i != 0)
                 doc.addPage();

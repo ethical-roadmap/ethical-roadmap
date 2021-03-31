@@ -3,6 +3,11 @@
 {% assign moral_qualities_cards = site.moral_qualities_cards %}
 {% assign provocation_cards = site.provocation_cards %}
 
+/**
+ * Generates the moral qualities and provocation cards.
+ * @author Luis Carvalho
+ */
+
 const moralQualitiesCardsForPDF = [];
 
 let tempMQ = {};

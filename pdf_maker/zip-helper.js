@@ -1,18 +1,15 @@
 ---
 ---
 
-const downloadZip = (files, filename) => {
+const downloadZip = async (files, filename) => {
 
     var zip = new JSZip();
     for(let {name, data} of files) {
         zip.file(name, data);
     }
 
-    zip.generateAsync({type:"blob"})
-    .then(function(content) {
-        saveAs(content, filename);
-    });
-
+    const content = await zip.generateAsync({type:"blob"})
+    saveAs(content, filename);
 }
 
 const getFiles = async(urlList, functionList) => {
@@ -104,7 +101,7 @@ const getValueFiles = async(forMiro = false) => {
 
 const downloadValueZip = async(forMiro = false) => {
     const files = await getValueFiles(forMiro);
-    downloadZip(files, forMiro ? "value_miro.zip" : "value.zip");
+    await downloadZip(files, forMiro ? "value_miro.zip" : "value.zip");
 }
 
 const getTeamMembersFiles = async(forMiro = false) => {
@@ -137,7 +134,7 @@ const getTeamMembersFiles = async(forMiro = false) => {
 
 const downloadTeamMembersZip = async(forMiro = false) => {
     const files = await getTeamMembersFiles(forMiro);
-    downloadZip(files, forMiro ? "team_members_miro.zip" : "team_member.zip");
+    await downloadZip(files, forMiro ? "team_members_miro.zip" : "team_member.zip");
 }
 
 const getMoralQualitiesFiles = async(forMiro = false) => {
@@ -171,7 +168,7 @@ const getMoralQualitiesFiles = async(forMiro = false) => {
 
 const downloadMoralQualitiesZip = async(forMiro = false) => {
     const files = await getMoralQualitiesFiles(forMiro);
-    downloadZip(files, forMiro ? "moral_qualities_miro.zip" : "moral_qualities.zip");
+    await downloadZip(files, forMiro ? "moral_qualities_miro.zip" : "moral_qualities.zip");
 }
 
 const downloadMoralQualitiesJustCardsZip = async(forMiro) => {
@@ -189,7 +186,7 @@ const downloadMoralQualitiesJustCardsZip = async(forMiro) => {
     ];
 
     const files = forMiro ? await getMiroFiles([], functionList) : await getFiles([], functionList);
-    downloadZip(files, forMiro ? "moral_qualities_and_provocation_cards_miro.zip" : "moral_qualities_and_provocation_cards.zip");
+    await downloadZip(files, forMiro ? "moral_qualities_and_provocation_cards_miro.zip" : "moral_qualities_and_provocation_cards.zip");
 }
 
 
@@ -222,7 +219,7 @@ const getCriticalFriendsFiles = async() => {
 
 const downloadCriticalFriendsZip = async() => {
     const files = await getCriticalFriendsFiles();
-    downloadZip(files, "critical_friends.zip");
+    await downloadZip(files, "critical_friends.zip");
 }
 
 const getConsentFiles = async(forMiro = false) => {
@@ -260,7 +257,7 @@ const getConsentFiles = async(forMiro = false) => {
 
 const downloadConsentZip = async(forMiro = false) => {
     const files = await getConsentFiles(forMiro);
-    downloadZip(files, forMiro ? "consent_miro.zip" : "consent.zip");
+    await downloadZip(files, forMiro ? "consent_miro.zip" : "consent.zip");
 }
 
 const getProvocationsFiles = async(forMiro = false) => {
@@ -289,7 +286,7 @@ const getProvocationsFiles = async(forMiro = false) => {
 
 const downloadProvocationsZip = async(forMiro = false) => {
     const files = await getProvocationsFiles(forMiro);
-    downloadZip(files, forMiro ? "provocations_miro.zip" : "provocations.zip");
+    await downloadZip(files, forMiro ? "provocations_miro.zip" : "provocations.zip");
 }
 
 const getWarpWerfFiles = async() => {
@@ -316,7 +313,7 @@ const getWarpWerfFiles = async() => {
 
 const downloadWarpWerfZip = async() => {
     const files = await getWarpWerfFiles();
-    downloadZip(files, "warpwerf.zip");
+    await downloadZip(files, "warpwerf.zip");
 }
 
 const addFilesToFolderZip = async(zip, folderName, files) => {
@@ -362,3 +359,38 @@ const downloadAllZip = async(forMiro = false) => {
 
 }
 
+let downloading = false;
+
+const downloadAll = async (forMiro = false, func) => {
+
+    if(downloading) return;
+
+    downloading = true;
+
+    const id = forMiro ? "mda" : "pda";
+
+    const aLink = document.getElementById(id);
+    const text = aLink.innerText;
+
+    const loaderDiv = document.createElement('div');
+    loaderDiv.classList.add('button--loading');
+    loaderDiv.style.height = '18px';
+
+    while (aLink.firstChild) {
+        aLink.removeChild(aLink.lastChild);
+    }
+
+    aLink.append(loaderDiv);
+
+    await func(forMiro);
+
+    const downloadText = document.createTextNode(text);
+
+    while (aLink.firstChild) {
+        aLink.removeChild(aLink.lastChild);
+    }
+
+    aLink.append(downloadText);
+    
+    downloading = false;
+}

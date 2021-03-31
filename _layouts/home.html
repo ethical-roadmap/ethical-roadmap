@@ -18,8 +18,8 @@ body {
             {% include category_cards.html %}  
         </div>
         <div class="download-button-container">
-            <button id="downloadAll" download class="download-button" onclick="downloadAll(false, 'downloadAll')" style="font-size: 25px; padding: 25px 0px; height: 139px;"><i class="fas fa-download"></i> Printable - All Content</button>
-            <button id="downloadAllMiro" download class="download-button" onclick="downloadAll(true, 'downloadAllMiro')" style="font-size: 25px; padding: 25px 0px; height: 139px;"><i class="fas fa-download"></i> Miro - All Content</button>
+            <button id="downloadAll" download class="download-button" onclick=" downloadAllRoadmap(false, 'downloadAll')" style="cursor: pointer; font-size: 25px; padding: 25px 0px; height: 139px; vertical-align: bottom;"><i class="fas fa-download"></i> Printable - All Content</button>
+            <button id="downloadAllMiro" download class="download-button" onclick=" downloadAllRoadmap (true, 'downloadAllMiro')" style="cursor: pointer;font-size: 25px; padding: 25px 0px; height: 139px; vertical-align: bottom;"><i class="fas fa-download"></i> Miro - All Content</button>
         </div>
     </div>
 </div>
@@ -55,7 +55,7 @@ body {
         return pdf;
     }
 
-    const downloadAll = async(forMiro = false, id) => {
+    const downloadAllRoadmap = async(forMiro = false, id) => {
 
         const downloadButton = document.getElementById(id);
         downloadButton.disabled = true;

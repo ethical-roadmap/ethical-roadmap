@@ -75,8 +75,8 @@ lang: en
 </div>
 <hr class="horizontal-divider">
 <div style="text-align: center; padding-bottom: 20px; width: 100%">
-    <a download class="download-button-inverted" href="javascript:downloadProvocationsZip(false)">Printable - Download All</a>
-    <a download class="download-button-inverted" href="javascript:downloadProvocationsZip(true)">Miro - Download All</a>
+    <a id="pda" download class="download-button-inverted" href="javascript:downloadAll(false, downloadProvocationsZip)">Printable - Download All</a>
+    <a id="mda" download class="download-button-inverted" href="javascript:downloadAll(true, downloadProvocationsZip)">Miro - Download All</a>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.0/jspdf.umd.min.js"></script>
@@ -91,6 +91,4 @@ lang: en
 <script>
     addPasajeroFont(window.jspdf.jsPDF);
     addCalibriFont(window.jspdf.jsPDF);
-
-    //provocationCardsPDFGenerator().downloadMiroPdf(provocationCardsForPDF)
 </script>

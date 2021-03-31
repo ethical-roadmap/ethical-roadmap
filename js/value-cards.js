@@ -105,7 +105,6 @@ function undoAll() {
 
         //Remove all new cards added
         var newCards = document.querySelectorAll('.new-value-card');
-        console.log(newCards);
         
         for(var j = 0; j < newCards.length; j++) {
             document.getElementById('value-card-list').removeChild(newCards[j]);
