@@ -51,8 +51,6 @@ collections:
     output: false
   role_cards:
     output: false
-  animal_cards:
-    output: false
   moral_qualities_cards:
     output: false
   provocation_cards:

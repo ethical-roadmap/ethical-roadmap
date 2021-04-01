@@ -39,6 +39,24 @@
     </div>
 </div>
 
-<script src="{{ site.baseurl }}/js/role-cards-carousel.js"></script>
+<script>
+var pairIndex = 1;
+showRoleCardPairs(pairIndex);
+
+function plusPair(n) {
+    showRoleCardPairs(pairIndex += n);
+}
+
+function showRoleCardPairs(n) {
+    var i;
+    var slides = document.getElementsByClassName("roleCardPairs");
+    if (n > slides.length) {pairIndex = 1}    
+    if (n < 1) {pairIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+    }
+    slides[pairIndex-1].style.display = "block";   
+}
+</script>
 
 
